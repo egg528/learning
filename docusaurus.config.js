@@ -16,15 +16,17 @@ const config = {
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'organization', // Usually your GitHub org/user name.
-  projectName: 'my-docs', // Usually your repo name.
+  organizationName: 'egg528', // Usually your GitHub org/user name.
+  projectName: 'egg528.github.io', // Usually your repo name.
+  deploymentBranch: 'gh-pages', // 배포 브랜치 명
+  trailingSlash: false,
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
   // to replace "en" with "zh-Hans".
   i18n: {
-    defaultLocale: 'en',
-    locales: ['en'],
+    defaultLocale: 'ko',
+    locales: ['ko'],
   },
 
   presets: [
