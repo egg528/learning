@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-    # 트리거, 경로 등을 추가로 정의하려면 gh 액션 문서를 참고하세요.
-    # https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#on
 
 jobs:
   deploy:
@@ -35,5 +33,5 @@ jobs:
           # https://github.com/actions/checkout/issues/13#issuecomment-724415212
           # 아래 2개 필드를 지정하지 않으면 GH 액션 봇이 기본적으로 사용됩니다.
           # 자신의 자격증명으로 교체할 수 있습니다.
-          user_name: github-actions[bot]
-          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+          user_name: egg528
+          user_email: rnjsdntjr26@daum.net
