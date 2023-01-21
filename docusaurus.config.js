@@ -6,13 +6,13 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Blog & TIL',
-  tagline: '',
+  title: 'My Log',
+  tagline: '기록 모음',
   url: 'https://egg528.github.io',
   baseUrl: '/',
   onBrokenLinks: 'throw',
   onBrokenMarkdownLinks: 'warn',
-  favicon: 'img/favicon.ico',
+  favicon: 'img/egg.png',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
@@ -62,19 +62,19 @@ const config = {
         title: 'Blog & TIL',
         logo: {
           alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          src: 'img/egg.png',
         },
         items: [
+          {
+            to: '/blog',
+            label: 'Blog',
+            position: 'left'
+          },
           {
             type: 'doc',
             docId: 'intro',
             position: 'left',
             label: 'TIL',
-          },
-          {
-            to: '/blog',
-            label: 'Blog',
-            position: 'left'
           },
           {
             href: 'https://github.com/egg528',
@@ -91,7 +91,7 @@ const config = {
             items: [
               {
                 label: 'Tutorial',
-                to: '/docs/intro',
+                to: '/docs',
               },
             ],
           },

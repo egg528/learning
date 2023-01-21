@@ -16,6 +16,11 @@
   }
 }
 
+.buttonParent{
+  display: flex;
+  justify-content: space-evenly;
+}
+
 .buttons {
   display: flex;
   align-items: center;
