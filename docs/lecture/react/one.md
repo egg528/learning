@@ -1,7 +1,4 @@
----
-title: JS 기본
-sidebar_position: 1
----
+ 
 ## 변수
 ``` javascript
 /**

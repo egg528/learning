@@ -1,6 +1,6 @@
 ---
 title: Java의 실행원리 Deep Dive
-sidebar_position: 1
+tag: [java]
 ---
 ## 글 링크
 - [Java의 실행원리 Deep Dive](https://code-run.tistory.com/61#2.3.4.%20Garbage%20Collector%C2%A0)

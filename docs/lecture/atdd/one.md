@@ -97,10 +97,8 @@ sidebar_position: 1
 
 
 ## 2단계 미션
+- [PR링크](https://github.com/next-step/atdd-subway-map/pull/664)
 ---
-- 요구사항을 바탕으로 인수 테스트를 작성한 후, 이를 통과할 수 있게 기능을 구현하는 미션
-- 요구사항은 Given / When / Then 형태로 제시되어 있다.
-
 ### - @DirtiesContext
 - Spring Context를 이용한 Test는 기본적으로 Context를 공유한다.
 - 때문에 개별로 성공하는 Test도 2개 이상이 되었을 때 실패하는 경우가 종종 생긴다. 
@@ -116,5 +114,23 @@ sidebar_position: 1
 
 ### - @Sql
 - 원하는 시점에 쿼리를 실행할 수 있는 어노테이션
+- @Sql을 활용해 원하는 테스트 환경울 구성할 수 있다.
+- 또 테스트할 부분에만 집중할 수 있음
+  - EX) 인수 테스트에서 데이터 삭제를 위해 데이터 생성 API를 실행하지 않아도 된다.
+  - -> 데이터 삭제 기능에만 집중할 수 있다.
 
 ### - Table Truncate
+- 테이블을 생성 초기 상태로 만드는 작업
+- Delete와의 차이점
+  - Delete는 로우를 일일이 지우는 반면, Truncate는 데이터를 한번에 지운다.
+  - Delete는 COMMIT을 포한하지 않는 반면, Truncate는 COMMIT이 포한된 명령이다. (ROLLBACK 사용 가능 여부)
+
+  
+### - 피드백
+
+
+
+## 3단계 미션
+---
+
+
