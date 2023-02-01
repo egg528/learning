@@ -1,4 +1,8 @@
- 
+ ---
+title: JS 기초
+sidebar_position: 1
+---
+
 ## 변수
 ``` javascript
 /**
@@ -54,5 +58,76 @@ let method = (param1, param2) => {
 }
 ```
 
-## 콜백 함수
-- 함수의 매개변수로 넘겨진 함수
+## 객체
+```javascript
+// 객체 선언 방식
+// const로 선언해도 내부 변경 가능. 객체가 변하는 게 아니기 때문.
+let person = {
+    name: "권우석",
+    age: 28,
+    sayAge: function () {
+        console.log(this.age);
+    }
+};
+
+// 외부에서 속성 추가 가능
+person["gender"] = male;
+
+// 없는 속성 접근 시 undefined
+console.log(person.hobby);
+
+// 프로퍼티가 존재하는지 확인하는 연산이 존재함. -> in 연산 사용하면 존재 여부 trun false 반환
+console.log(`${"name" in person}`)
+```
+
+## 배열
+```javascript
+// 한 배열에 다양한 자료형이 들어갈 수 있음
+let arr = [1, "element", true]
+
+// 1. forEach
+arr = [1, 2, 3, 4]
+arr.forEach((elm) => console.log(elm))
+
+        
+// 2. map: 연산 수행하여 새로운 배열 반환
+let arr2 = arr.map((elm) => {
+    return elm * 2
+});
+
+
+// 3. filter: 원하는 요소만 새로운 배열에 넣어 반환
+let arr3 = arr.filter((elm) => elm%3 === 0)
+
+
+// 4. slice, concat: 배열 자르기 / 합치기
+arr1.slice(0, 1)
+arr1.concat(arr2)
+
+
+// 5. sort: 정렬
+arr.sort()
+
+// 직접 비교 조건을 작성해서 정렬할 수도
+
+const compare = (a, b) => {
+    
+    if(a > b){
+      
+      // 1은 두 요소 위치를 바꿔라
+      return 1;
+    }
+    
+    if(a < b){
+        
+      // -1은 두 요소를 가만히 둬라
+      return -1;
+    }
+    
+    if(a == b){
+        
+        // 0은 두 요소를 가만히 둬라
+        return 0
+    }
+}
+```
