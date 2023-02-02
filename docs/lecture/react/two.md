@@ -47,7 +47,7 @@ let b = 20;
 
 
 // 객체의 비 구조화 할당
-let obj = {one: "one", two: "two"};
+let obj = {one: "one", two: "two.md"};
 
 let {one, two} = obj; // oboj key값을 기준으로 할당
 let {one: anotherName, two} = obj; // :변수명을 넣으면 key값이 아닌 다른 이름으로 변수 선언 가능
