@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://egg528.github.io/blog</id>
     <title>My Log Blog</title>
-    <updated>2023-02-02T15:53:20.000Z</updated>
+    <updated>2023-02-03T06:14:56.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://egg528.github.io/blog"/>
     <subtitle>My Log Blog</subtitle>
@@ -11,7 +11,7 @@
         <title type="html"><![CDATA[블로그 시작 글]]></title>
         <id>welcome</id>
         <link href="https://egg528.github.io/blog/welcome"/>
-        <updated>2023-02-02T15:53:20.000Z</updated>
+        <updated>2023-02-03T06:14:56.000Z</updated>
         <author>
             <name>권우석</name>
             <uri>https://github.com/egg528</uri>
