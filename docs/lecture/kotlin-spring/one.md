@@ -356,10 +356,4 @@ PaymentStatus.values()
 ordinal은 순서 출력
 name은 상수 String으로 출력
 ```
-- 생성자, 메서드, 프로퍼티를 설정할 수 있다
-
-
-
-```kotlin
-
-```
+- 생성자, 메서드, 프로퍼티를 설정할 수 있다.
