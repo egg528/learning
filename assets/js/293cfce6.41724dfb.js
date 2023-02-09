@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[253],{2537:e=>{e.exports=JSON.parse('{"title":"\ucc45","slug":"/category/\ucc45","permalink":"/docs/category/\ucc45","navigation":{"previous":{"title":"\ubaa9\ucc28","permalink":"/docs/intro"},"next":{"title":"2. \ucf54\ud2c0\ub9b0 \uae30\ucd08","permalink":"/docs/book/kotlin-in-action/two"}}}')}}]);
