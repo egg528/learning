@@ -4,7 +4,7 @@ sidebar_position: 1
 ---
 
 
-## 01. 변수
+## 변수
 ``` kotlin
 var global:String = "top level variable"
 
@@ -36,7 +36,7 @@ fun main(){
 ```
 
 
-## 02. 함수
+## 함수
 --- 
 ```kotlin
 // 기본적인 함수 선언 스타일
@@ -94,7 +94,7 @@ fun main(){
 - Named Argument를 활용하면 메서드를 사용할 때 변수 혼동을 줄일 수 있을 것 같다.
 
 
-## 03. 흐름제어
+## 흐름제어
 ### if ... else ...
 ```kotlin
 var str = if(age > 20){

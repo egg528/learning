@@ -1,4 +1,4 @@
- ---
+---
 title: JS 기초
 sidebar_position: 1
 ---

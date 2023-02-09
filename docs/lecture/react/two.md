@@ -1,4 +1,4 @@
- ---
+---
 title: JS 응용
 sidebar_position: 1
 ---
