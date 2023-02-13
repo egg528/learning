@@ -125,12 +125,3 @@ sidebar_position: 1
   - Delete는 로우를 일일이 지우는 반면, Truncate는 데이터를 한번에 지운다.
   - Delete는 COMMIT을 포한하지 않는 반면, Truncate는 COMMIT이 포한된 명령이다. (ROLLBACK 사용 가능 여부)
 
-  
-### - 피드백
-
-
-
-## 3단계 미션
----
-
-
