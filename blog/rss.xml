@@ -4,7 +4,7 @@
         <title>My Log Blog</title>
         <link>https://egg528.github.io/blog</link>
         <description>My Log Blog</description>
-        <lastBuildDate>Sun, 12 Feb 2023 14:14:05 GMT</lastBuildDate>
+        <lastBuildDate>Mon, 13 Feb 2023 12:25:26 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ko</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[블로그 시작 글]]></title>
             <link>https://egg528.github.io/blog/welcome</link>
             <guid>welcome</guid>
-            <pubDate>Sun, 12 Feb 2023 14:14:05 GMT</pubDate>
+            <pubDate>Mon, 13 Feb 2023 12:25:26 GMT</pubDate>
             <category>start</category>
         </item>
     </channel>
