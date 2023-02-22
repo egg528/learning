@@ -21,7 +21,6 @@ sidebar_position: 4
 - 가정
   - Client: 요청을 하는 객체  
   - Server: 요청을 처리하는 객체
-- 
 ### 직접 호출과 간접 호출
 ![직접호출.png](img/%EC%A7%81%EC%A0%91%ED%98%B8%EC%B6%9C.png)
 ![간접호출.png](img/%EA%B0%84%EC%A0%91%ED%98%B8%EC%B6%9C.png)
