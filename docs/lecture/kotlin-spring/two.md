@@ -244,7 +244,7 @@ fun main(){
 
 class MyGeneric<T>(val t: T) {}
 ```
-### 공변셩
+### 공변성
 - 공변성은 Java Generic의 extends 코틀린에서 out
 - 반공변성은 Java Generic의 super 코틀린에서 in
 

@@ -24,4 +24,10 @@ sidebar_position: 3
   - 즉, 활용하는 로직만 검증이 필요할 수 있음
   - 단, 외부 라이브러리는 변경 불가하기에 실제 객체를 활용 추천
 
-### 관리 의존성 vs 비관리 의존성
+
+## Github OAuth
+- [Github OAuth Guide](https://docs.github.com/ko/apps/oauth-apps/building-oauth-apps/creating-an-oauth-app)
+
+## ParameterizedTest
+
+## Fake Service vs Fake Controller
