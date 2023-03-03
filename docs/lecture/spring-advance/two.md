@@ -1,5 +1,5 @@
 ---
-title: 템플릿 메서드 패턴
+title: 2. 템플릿 메서드 패턴
 sidebar_position: 2
 ---
 ## 현재 코드의 문제점

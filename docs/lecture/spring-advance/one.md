@@ -1,5 +1,5 @@
 ---
-title: 쓰레드 로컬 - ThreadLocal
+title: 1. 쓰레드 로컬 - ThreadLocal
 sidebar_position: 1
 ---
 

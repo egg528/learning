@@ -1,5 +1,5 @@
 ---
-title: 프록시 패턴
+title: 4. 프록시 패턴
 sidebar_position: 4
 ---
 ## 현재 문제점

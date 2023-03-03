@@ -1,5 +1,5 @@
 ---
-title: 1주차 - 인수 테스트와 E2E 테스트
+title: 4주차 - 인수 테스트와 리팩터링
 sidebar_position: 1
 ---
 # 강의 중 생각 정리
