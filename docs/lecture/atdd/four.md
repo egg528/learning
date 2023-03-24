@@ -1,6 +1,6 @@
 ---
 title: 4주차 - 인수 테스트와 리팩터링
-sidebar_position: 1
+sidebar_position: 4
 ---
 # 강의 중 생각 정리
 ---
