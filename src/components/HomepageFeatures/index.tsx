@@ -10,20 +10,20 @@ type FeatureItem = {
 
 const FeatureList: FeatureItem[] = [
   {
-    title: '원칙 1',
+    title: '',
     Svg: require('@site/static/img/undraw_docusaurus_mountain.svg').default,
     description: (
       <>
-        설명
+
       </>
     ),
   },
   {
-    title: '원칙 2',
+    title: '',
     Svg: require('@site/static/img/undraw_docusaurus_react.svg').default,
     description: (
       <>
-        설명
+
       </>
     ),
   }
