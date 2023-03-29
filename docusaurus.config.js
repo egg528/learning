@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '',
+  title: 'woki',
   tagline: '공부 기록',
   url: 'https://egg528.github.io',
   baseUrl: '/',
