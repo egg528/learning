@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>My Log Blog</title>
+        <title>woki Blog</title>
         <link>https://egg528.github.io/blog</link>
-        <description>My Log Blog</description>
-        <lastBuildDate>Fri, 24 Mar 2023 13:07:34 GMT</lastBuildDate>
+        <description>woki Blog</description>
+        <lastBuildDate>Thu, 30 Mar 2023 14:01:06 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ko</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[블로그 시작 글]]></title>
             <link>https://egg528.github.io/blog/welcome</link>
             <guid>welcome</guid>
-            <pubDate>Fri, 24 Mar 2023 13:07:34 GMT</pubDate>
+            <pubDate>Thu, 30 Mar 2023 14:01:06 GMT</pubDate>
             <category>start</category>
         </item>
     </channel>
