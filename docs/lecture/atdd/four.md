@@ -16,10 +16,10 @@ sidebar_position: 4
 - 조회 복잡도 증가
 
 ### 직접 참조, 간접 참조 언제 사용해야 할까?
-- (객체 지향 의존성)[https://www.youtube.com/watch?v=dJ5C4qRqAgA&ab_channel=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC]
+- [객체 지향 의존성](https://www.youtube.com/watch?v=dJ5C4qRqAgA&ab_channel=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC)
 
 ## 테스트하기 쉬운 코드
-- (테스트 하기 쉬운 코드)[https://www.youtube.com/watch?v=Cz_a2gQp63c&ab_channel=OKKY]
+- [테스트 하기 쉬운 코드](https://www.youtube.com/watch?v=Cz_a2gQp63c&ab_channel=OKKY)
 
 ## 인수 테스트 검증 대상
 - 기존에 API 단위로 인수 테스트를 작성했다면
