@@ -11,6 +11,13 @@ sidebar_position: 1
   - start():  출력하면 Task명이 없음.
   - start(String taskName): 출력하면 Task명이 있다.
 - prettyPrint(): 모든 Task 결과를 Table 형식으로 출력해줌
+  - ```text
+        -----------------------------------------
+        ms % Task name
+        ----------------------------------------- 
+        00017 040% Task1
+        00025 060% Task2
+    ```
 
 ### 생각 정리
 - Annotation, Aop와 함께 사용하면 원하는 편리하게 로직 수행 시간을 구할 수 있을 것 같다.
