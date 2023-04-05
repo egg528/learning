@@ -2,7 +2,7 @@
 title: 5. 프록시와 연관관계 관리
 sidebar_position: 5
 ---
-# 문제 상황
+## 문제 상황
 
 - Member - Team 관계를 생각해보자
   - Member 엔티티 필드로 Team을 가진 상황
@@ -10,7 +10,7 @@ sidebar_position: 5
   - Team 정보가 필요하지 않다면 불필요하게 Join을 하는 상황이 된다.
 
   
-# 프록시란?
+## 프록시란?
 
 - em.find() - 실제 엔티티 객체 조회
 - em.getReference() - 데이터베이 스 조회를 미루는 가짜 엔티티 객체 조회
@@ -38,7 +38,7 @@ sidebar_position: 5
 
 
 
-# 지연 로딩
+## 지연 로딩
 
 - Member - Team 문제로 돌아와서
 - Member 엔티티의 Team 필드의 ManyToOne 어노테이션에 fetch=FetchType.LAZY 설정
@@ -46,12 +46,12 @@ sidebar_position: 5
   - 이후 Team을 조회할 때 Join문을 사용해 프록시 객체를 초기화 한다.
 
 
-# 즉시 로딩
+## 즉시 로딩
 
 - EAGER 어노테이션 사용 시 Member를 조회할 때 Team 엔티티도 함께 조회. (Join문)
 
 
-# 권장 사항
+## 권장 사항
 
 - 실무에서는 즉시 로딩을 사용하지 말 것...
   - 즉시 로딩을 적용하면 전혀 예상하지 못한 SQL 발생

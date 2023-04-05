@@ -2,7 +2,7 @@
 title: 7. JPQL 중급
 sidebar_position: 7
 ---
-# 경로 표현식
+## 경로 표현식
 
 - "."을 찍어 객체 그래프를 탐색하는 것
 - Select m.username From Member m 식을 예시로 생각해보자.
@@ -24,7 +24,7 @@ sidebar_position: 7
 - `묵시적 조인은 배제하는 방향으로 작성할 것!` (묵시적 조인 - 경로 표현식에 의해 자동적으로 적용된 JOIN)
 
 
-# 페치 조인(fetch join)
+## 페치 조인(fetch join)
 
 - JPQL에서 성능 최적화를 위해 제공하는 기능
 - 연관된 Entity나 Collection을 SQL로 한 번에 함께 조회하는 기능
@@ -44,7 +44,7 @@ sidebar_position: 7
 
 
   
-# 페치 조인의 특징과 한계
+## 페치 조인의 특징과 한계
 
 - 페치 조인에는 별칭을 쓸 수 없다.
   - 하이버네이트에서 가능은 하지만 가급적이면 사용하지 않는 게 좋다.
@@ -73,7 +73,7 @@ sidebar_position: 7
 
 
 
-# 다형성 쿼리
+## 다형성 쿼리
 
 - TYPE
   - 조회 대상을 특정 자식으로 한정한다.
@@ -85,7 +85,7 @@ sidebar_position: 7
 
 
 
-# 엔티티 직접 사용
+## 엔티티 직접 사용
 
 - 기본 키 값
   - JPQL에서 엔티티를 직접 사용하면 SQL에서 해당 엔티티의 기본 키 값을 사용한다.
@@ -94,7 +94,7 @@ sidebar_position: 7
 
 
 
-# Named 쿼리
+## Named 쿼리
 
 - @NamedQuery로 쿼리에 이름을 부여하고 createNamedQuery메서드로 사용할 수 있음.
 - 정적인 쿼리만 가능하다.
@@ -104,7 +104,7 @@ sidebar_position: 7
 - XML로 정의 가능, 우선권 가진다.
 
 
-# 벌크 연산
+## 벌크 연산
 
 - 예를 들어 재고가 10개 미만인 모든 상품의 가격을 10% 상승시키려면?
   - JPA 변경 감지 기능으로 실행하려면 너무 많은 SQL을 실행해야 한다.

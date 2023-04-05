@@ -2,7 +2,7 @@
 title: 4. 값 타입
 sidebar_position: 4
 ---
-# 상속관계 매핑
+## 상속관계 매핑
 
 - "객체의 상속 구조"와 "DB의 슈퍼타입 서브타입 관계"를 매핑하는 것
 - @Inheritance
