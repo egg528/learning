@@ -9,8 +9,6 @@ tag: [HTTP, Redirection]
 ### Redirection이란?
 - 요청을 완료하기 위해 유저 에이전트의 추가 조치 필요
 - 웹 브라우저는 3xx 응답의 결과에 Location 헤더가 있으면 Location 위치로 자동 이동함
-![redirection.png](img/redirection.png)
-- 요청 흐름
 
 ### 종류
 #### 1. 영구 리다이렉션
