@@ -29,3 +29,29 @@ public class SchedulerConfig implements SchedulingConfigurer {
 ```
 
 - 만약 2개의 스케줄러가 있고 각각의 스케줄러가 Thread를 공유하지 않기를 원한다면?
+```java
+  @Bean
+    public ThreadPoolTaskScheduler schedulerA() {
+        ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
+        scheduler.setPoolSize(POOL_SIZE);
+        scheduler.setThreadNamePrefix("THREAD:A-");
+        scheduler.initialize();
+
+        scheduler.schedule(this::jobA, new CronTrigger(selectCron));
+
+        return scheduler;
+    }
+
+    @Bean
+    public ThreadPoolTaskScheduler schedulerB() {
+        ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();
+        scheduler.setPoolSize(POOL_SIZE);
+        scheduler.setThreadNamePrefix("THREAD:B-"); 
+        scheduler.initialize();
+
+        scheduler.schedule(this::jobB, new CronTrigger(sendCrong));
+
+        return scheduler;
+    }
+```
+- ThreadPoolTaskScheduler를 2개 만들고 각각 작업 추가해야 한다
