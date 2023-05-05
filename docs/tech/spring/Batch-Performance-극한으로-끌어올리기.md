@@ -1,6 +1,5 @@
 ---
 title: Batch Performance 극한으로 끌어올리기 - 1억 건 데이터 처리를 위한 노력 if(kakao)dev2022
-sidebar_position: 2
 tag: [if(kakao), Batch]
 ---
 ## 영상 링크

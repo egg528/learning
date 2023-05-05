@@ -1,6 +1,5 @@
 ---
 title: StopWatch
-sidebar_position: 1
 ---
 ## 글 링크
 - [Spring StopWatch로 실행 속도 측정하기](https://sungminhong.github.io/spring/stop_watch/)

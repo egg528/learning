@@ -1,6 +1,5 @@
 ---
 title: Scheduler Thread Pool 구성하기
-sidebar_position: 3
 ---
 ## 글 링크
 - [스프링부트에서 Scheduling 사용하기](http://jmlim.github.io/spring/2018/11/27/spring-boot-schedule/)
