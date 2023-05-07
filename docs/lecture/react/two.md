@@ -70,3 +70,117 @@ const chcochipCookie = {
 
 
 ## 동기 & 비동기
+- JS는 싱글 쓰레드로 실행된다.
+- 때문에 성능 향상을 위해 싱글 쓰레드를 비동기 방식으로 사용하여 성능을 향상시킬 수 있다.
+
+```javascript
+function taskA(cb) {
+  // setTimeout()은 비동기 메서드이다.
+  setTimeout(() => {
+    const res = 3;
+    cb(res);
+  }, 2000);
+}
+
+taskA((res) => {
+  console.log(res);
+});
+console.log("finish all");
+
+// 결과
+// finish all
+// 3
+```
+- setTimeout()은 비동기 메서드로
+- taskA()를 실행하고 결과를 확인하지 않고 console.log("finish")를 실행하게 된다.
+
+![js-engin.png](img/js-engin.png)
+- 작성 순서대로 Call Stack에 쌓인다.
+- 단, 비동기 메서드의 경우 Web APIs로 넘어간다.
+- 즉, setTimeout(cb)는 Web APIs로 넘어가고 처리가 끝나면 Calback Queue로 이동한다.
+- 이후 Event Loop가 Call Stack이 비었을 때 Callback Queue의 작업을 Call Stack으로 옮겨 놓는다(선입 선출)
+
+## Promise
+- 비동기 함수를 조금 더 편리하게 사용할 수 있도록 만들어준다.
+
+```javascript
+function isPositiveP(number) {
+  const executor = (resolve, reject) => {
+    setTimeout(() => {
+      if(typeof number === "number"){
+
+        resolve(number >= 0 ? "양수" : "음수");
+      } else {
+        reject("실패");
+      }
+    }, 2000)
+  }
+
+  return new Promise(executor);
+}
+
+// Promise 객체 반환
+const res = isPositiveP(12);
+
+
+// 결과 처리
+res
+.then((res) => {console.log(res)}) // resolve 콜백 함수
+.catch((err) => {console.log(err)}) // reject 콜백 함수
+```
+- [자바스크립트 Promise 쉽게 이해하기](https://joshua1988.github.io/web-development/javascript/promise-for-beginners/)
+
+
+## async & await
+```javascript
+async function alwaysTrue() {
+  return true;
+}
+
+// Promise 객체 반환
+console.log(alwaysTrue())
+
+// 결과
+// Promise {<pending>}
+```
+- async를 붙이면 Promise를 반환하는 비동기 함수로 바뀐다.
+
+```javascript
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(() => {console.log("대기중...")}, ms)
+  });
+}
+
+async function helloAsync() {
+  delay(2000);
+  console.log("helloAsync 완료")
+}
+
+helloAsync()
+// 결과 
+// 대기중...
+// helloAsync 완료
+
+
+
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(() => {console.log("대기중...")}, ms)
+  });
+}
+
+async function helloAsync() {
+  await delay(2000);
+  console.log("helloAsync 완료")
+}
+
+helloAsync()
+// 결과
+// helloAsync 완료
+// 대기중...
+```
+- await는 Promise 앞에 사용할 수 있다.
+- Promise가 완료될 때까지 기다린다.
+
+## API 호
