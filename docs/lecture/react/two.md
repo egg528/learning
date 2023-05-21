@@ -1,6 +1,6 @@
 ---
 title: JS 응용
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 ## Truthy & Falsy
@@ -161,8 +161,7 @@ helloAsync()
 // 결과 
 // 대기중...
 // helloAsync 완료
-
-
+ 
 
 function delay(ms) {
   return new Promise((resolve) => {
@@ -183,4 +182,4 @@ helloAsync()
 - await는 Promise 앞에 사용할 수 있다.
 - Promise가 완료될 때까지 기다린다.
 
-## API 호
+## API 호ㅊㅜㄹ
