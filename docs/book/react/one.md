@@ -27,7 +27,7 @@ age3 = 28 (X)
 
 ## 자료형
 
-![사진1](./img/type.png)
+![사진1](img/type.png)
 - JS의 null
   - JS에서 null은 의도적으로 넣은 값이다.
   - 값이 할당되지 않은 변수는 `undefined`
