@@ -1,5 +1,5 @@
 ---
-title: 6. JPQL
+title: 5. JPQL
 sidebar_position: 6
 ---
 ## 기본 문법과 쿼리 API

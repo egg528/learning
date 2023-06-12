@@ -1,5 +1,5 @@
 ---
-title: 5. 프록시와 연관관계 관리
+title: 4. 프록시와 연관관계 관리
 sidebar_position: 5
 ---
 ## 문제 상황

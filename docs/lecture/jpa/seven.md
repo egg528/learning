@@ -1,5 +1,5 @@
 ---
-title: 7. JPQL 중급
+title: 6. JPQL 중급
 sidebar_position: 7
 ---
 ## 경로 표현식
