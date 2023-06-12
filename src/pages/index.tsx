@@ -21,7 +21,6 @@ function HomepageHeader() {
             Go To TIL
           </Link>
         </div>
-
       </div>
     </header>
   );
