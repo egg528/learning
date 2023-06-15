@@ -1,6 +1,6 @@
 ---
 title: React.js 기초
-sidebar_position: 3
+sidebar_position: 4
 ---
 ## React는 왜 필요할까?
 1. Component화가 쉬워져 단일 책임 원칙에 보다 부합하는 코딩을 할 수 있다.
