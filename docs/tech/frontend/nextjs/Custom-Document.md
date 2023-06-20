@@ -1,10 +1,9 @@
 ---
 title: Custom Document
-tag: [React, Dependency]
+tag: [Next.js]
 ---
 ## 글 링크
 - [Custom Document](https://nextjs.org/docs/pages/building-your-application/routing/custom-document)
-- 
 
 ## 내용 정리
 ### Custom Document란?
