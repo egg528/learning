@@ -8,7 +8,7 @@ tag: [Next.js]
 ## 내용 정리
 ### Custom Document란?
 - _document 파일을 통해 사용할 수 있다.
-- <html>, <body>와 같은 태그를 Update할 수 있다.
+- html, body와 같은 태그를 Update할 수 있다.
 - 단, Server Render만 가능하기 때문에 onClick과 같은 Event Handler는 사용할 수 없다.
 
 ```javascript
