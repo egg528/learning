@@ -44,4 +44,3 @@ sidebar_position: 1
 
 ![telemetry.png](img/telemetry.png)
 - Observability를 위해서는 위 3가지를 모두 만족시켜야 한다.
-- 
