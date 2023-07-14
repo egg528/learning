@@ -1,5 +1,5 @@
 ---
-title: Batch Performance 극한으로 끌어올리기 - 1억 건 데이터 처리를 위한 노력 if(kakao)dev2022
+title: Batch Performance 극한으로 끌어올리기
 tag: [if(kakao), Batch]
 ---
 ## 영상 링크
@@ -14,6 +14,8 @@ tag: [if(kakao), Batch]
 
 ### 2. 대량 데이터 READ
 - 대개 Reader가 큰 비중을 차지하고 있음 (복잡한 조회 로직 때문에)
+
+
 #### ChunkProcessing
 - 나누어 처리하는 방식
 - 대량 건을 처리할 때 필수적이다.
