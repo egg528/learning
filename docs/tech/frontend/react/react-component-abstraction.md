@@ -41,7 +41,7 @@ function TextInput(
 
   return (
     <input
-      type="text"
+      type='text'
       value={text}
       className={className}
       placeholder={placeholder}
@@ -123,7 +123,7 @@ const CardItem = ({
     return (
             <div>
                 <CardThumbnail url={imageUrl} rounded />
-                <CardBody align="center">
+                <CardBody align='center'>
                 <CardTitle>{tagNumber}</CardTitle>
                 <CardTitle lineCnt={2}>{name}</CardTitle>
                 </CardBody>
