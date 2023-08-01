@@ -4,7 +4,7 @@
         <title>공부 기록 Blog</title>
         <link>https://egg528.github.io/blog</link>
         <description>공부 기록 Blog</description>
-        <lastBuildDate>Sat, 15 Jul 2023 06:06:36 GMT</lastBuildDate>
+        <lastBuildDate>Tue, 01 Aug 2023 14:46:29 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ko</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[블로그 시작 글]]></title>
             <link>https://egg528.github.io/blog/welcome</link>
             <guid>welcome</guid>
-            <pubDate>Sat, 15 Jul 2023 06:06:36 GMT</pubDate>
+            <pubDate>Tue, 01 Aug 2023 14:46:29 GMT</pubDate>
             <category>start</category>
         </item>
     </channel>
