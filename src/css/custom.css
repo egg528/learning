@@ -28,3 +28,126 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+/* Common */
+html {
+  scroll-behavior: smooth;
+  color: #3c3c3c
+}
+
+* {
+  box-sizing: border-box;
+}
+
+blockquote, body, dd, div, dl, dt, fieldset, form, h1, h2, h3, h4, h5, h6, input, li, ol, p, pre, td, textarea, th {
+  padding: 0;
+  margin: 0
+}
+
+a {
+  text-decoration: none
+}
+
+table {
+  border-spacing: 0
+}
+
+fieldset, img {
+  border: 0
+}
+
+address, caption, cite, code, dfn, em, strong, th, var {
+  font-weight: 400;
+  font-style: normal
+}
+
+strong {
+  font-weight: 700
+}
+
+caption, th {
+  text-align: left
+}
+
+body, html {
+  overflow-x: hidden
+}
+
+/* Navigator */
+.nav-wrapper {
+  padding: 2.2em 0;
+  line-height: 1em;
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto
+}
+
+.nav-logo {
+  font-size: 2em;
+  color: #000000;
+  font-weight: 800;
+  float: left;
+  transition: all ease .5s;
+}
+
+.nav-menu {
+  float: right
+}
+
+.nav-menu li {
+  display: inline-block;
+  margin: 0 12px
+}
+
+.nav-menu li a {
+  display: block
+}
+
+.nav-menu li a {
+  letter-spacing: .12em;
+  line-height: 1.5em;
+  font-size: 1.2em;
+  background-size: .05em 2px, .05em 2px, 2px 1px;
+  text-decoration: none;
+  text-shadow: .03em .15em #fff, -.03em .15em #fff, .03em .15em #fff, .03em -.09em #fff, .06em .15em #fff, -.06em .15em #fff, .09em .15em #fff, -.09em .15em #fff, .12em .15em #fff, -.12em .15em #fff, .15em .15em #fff, -.15em .15em #fff
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  text-shadow: .03em .03em #fff, -.03em .03em #fff, .03em .03em #fff, .03em -.09em #fff, .06em .03em #fff, -.06em .03em #fff, .09em .03em #fff, -.09em .03em #fff, .12em .03em #fff, -.12em -.07em #fff, .15em .03em #fff, -.15em .03em #fff;
+  background-image: linear-gradient(#fff, #fff), linear-gradient(#fff, #fff), linear-gradient(#1faec8, #1faec8);
+  background-size: .05em 4px, .05em 4px, 3px 3px;
+  background-repeat: no-repeat, no-repeat, repeat-x;
+  background-position: 0 90%, 100% 90%, 0 90%;
+  color: #000;
+  text-decoration: none;
+}
+
+
+/* Text Wrapper */
+.text-wrap {
+  max-width: 790px;
+  margin: 0 auto
+}
+
+.text-wrap p {
+  font-size: 1.2em;
+  line-height: 1.8em;
+  padding: 0 0 1.0em;
+  font-weight: 300;
+}
+
+.text-wrap h1 {
+  font-size: 2.5em;
+  color: #000000;
+  padding: 0 0 0.7em;
+}
+
+/* Dot */
+.logo-end {
+  color: #1faec8;
+}
+
+
+/* hero */
+

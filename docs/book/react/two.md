@@ -181,5 +181,3 @@ helloAsync()
 ```
 - await는 Promise 앞에 사용할 수 있다.
 - Promise가 완료될 때까지 기다린다.
-
-## API 호ㅊㅜㄹ
