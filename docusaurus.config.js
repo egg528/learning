@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '공부 기록',
+  title: '권우석 | 백엔드 개발자',
   tagline: '',
   url: 'https://egg528.github.io',
   baseUrl: '/',

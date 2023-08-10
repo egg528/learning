@@ -1,15 +1,68 @@
 import React from 'react';
 
-export default function WrokExperiences(): JSX.Element {
+export default function WorkExperience(): JSX.Element {
     return (
-        <section id={'introduce'}>
-            <h2>Introduce<span className="period-mark">.</span></h2>
-            <p className="big-paragraph">
-                서울에서 7년차 웹 프론트엔드 엔지니어로 일하고 있으며 아름다운
-                인터페이스와 애니메이션을 구현하는 것을 좋아합니다. 개발자의 가치는
-                비즈니스 가치를 구현하는데서 나온다고 믿습니다. 주도적으로 업무를
-                진행할 수 있는 환경을 선호합니다.
-            </p>
+        <section id={'work-experience'}>
+            <h2>Work Experience<span className="period-mark">.</span></h2>
+
+            <div className="row">
+                <div className="row-left">
+                    <h3>지마켓<span className="period-mark">.</span>
+                        <h6>(구 Ebay Korea)</h6>
+                    </h3>
+                    <span className="role">Backend Developer</span>
+                    <span> <time dateTime="2022-01">2022. 01</time> - 현재 </span>
+                </div>
+                <div className="row-right">
+                    <div className="project">
+                        <h3>
+                            프로젝트 1<span className="period-mark">.</span>
+                        </h3>
+                        <span className="time">
+                            <time dateTime="2020-08">2020. 08</time> - 현재
+                        </span>
+
+                        <h5>Description<span className="period-mark">.</span></h5>
+                        <p>
+                            상세 내용
+                        </p>
+
+                        <h5>What did I do<span className="period-mark">.</span></h5>
+
+                        <ul>
+                            <li>한 일</li>
+                        </ul>
+
+                        <h5>Tech Stack<span className="period-mark">.</span></h5>
+                        <p>TypeScript, Jest, Rollup</p>
+                    </div>
+                    <div className="row-right">
+                        <div className="project">
+                            <h3>
+                                프로젝트 2<span className="period-mark">.</span>
+                            </h3>
+                            <span className="time">
+                            <time dateTime="2020-08">2020. 08</time> - 현재
+                        </span>
+
+                            <h5>Description<span className="period-mark">.</span></h5>
+                            <p>
+                                상세 내용
+                            </p>
+
+                            <h5>What did I do<span className="period-mark">.</span></h5>
+
+                            <ul>
+                                <li>한 일</li>
+                            </ul>
+
+                            <h5>Tech Stack<span className="period-mark">.</span></h5>
+                            <p>TypeScript, Jest, Rollup</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
     );
 }
