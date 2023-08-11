@@ -4,7 +4,7 @@
         <title>권우석 | 백엔드 개발자 Blog</title>
         <link>https://egg528.github.io/blog</link>
         <description>권우석 | 백엔드 개발자 Blog</description>
-        <lastBuildDate>Thu, 10 Aug 2023 04:26:56 GMT</lastBuildDate>
+        <lastBuildDate>Fri, 11 Aug 2023 01:12:47 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ko</language>
@@ -12,7 +12,7 @@
             <title><![CDATA[블로그 시작 글]]></title>
             <link>https://egg528.github.io/blog/welcome</link>
             <guid>welcome</guid>
-            <pubDate>Thu, 10 Aug 2023 04:26:56 GMT</pubDate>
+            <pubDate>Fri, 11 Aug 2023 01:12:47 GMT</pubDate>
             <category>start</category>
         </item>
     </channel>
