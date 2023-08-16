@@ -1,5 +1,5 @@
 ---
-title: repacks/next-pack
+title: redux
 tag: [next.js, config]
 ---
 ## 글 링크
