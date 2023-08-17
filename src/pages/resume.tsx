@@ -11,6 +11,7 @@ export default function Home(): JSX.Element {
     return (
         <Layout>
             <div className="container resume">
+                <Navigator/>
                 <WorkExperience/>
                 <OtherExperience/>
                 <Skill/>
