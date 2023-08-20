@@ -72,6 +72,11 @@ const config = {
             label: 'TIL',
           },
           {
+            href: '/resume',
+            label: 'Resume',
+            position: 'left',
+          },
+          {
             href: 'https://github.com/egg528',
             label: 'GitHub',
             position: 'right',
@@ -87,6 +92,10 @@ const config = {
               {
                 label: 'TIL',
                 to: '/docs/intro',
+              },
+              {
+                label: 'Resume',
+                to: '/resume',
               },
             ],
           },
