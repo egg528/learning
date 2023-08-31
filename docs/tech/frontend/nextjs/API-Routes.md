@@ -1,10 +1,9 @@
 ---
-title: API Routes.md
+title: API Routes
 tag: [Next.js]
 ---
 ## 글 링크
 - [API Routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes)
--
 
 ## 내용 정리
 ### API Routes란?

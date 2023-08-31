@@ -3,7 +3,6 @@ title: Servlet이란?
 ---
 ## 글 링크
 - [스프링 MVC 1편 강의](https://www.inflearn.com/course/%EC%8A%A4%ED%94%84%EB%A7%81-mvc-1/)
-- 
 ## 내용 정리
 ### HTTP 통신 방식
 1. 웹 브라우저가 HTTP 메시지를 생성하여 서버로 메시지를 보낸다.

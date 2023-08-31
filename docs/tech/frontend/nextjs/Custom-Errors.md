@@ -4,7 +4,8 @@ tag: [Next.js]
 ---
 ## 글 링크
 - [Custom Document](https://nextjs.org/docs/pages/building-your-application/routing/custom-error)
-
+- [Next.js Error](https://jikor1st.tistory.com/24)
+- [React ErrorBoundary](https://jikor1st.tistory.com/23?category=1271628)
 ## 내용 정리
 ### 404, 500 페이지
 - 매 요청마다 Server가 404 에러 페이지를 rendering해야 한다면 비용이 클 것이다.
