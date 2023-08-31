@@ -16,7 +16,7 @@ export default function WorkExperience(): JSX.Element {
                 <div className="row-right">
                     <div className="project">
                         <h3>
-                            배송 추적창 Migration<span className="period-mark">.</span>
+                            배송 추적창 FE, BE 분리 작업<span className="period-mark">.</span>
                         </h3>
                         <span className="time">
                             <time dateTime="">현재 진행중</time>
@@ -24,13 +24,14 @@ export default function WorkExperience(): JSX.Element {
 
                         <h5>Description<span className="period-mark">.</span></h5>
                         <p>
-                            .NET, C#, Razor로 한 곳에 작성되어 있는 배송 추적창을 Front, Back 분리
+                            기존에 하나의 서비스로 동작하던 배송 추적창 FE, BE 서비스 분리
                         </p>
 
                         <h5>What did I do<span className="period-mark">.</span></h5>
 
                         <ul>
-                            <li>프론트 영역 분리하여 next.js, react로 전환</li>
+                            <li>기존 코드를 분석하여 혼재되어 있던 FE,BE 로직을 분리</li>
+                            <li>FE코드 Component화 및 Next.js를 활용하여 FE 서비스 구성</li>
                         </ul>
 
                         <h5>Tech Stack<span className="period-mark">.</span></h5>
@@ -43,15 +44,16 @@ export default function WorkExperience(): JSX.Element {
 
                         <h5>Description<span className="period-mark">.</span></h5>
                         <p>
-                            판매자 설정 배송 출발 정보와 실제 배송 출발 데이터 등을 고려하는 상품 배송 출발 정보 API 개발
+                            판매자 설정 정보만으로 배송 시작일을 계산하던 API에 (Batch로 미리 계산된)실제 판매자 발송 데이터를 고려하도록 개선
                         </p>
 
                         <h5>What did I do<span className="period-mark">.</span></h5>
 
                         <ul>
-                            <li>일 호출 수 약 2400만 건 / 99.99% 0.7 sec 내에 응답 가능한 API 개발 (SP 7회, API 요청 1회)</li>
-                            <li>Redis Cluster를 활용하여 변동이 적은 데이터는 최대한 Cache 적용</li>
-                            <li>배포 이전 nGrinder를 활용한 부하 테스트 경험 (응답 시간을 중점적으로 확인)</li>
+                            <li>배송 시작일 API에 오늘 출발 태그 데이터, 실제 발송 데이터, admin 예외 처리 고려하도록 수정</li>
+                            <li>신규로 추가한 admin 예외 처리뿐 아니라 기존 로직에서도 변동성이 적은 데이터 Redis 적용</li>
+                            <li>VIP 노출 API이기에 배포 이전 nGrinder를 활용한 부하 테스트 경험 (응답 시간을 중점적으로 확인)</li>
+                            <li>일 호출 수 약 2400만 건 / 99.99% 0.7 sec 내에 응답</li>
                         </ul>
 
                         <h5>Tech Stack<span className="period-mark">.</span></h5>
@@ -72,10 +74,10 @@ export default function WorkExperience(): JSX.Element {
                         <h5>What did I do<span className="period-mark">.</span></h5>
 
                         <ul>
-                            <li>각 Scheduler ThreadPool 분리</li>
-                            <li>기존 For문 병렬 처리(CompletableFeature 활용)</li>
-                            <li>Scheduler A 26 sec -> 6.9 sec (2000건 기준, Thread 4개 활용)</li>
-                            <li>Scheduler B 150 sec -> 27 sec (2000건 기준, Thread 8개 활용)</li>
+                            <li>각 Scheduler ThreadPool 분리, 기존 For문 병렬 처리(CompletableFeature 활용)</li>
+                            <li>CPU 사용률 60%가 넘지 않는 수준에서 Thread 최적화</li>
+                            <li>알림톡 대상 설정 Secheduler 26 sec -> 6.9 sec (2000건 기준, Thread 4개 활용)</li>
+                            <li>알림톡 발송 Secheduler 150 sec -> 27 sec (2000건 기준, Thread 8개 활용)</li>
                         </ul>
 
                         <h5>Tech Stack<span className="period-mark">.</span></h5>
@@ -83,20 +85,19 @@ export default function WorkExperience(): JSX.Element {
                     </div>
                     <div className="project">
                         <h3>
-                            해외 직구 배송 추적 외부 연동<span className="period-mark">.</span>
+                            해외 직구 배송 추적 외부 시스템 연동 작업<span className="period-mark">.</span>
                         </h3>
 
                         <h5>Description<span className="period-mark">.</span></h5>
                         <p>
-                            해외 직구 배송 추적을 위한 외부사 연동
+                            해외 직구 주문 건 외부사 배송 추적 시스템 연동
                         </p>
 
                         <h5>What did I do<span className="period-mark">.</span></h5>
 
                         <ul>
                             <li>해외 직구 건의 경우 배송 추적 시작 시 외부사 API 호출하는 로직 추가</li>
-                            <li>외부 요청 로그 테이블 생성 및 로그 데이터 생성</li>
-                            <li>실패 건 재처리 방안 수립</li>
+                            <li>외부 요청 로그 테이블 생성 및 로그 데이터 생성 및 실패 건 재처리 방안 수립</li>
                         </ul>
 
                         <h5>Tech Stack<span className="period-mark">.</span></h5>
@@ -117,7 +118,7 @@ export default function WorkExperience(): JSX.Element {
                         <ul>
                             <li>예약 가능 좌석 조회 API 개발</li>
                             <li>Memory Cache 적용 (서버 1대)</li>
-                            <li>서버 모니터링 환경 구성 (Spring Actuator - Prometheus - Grafana)</li>
+                            <li>서버 모니터링발 환경 구성 (Spring Actuator - Prometheus - Grafana)</li>
                         </ul>
 
                         <h5>Tech Stack<span className="period-mark">.</span></h5>

@@ -6,7 +6,7 @@ export default function OtherExperience(): JSX.Element {
             <h2>Other Experiences<span className="period-mark">.</span></h2>
             <div className="other">
                 <h3>2022 지마켓 해커톤 1위<span className="period-mark">.</span></h3>
-                <span className="role">Slack App 구성, 맛집 추천 기능 구현 및 발표 담당</span>
+                <span className="role">Slack App FE, kakao open api 기반 맛집 추천 기능 및 발표 담당</span>
                 <span className="time">
                     <time dateTime="2022-12-07">2022. 12. 07.</time> -
                     <time dateTime="2018-12-09">2022. 12. 09.</time>
@@ -17,7 +17,20 @@ export default function OtherExperience(): JSX.Element {
                 </ul>
             </div>
             <div className="other">
-                <h3>지마켓 테크 에디터<span className="period-mark">.</span></h3>
+                <h3>지마켓 공유 좌석 예약 시스템 개발<span className="period-mark">.</span></h3>
+                <span className="role">예약 가능 좌석 조회 기능 및 Admin API 개발</span>
+                <span className="time">
+                    <time dateTime="2022-06">2022. 11.</time> -
+                    <time dateTime="2022-09">2022. 12.</time>
+                </span>
+                <ul>
+                    <li>사내 시스템 내에서 서비스 개발의 A to Z 경험</li>
+                    <li>서버 모니터링발 환경 구성 (Spring Actuator - Prometheus - Grafana)</li>
+                    <li>Tech Stack: Java 11, Spring Boot, Spring MVC, Spring Actuator, Prometheus, Grafana</li>
+                </ul>
+            </div>
+            <div className="other">
+                <h3>지마켓 테크 에디터<span className="periogd-mark">.</span></h3>
                 <span className="role">글 기고</span>
                 <span className="time">
                     <time dateTime="2022-06">2022. 06.</time> -
