@@ -103,27 +103,6 @@ export default function WorkExperience(): JSX.Element {
                         <h5>Tech Stack<span className="period-mark">.</span></h5>
                         <p>.NET Framework, C#</p>
                     </div>
-                    <div className="project">
-                        <h3>
-                            좌석 예약 시스템<span className="period-mark">.</span>
-                        </h3>
-
-                        <h5>Description<span className="period-mark">.</span></h5>
-                        <p>
-                            사내 좌석 예약 시스템 API 개발
-                        </p>
-
-                        <h5>What did I do<span className="period-mark">.</span></h5>
-
-                        <ul>
-                            <li>예약 가능 좌석 조회 API 개발</li>
-                            <li>Memory Cache 적용 (서버 1대)</li>
-                            <li>서버 모니터링발 환경 구성 (Spring Actuator - Prometheus - Grafana)</li>
-                        </ul>
-
-                        <h5>Tech Stack<span className="period-mark">.</span></h5>
-                        <p>Java 11, Spring Boot, Spring MVC, Spring Actuator, Prometheus, Grafana</p>
-                    </div>
                 </div>
             </div>
 
