@@ -68,6 +68,7 @@ console.log(array[2].toUpperCase())
 - 단, TS를 사용할 경우 기존 JS와 다른 방향으로 코드를 작성해야 하는 부분이 생기기 때문에 TS의 특성을 잘 이해하는 것이 중요해 보임.
 
 
+
 ## Item 2: 타입스크립트 설정 이해하기
 ### noImplicitAny와 strictNullChecks 설정
 - noImplicityAny 설정은 코드에서 타입을 명시적으로 나타내도록 강제한다.
@@ -80,6 +81,7 @@ console.log(array[2].toUpperCase())
 - strictNullChecks를 사용하는 건 좋지만, 사실상 쉽지 않다.
     - 특히 외부 API를 사용할 때 API Response의 모든 케이스를 고려해야하기 때문이다.
     - 그게 아니라면 결국 모든 타입에 | null과 같은 문법을 추가하게 된다.
+
 
 
 ## Item 3: 코드 생성과 타입이 관계 없음을 이해하기
