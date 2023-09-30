@@ -3,7 +3,7 @@ title: nGrinder
 tag: [test, nGrinder]
 ---
 ## 글 링크
-- [Pull vs Fetch](https://www.freecodecamp.org/korean/news/git-fetch-vs-pull/)
+- [nGrinder github wiki](https://github.com/naver/ngrinder/wiki)
 ## 내용 정리
 ### nGrinder란?
 - 스크립트를 생성, 테스트 실행, 결과 생성을 동시에 할 수 있는 부하 테스트 플랫폼이다.

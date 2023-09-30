@@ -3,7 +3,7 @@ title: Custom Errors
 tag: [Next.js]
 ---
 ## 글 링크
-- [Custom Document](https://nextjs.org/docs/pages/building-your-application/routing/custom-error)
+- [Custom Error](https://nextjs.org/docs/pages/building-your-application/routing/custom-error)
 - [Next.js Error](https://jikor1st.tistory.com/24)
 - [React ErrorBoundary](https://jikor1st.tistory.com/23?category=1271628)
 ## 내용 정리

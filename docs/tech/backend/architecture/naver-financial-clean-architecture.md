@@ -1,5 +1,6 @@
 ---
 title: 네이버 파이낸셜 - 프로젝트에 새로운 아키텍처 적용하기
+tag: [clean architecture]
 ---
 ## 글 링크
 - [네이버 파이낸셜 - 프로젝트에 새로운 아키텍처 적용하기](https://medium.com/naverfinancial/프로젝트에-새로운-아키텍처-적용하기-99d70df6122b)

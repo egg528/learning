@@ -248,3 +248,147 @@ function email({person, subject, body}:{person: Person, subject: string, body: s
 - 둘을 구분해야 하는 건 어쩌면 당연한 얘기이고, 타입스크립트 개발을 하면 할수록 자연스럽게 익혀질 것 같다.
 
 
+
+
+## Item 9: 타입 단언보다는 타입 선언을 사용하기
+```typescript
+interface Person {
+    name: string;
+}
+
+const woosuk: Person = {name: 'woosuk'}; // 타입 선언
+const minjung = {name: 'minjung'} as Person // 타입 단언
+
+const wrongWoosuk: Person = {} // 오류 발생!
+const wrongMinjung = {} as Person // 오류 발생하지 않음
+```
+- 타입 스크립트에서 타입을 지정하는 방식에는 위와 같이 2가지가 존재한다. (선언과 단언)
+- wrongWoosuk은 Person interface를 만족하지 못하기 때문에 오류가 발생한다.
+- wrongMinjung의 경우 타입 단언을 사용했기 때문에 타입 체커가 오류를 무시하여 오류가 발생하지 않는다.
+
+
+### 타입 단언이 문제가 되는 예시들
+```typescript
+// 1. 잘못된 속성이 추가되어도 오류가 발생하지 않는다.
+const woosuk: Person = {
+    name: 'woosuk',
+    age: 28  // Person interface는 age 속성을 가지지 않지만 오류가 발생하지 않는다.
+} as Person;
+
+// 2. 같은 맥락에서 화살표 함수에서도 오류를 발견해주지 못한다.
+const people: Person[] = ['alice', 'bob'].map(
+    name => ({} as Person)
+); // 단언을 사용하면 오류가 발생하지 않는다.
+
+const people2: Person[] = ['alice', 'bob'].map(name => {
+    const person: Person = {name};
+    return person;
+}); // 타입 선언 사용 예시 1
+
+const people3: Person[] = ['alice', 'bob'].map(
+    (name): Person => ({name})
+) // 타입 선언 사용 예시 1
+```
+
+
+### 타입 단언이 꼭 필요한 곳
+1. 타입 스크립트가 알지 못하는 정보를 사용해야 할 때 단언문 사용이 필요하다. (예를 들면 DOM 타입 사용)
+2. !을 사용하여 null이 아님을 단언할 수도 있다. (타입 체크 기능이기 때문에 런타임에는 동작하지 않는다.)
+
+### 단언문을 통한 타입 변환
+```typescript
+const body = document.body; // HTMLElement | null 타입
+
+const el = body as Person; // 서브 타입이 아니기 때문에 전환이 안 된다.
+const el2 = body as HTMLElement; // 서브 타입이기 때문에 전환 가능
+
+// 서브 타입이 아니라도 타입 전환을 할 수 있는 방법 (사용하지 않는 것이 좋아 보임..)
+const el3 = body as unknown as Person;
+```
+- A가 B의 부분집합인 경우 단언문을 통해 타입 전환이 가능해진다.
+- unknown은 모든 타입의 서브 타입이기 때문에 unknown을 활용하면 모든 타입을 전환이 가능하다.
+
+### 내 생각 정리
+- 기본적으로 타입 선언문을 사용하되 타입 스크립트가 알지 못하는 정보 혹은 null이 아니라고 정의하는 부분은 단언문을 사용할 것.
+- 하지만 타입스크립트가 알지 못하는 내용도 타입으로 정의한 후에 사용하면 단언문을 쓰는 경우를 줄일 수 있을 것 같다.
+
+## Item 10: 객체 래퍼 타입 피하기
+- JS의 기본 자료형: string, number, boolean, symbol, bigint, null, undefined
+- JS의 래퍼 자료형: String, Number, Boolean, Symbol, Bigint
+
+### 기본 자료형은 메서드가 없다.
+- string을 생각해보면 charAt()과 같은 메서드를 사용할 수 있어서 기본 자료형에도 메서드가 있다고 생각하기 쉽다.
+- 하지만 실제로는 String에 메서드가 정의된 것이고, charAt을 사용하면 기본형 -> 래핑 자료형 -> 메서드 호출 -> 래핑 자료형 버림와 같은 과정을 거친다.
+
+```typescript
+x = "hello"
+x.language = "English"
+x.language // undefined
+```
+- 기본형 <-> 래핑형의 자유로운 변환은 이상한 결과를 만들기도 한다.
+- x는 string이다.
+- x에 속성을 추가하면 x -> String 객체로 변환 -> language 속성 추가 -> String 객체 버림 순서로 동작하여 x.language 값은 undefined가 된다.
+
+
+### 래핑 자료형은 오직 자기 자신하고만 동일하다.
+```typescript
+"hello" === new String("hello") // false
+new String("hello") === new String("hello") // false
+```
+- 이 특징은 직관적인 생각과 다른 결과를 도출한다는 점을 얘기하고 싶었던 것 같다.
+
+
+### String은 string에 할당될 수 없다.
+```typescript
+const phrase: String = new String("non");
+
+'nonMember'.includes(phrase) // 오류 발생 (String은 string에 할당할 수 없음)
+```
+- string은 String에 할당 가능하지만, String은 string에 할당할 수 없다.
+- 또한 대부분의 lib은 기본 자료형을 사용한다.
+
+### new 없는 Bigint와 Symbol
+- new 없이 Bigint와 Symbol을 사용하면 기본형을 반환한다.
+
+
+### 내 생각 정리
+- 래핑 자료형은 기본 자료형을 돕기 위해 만들어졌지 그 자체로 사용되기 위해서 생성된 건 아니라고 생각했다.
+- 이전처럼 기본 자료형을 사용하자
+
+
+
+## Item 11: 잉여 속성 체크의 한계 인지하기
+
+### 타입 체크와 별개로 동작하는 잉여 속성 체크
+```typescript
+interface Person {
+    name: string
+}
+
+const person: Person = {
+    name: 'woosuk',
+    age: 28,
+} // 오류 발생, Person 형식에는 age라는 속성이 없습니다.
+```
+- 구조적 타이핑, 집합 개념을 생각했을 때 {name: 'woosuk', age: 28}은 Person 타입의 부분 집합이기에 할당이 가능해야 한다.
+- 하지만 위와 같은 오류가 발생한다.
+- 타입 스크립트에서 타입 체크와 별개로 `잉여 속성 체크`라는 기능이 있고, 오직 `객체 리터럴`을 할당할 때 사용된다.
+- 이는 객체 리터럴에 알 수 없는 속성을 허용하지 않아 개발자 의도와 다른 객체가 타입에 할당되는 것을 막는다.
+
+### 잉여 속성 체크를 피하는 방법
+```typescript
+const person2 = {name: 'woosuk', age: 28} as Person;
+
+interface Person {
+    name: string,
+    [otherOptions: string]: unknown,
+}
+```
+- 단언문이나 인덱스 시그니처를 사용하면 잉여 속성 체크 기능을 피할 수 있다.
+- 하지만 이를 피할 이유는 없어 보인다.
+- 속성이 너무 적거나 너무 많으면, 잘못된 필드를 가지기 쉽고 찾아내기 어려운데 이때 잉여 속성 체크는 큰 힘을 발휘한다.
+
+### 내 생각 정리
+- 구조적 타이핑, 집합 개념을 생각하되 객체 리터럴을 할당할 때는 잉여 속성 체크 과정이 있다는 것을 생각하자.
+- 아직까지 단언문이나 인덱스 시그니처를 사용해 잉여 속성 체크 과정을 생략할 이유나 상황을 알지 못하는 것 보면,
+- 이 기능을 적극 확용하는 것이 좋을 것 같다.
