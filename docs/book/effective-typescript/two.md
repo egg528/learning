@@ -115,7 +115,6 @@ type nonZeroNumber = Exclude<number, 0> // nonZeroNumber: number
 ### 내 생각 정리
 - 구조적 타이핑이라는 특성을 고려했을 때 타입 스크립트의 타입 시스템은 상속, 할당 가능성 보다는 집합의 개념으로 이해하고 적용하는 게 적절할 것 같다.
 
-
 ## Item 8: 타입 공간과 값 공간의 심벌(식별자) 구분하기
 ```typescript
 type Symbol1 = number
@@ -247,9 +246,6 @@ function email({person, subject, body}:{person: Person, subject: string, body: s
 - 타입 스크립트의 이 원리의 연장선이라는 느낌이 든다. 값 공간은 컴파일과 관련된 영역, 타입 공간은 타입 체크와 관련된 영역.
 - 둘을 구분해야 하는 건 어쩌면 당연한 얘기이고, 타입스크립트 개발을 하면 할수록 자연스럽게 익혀질 것 같다.
 
-
-
-
 ## Item 9: 타입 단언보다는 타입 선언을 사용하기
 ```typescript
 interface Person {
@@ -355,8 +351,6 @@ const phrase: String = new String("non");
 - 래핑 자료형은 기본 자료형을 돕기 위해 만들어졌지 그 자체로 사용되기 위해서 생성된 건 아니라고 생각했다.
 - 이전처럼 기본 자료형을 사용하자
 
-
-
 ## Item 11: 잉여 속성 체크의 한계 인지하기
 
 ### 타입 체크와 별개로 동작하는 잉여 속성 체크
@@ -392,3 +386,117 @@ interface Person {
 - 구조적 타이핑, 집합 개념을 생각하되 객체 리터럴을 할당할 때는 잉여 속성 체크 과정이 있다는 것을 생각하자.
 - 아직까지 단언문이나 인덱스 시그니처를 사용해 잉여 속성 체크 과정을 생략할 이유나 상황을 알지 못하는 것 보면,
 - 이 기능을 적극 확용하는 것이 좋을 것 같다.
+
+## Item 12: 함수 표현식에 타입 적용하기
+
+### 함수를 구현하는 3가지 방식
+```typescript
+function rollDice(sides: number): number {/* 로직 */}          // 함수 문장
+const rollDice2 = function(side: number): number {/* 로직 */}  // 함수 표현식
+const rollDice3 = (side: number): number => {/* 로직 */}       // 함수 표현식
+```
+
+### 함수 표현식의 장점
+```typescript
+type DiceRollFn = (sides: number) => number;
+const rollDice: DiceRollFn = sides => {/* 로직 */}
+```
+- 함수 타입으로 선언하여 동일한 매개변수와 반환값을 가지는 메서드에 재사용이 가능하다.
+- 또한 함수 구현부가 따로 분리되어 로직이 더 분명해진다.
+
+### 시그니처가 일치하는 다른 함수에 타입 적용하기 (fetch 예시)
+```typescript
+const checkedFetch: typeof fetch = async (input, init) => {
+    const response = await fetch(input, init);
+    if(!response.ok) {
+        throw new Error('Request failed: ' + response.status);
+    }
+    
+    return resposne;
+}
+```
+- lib.dom.d.ts에 있는 fetch 타입을 이용해 요청 성공 여부를 체크하는 fetch 메서드이다.
+- 타입을 이용했기 때문에 인자와 반환값 매개변수가 보장된다.
+- 만약 Error를 return문으로 작성해도 오류가 발생하여 수정이 가능하다. (fetch 결과와 동일한 반환값을 보장할 수 있다.)
+
+### 내 생각 정리
+- 로직만 다른 여러 구현체가 존재하는 상황에서 공통된 함수 타입을 추려내는 것을 생각해보자.
+- fetch 예시처럼 기존에 존재하는 함수 타입에 대해서도 잘 활용한다면 런타임 오류를 줄일 수 있을 것 같다.
+
+## Item 13: 타입과 인터페이스 차이점 알기
+
+### type과 interface의 공통점
+```typescript
+type TState = {
+    name: string;
+    capital: string;
+}
+
+interface IState {
+    name: string;
+    capital: string;
+}
+```
+- type과 interface는 모두 객체의 타입을 명시해준다.
+- 타입 체크와 함께 잉여 속성 체크도 모두 적용된다.
+- 함수 타입 혹은 인덱스 시그니처 또한 type과 interface 모두 가능하다.
+- 제너릭 또한 모두 가능하며 type과 interface는 서로를 확장할 수 있습니다.
+  - 단 type이 interface를 확장할 때는 & 연산자를, 반대는 implements를 사용합니다
+
+### type과 interface의 차이점
+
+#### 1. 유니온 타입
+```typescript
+type AorB = 'a' | 'b'
+
+type Input = {/* 생략 */}
+type Output = {/* 생략 */}
+type NamedVariable = (Input | Output) & {name: string};
+```
+- 유니온 타입은 존재하지만 유니온 인터페이스는 존재하지 않는다.
+- 또한 NamedVariable과 같이 유니온 타입을 확장할 수도 있다.
+
+#### 2. 튜플 구현
+```typescript
+type Paior = [number, number];
+type StringList = string[];
+type NamedNums = [string, ...number[]];
+
+interface Tuple {
+    0: number;
+    1: number;
+    length: 2
+}
+```
+- type을 활용하면 튜플, 배열 타입을 간결하게 표현할 수 있따.
+- interface도 비슷하게 구현은 가능하지만 tuple에서 사용 가능한 concat과 같은 메서드들을 사용할 수 없다.
+- 결론은 튜플, 배열 타입을 정의하려면 type을 사용할 것.
+
+#### 3. 선언 병합
+```typescript
+interface IState {
+    name: string;
+    capital: string;
+}
+
+interface IState {
+    population: number
+}
+
+const korea: IState = {
+    name: korea,
+    capital: 'seoul',
+    population: 50000000,
+}
+```
+- 위 코드와 같이 동일한 이름으로 interface가 정의되어 있다면 속성들은 병합된다.
+- type의 경우 오류가 발생한다.
+- 타입 스크립트는 여러 JS 표준 라이브러리 타입을 함께 사용할 수 있는데, 여러 라이브러리에 공통으로 존재하는 interface의 경우 병합되어 모든 메서드, 속성에 접근이 가능해진다.
+
+
+### 내 생각 정리
+- 글 마지막에 type과 interface를 어떻게 적절히 적용할 것인가에 대해 잘 정리가 되어 있다.
+- 복잡한 타입이라면 type 사용을 추천하지만 그렇지 않다면 일관성과 보강의 관점에서 고민해볼 것.
+- 기본적으로 기존 코드 스타일과 일관성 있게 작성하는 것을 고려해야 하지만 그렇지 않다면 아래와 같은 보강 가능성을 고려할 것
+  - 어떤 API에 대한 타입 작성이라면 API 변경에 따라 사용자가 새로운 필드를 병합할 수 있도록 interface를 선택하는 것이 좋다.
+  - 반면 내부적으로만 사용되는 타입이라면 선언 병합을 피하기 위해 타입을 사용하는 것을 추천한다.
