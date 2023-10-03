@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rss version="2.0">
     <channel>
-        <title>권우석 | 백엔드 개발자 Blog</title>
+        <title>Woosuk Kwon Blog</title>
         <link>https://egg528.github.io/blog</link>
-        <description>권우석 | 백엔드 개발자 Blog</description>
-        <lastBuildDate>Mon, 02 Oct 2023 09:31:19 GMT</lastBuildDate>
+        <description>Woosuk Kwon Blog</description>
+        <lastBuildDate>Tue, 03 Oct 2023 16:47:30 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ko</language>
         <item>
             <title><![CDATA[블로그 시작 글]]></title>
             <link>https://egg528.github.io/blog/welcome</link>
-            <guid>welcome</guid>
-            <pubDate>Mon, 02 Oct 2023 09:31:19 GMT</pubDate>
+            <guid>https://egg528.github.io/blog/welcome</guid>
+            <pubDate>Tue, 03 Oct 2023 16:47:30 GMT</pubDate>
             <category>start</category>
         </item>
     </channel>
