@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: '권우석 | 백엔드 개발자',
+  title: 'Woosuk Kwon',
   tagline: '',
   url: 'https://egg528.github.io',
   baseUrl: '/',
@@ -41,13 +41,6 @@ const config = {
           editUrl:
             'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
         },
-        blog: {
-          showReadingTime: true,
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -58,23 +51,29 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        defaultMode: "dark",
+        disableSwitch: true,
+        respectPrefersColorScheme: false,
+      },
       navbar: {
         title: 'Home',
-        logo: {
-          alt: 'My Site Logo',
-          src: 'img/egg.png',
-        },
+        hideOnScroll: true,
         items: [
           {
-            type: 'doc',
-            docId: 'intro',
-            position: 'left',
-            label: 'TIL',
+            label: 'Docs',
+            type: 'dropdown',
+            position: 'right',
+            items: [{
+              type: 'doc',
+              docId: 'intro',
+              label: 'book',
+            }]
           },
           {
-            href: '/resume',
-            label: 'Resume',
-            position: 'left',
+            href: '/about',
+            label: 'About',
+            position: 'right',
           },
           {
             href: 'https://github.com/egg528',
@@ -87,21 +86,16 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Docs',
+            title: 'Site',
             items: [
               {
-                label: 'TIL',
+                label: 'Docs',
                 to: '/docs/intro',
               },
               {
-                label: 'Resume',
-                to: '/resume',
+                label: 'About',
+                to: '/about',
               },
-            ],
-          },
-          {
-            title: 'Community',
-            items: [
             ],
           },
           {
@@ -122,6 +116,18 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+  plugins:    [
+    async function tailwindPlugin(context, options) {
+      return {
+        name: "docusaurus-tailwindcss",
+        configurePostCss(postcssOptions) {
+          postcssOptions.plugins.push(require("tailwindcss"));
+          postcssOptions.plugins.push(require("autoprefixer"));
+          return postcssOptions;
+        },
+      };
+    },
+  ]
 };
 
 module.exports = config;

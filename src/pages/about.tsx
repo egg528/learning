@@ -1,7 +1,6 @@
 import React from 'react';
 import Layout from "@theme/Layout";
 import Navigator from "@site/src/components/resume/Navigator";
-import Introduce from "@site/src/components/resume/Introduce";
 import WorkExperience from "@site/src/components/resume/WorkExperience";
 import OtherExperience from "@site/src/components/resume/OtherExperience";
 import Skill from "@site/src/components/resume/Skill";
