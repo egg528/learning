@@ -7,6 +7,11 @@ import Layout from "@theme/Layout";
 
 import styles from "./styles.module.css";
 import SocialLinks from "@site/src/components/SocialLink";
+import Navigator from "@site/src/components/resume/Navigator";
+import WorkExperience from "@site/src/components/resume/WorkExperience";
+import OtherExperience from "@site/src/components/resume/OtherExperience";
+import Skill from "@site/src/components/resume/Skill";
+import Certificate from "@site/src/components/resume/Certificate";
 
 function Home() {
     const context = useDocusaurusContext();
@@ -40,21 +45,15 @@ function Home() {
                     </p>
                     <SocialLinks />
                     <p>
-                        <Link to={useBaseUrl("#main")}>
+                        <Link to={useBaseUrl("https://egg528.github.io/pdf/resume.pdf")}>
                             <button className="border-0 rounded p-2 pl-4 pr-0 bg-primary-900 hover:bg-primary-800 transition text-white text-lg cursor-pointer">
-                                whoami<span className="pl-1 animate-pulse">▎</span>
+                                who am i...<span className="pl-1 animate-pulse">▎</span>
                             </button>
                         </Link>
                     </p>
                 </div>
             </header>
             <main id="main" ref={mainRef} hidden={true}>
-                <div className={styles.aboutHeader}>
-                    <h2 className="border-0 border-b-4 border-solid border-success">Who am I</h2>
-                </div>
-                <div className={styles.about}>
-
-                </div>
                 <section className={styles.directory}>
                     <div className="container">
                         <h3>Continue exploring?</h3>

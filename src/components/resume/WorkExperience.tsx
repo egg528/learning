@@ -76,8 +76,8 @@ export default function WorkExperience(): JSX.Element {
                         <ul>
                             <li>각 Scheduler ThreadPool 분리, 기존 For문 병렬 처리(CompletableFeature 활용)</li>
                             <li>CPU 사용률 60%가 넘지 않는 수준에서 Thread 최적화</li>
-                            <li>알림톡 대상 설정 Secheduler 26 sec -> 6.9 sec (2000건 기준, Thread 4개 활용)</li>
-                            <li>알림톡 발송 Secheduler 150 sec -> 27 sec (2000건 기준, Thread 8개 활용)</li>
+                            <li>알림톡 대상 설정 Secheduler 26 sec - 6.9 sec (2000건 기준, Thread 4개 활용)</li>
+                            <li>알림톡 발송 Secheduler 150 sec - 27 sec (2000건 기준, Thread 8개 활용)</li>
                         </ul>
 
                         <h5>Tech Stack<span className="period-mark">.</span></h5>

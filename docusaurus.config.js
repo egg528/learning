@@ -31,15 +31,14 @@ const config = {
 
   presets: [
     [
-      'classic',
-      /** @type {import('@docusaurus/preset-classic').Options} */
+      '@docusaurus/preset-classic',
       ({
         docs: {
+          path: 'docs/lecture',
+          id: 'lecture',
+          routeBasePath: 'lecture',
           sidebarPath: require.resolve('./sidebars.js'),
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl:
-            'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
+          sidebarCollapsible: false,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -61,23 +60,35 @@ const config = {
         hideOnScroll: true,
         items: [
           {
-            label: 'Docs',
+            label: 'PARA Note',
             type: 'dropdown',
             position: 'right',
-            items: [{
-              type: 'doc',
-              docId: 'intro',
-              label: 'book',
-            }]
+            items: [
+              {
+                label: 'Project',
+                to: '/project/intro',
+                activeBasePath: '/project',
+              },
+              {
+                label: 'Area',
+                to: '/area/intro',
+                activeBasePath: '/area',
+              },
+              {
+                label: 'Resource',
+                to: '/resource/intro',
+                activeBasePath: '/resource',
+              },
+              {
+                label: 'Archive',
+                to: '/archive/intro',
+                activeBasePath: '/archive',
+              }
+            ]
           },
           {
-            href: '/about',
-            label: 'About',
-            position: 'right',
-          },
-          {
-            href: 'https://github.com/egg528',
-            label: 'GitHub',
+            href: 'https://egg528.github.io/pdf/resume.pdf',
+            label: 'Resume',
             position: 'right',
           },
         ],
@@ -116,18 +127,59 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
-  plugins:    [
-    async function tailwindPlugin(context, options) {
-      return {
-        name: "docusaurus-tailwindcss",
-        configurePostCss(postcssOptions) {
-          postcssOptions.plugins.push(require("tailwindcss"));
-          postcssOptions.plugins.push(require("autoprefixer"));
-          return postcssOptions;
+  plugins:
+      [
+        async function tailwindPlugin(context, options) {
+          return {
+            name: "docusaurus-tailwindcss",
+            configurePostCss(postcssOptions) {
+              postcssOptions.plugins.push(require("tailwindcss"));
+              postcssOptions.plugins.push(require("autoprefixer"));
+              return postcssOptions;
+            },
+          };
         },
-      };
-    },
-  ]
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'project',
+            path: 'docs/project',
+            routeBasePath: 'project',
+            sidebarPath: require.resolve('./sidebars.js'),
+            // ... other options
+          },
+        ],
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'area',
+            path: 'docs/area',
+            routeBasePath: 'area',
+            sidebarPath: require.resolve('./sidebars.js'),
+            // ... other options
+          },
+        ],
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'resource',
+            path: 'docs/resource',
+            routeBasePath: 'resource',
+            sidebarPath: require.resolve('./sidebars.js'),
+            // ... other options
+          },
+        ],
+        [
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'archive',
+            path: 'docs/archive',
+            routeBasePath: 'archive',
+            sidebarPath: require.resolve('./sidebars.js'),
+            // ... other options
+          },
+        ]
+      ]
 };
 
 module.exports = config;

@@ -2,7 +2,7 @@ import React from "react";
 
 const projects = [
     {
-        category: "Project",
+        category: "project",
         title: "temp",
         slug: "temp",
         subtitle:

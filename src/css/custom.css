@@ -7,6 +7,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+    font-family: 'Noto Sans KR', sans-serif;
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
+    unicode-range: U+AC00-D7A3;
+}
+
+@font-face {
+    font-family: 'Noto Sans', sans-serif;;
+    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+    unicode-range: U+26;
+}
+
 
 /* You can override the default Infima variables here. */
 :root {
@@ -17,11 +29,11 @@
     --ifm-color-primary-light: #10ad61;
     --ifm-color-primary-lighter: #11b565;
     --ifm-color-primary-lightest: #13cc72;
-    --ifm-color-secondary: #878787;
-    --ifm-color-secondary-dark: #616161;
+    --ifm-color-secondary: #ededed;
+    --ifm-color-secondary-dark: #ededed;
     --ifm-color-secondary-darker: #141414;
     --ifm-color-secondary-darkest: #0d0d0d;
-    --ifm-color-secondary-light: #adadad;
+    --ifm-color-secondary-light: #ededed;
     --ifm-color-secondary-lighter: #d4d4d4;
     --ifm-color-secondary-lightest: #ededed;
     --ifm-navbar-background-color: #141414;
@@ -31,6 +43,9 @@
     --ifm-color-danger: #db4437;
     --ifm-link-color: #0f9d58;
     --ifm-code-font-size: 95%;
+}
+body {
+    font-family: 'Noto Sans', sans-serif, 'Noto Sans KR', sans-serif;
 }
 
 .docusaurus-highlight-code-line {
@@ -149,7 +164,6 @@ p {
 .resume h5 {
     font-size: 1.3rem;
     margin: 0 0 0.5rem 0;
-    color: #333333;
 }
 
 .resume ul {
@@ -196,7 +210,7 @@ p {
 .resume .row {
     display: flex;
     padding: 3rem 0;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid;
 }
 
 .resume .row-left {
@@ -223,7 +237,7 @@ p {
 
 .resume .other {
     padding: 3rem 0;
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid;
 }
 
 .resume .role {
@@ -273,11 +287,11 @@ p {
 .resume .nav-menu li a {
     font-size: 1.5em;
     display: block;
-    color: #222222;
+    color: black;
 }
 
 .resume #introduce {
-    border-bottom: 1px solid #eeeeee;
+    border-bottom: 1px solid;
     padding-bottom: 40px;
 }
 
