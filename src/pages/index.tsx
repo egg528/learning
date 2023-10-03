@@ -59,15 +59,15 @@ function Home() {
                         <h3>Continue exploring?</h3>
                         <nav className="pagination-nav">
                             <div className="pagination-nav__item">
-                                <Link className="pagination-nav__link" to={useBaseUrl("blog/")}>
-                                    <div className="pagination-nav__sublabel">Read</div>
-                                    <div className="pagination-nav__label">My blog</div>
+                                <Link className="pagination-nav__link" to={"https://egg528.github.io/project/intro"}>
+                                    <div className="pagination-nav__sublabel">Refer to</div>
+                                    <div className="pagination-nav__label">현재 학습 중인 것들</div>
                                 </Link>
                             </div>
                             <div className="pagination-nav__item pagination-nav__item--next">
-                                <Link className="pagination-nav__link" to={useBaseUrl("docs/intro")}>
+                                <Link className="pagination-nav__link" to={useBaseUrl("https://egg528.github.io/resource/intro")}>
                                     <div className="pagination-nav__sublabel">Refer to</div>
-                                    <div className="pagination-nav__label">My docs</div>
+                                    <div className="pagination-nav__label">이전에 학습했던 것들</div>
                                 </Link>
                             </div>
                         </nav>

@@ -97,24 +97,40 @@ const config = {
         style: 'dark',
         links: [
           {
-            title: 'Site',
-            items: [
-              {
-                label: 'Docs',
-                to: '/docs/intro',
-              },
-              {
-                label: 'About',
-                to: '/about',
-              },
-            ],
-          },
-          {
-            title: 'More',
+            title: 'Contact',
             items: [
               {
                 label: 'GitHub',
                 href: 'https://github.com/egg528',
+              },
+              {
+                label: 'Linkedin',
+                href: 'https://www.linkedin.com/in/rnjsdntjr26',
+              },
+              {
+                label: 'Resume',
+                href: 'https://egg528.github.io/pdf/resume.pdf',
+              }
+            ],
+          },
+          {
+            title: 'PARA Note',
+            items: [
+              {
+                label: 'Project',
+                href: 'https://egg528.github.io/project/intro',
+              },
+              {
+                label: 'Area',
+                href: 'https://github.com/egg528/area/intro',
+              },
+              {
+                label: 'Resource',
+                href: 'https://github.com/egg528/resource/intro',
+              },
+              {
+                label: 'Archive',
+                href: 'https://github.com/egg528/archive/intro',
               },
             ],
           },
