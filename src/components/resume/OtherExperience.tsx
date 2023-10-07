@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function OtherExperience(): JSX.Element {
+function OtherExperience(): JSX.Element {
     return (
         <section id={'other-experience'}>
             <h2>Other Experiences<span className="period-mark">.</span></h2>
@@ -73,3 +73,5 @@ export default function OtherExperience(): JSX.Element {
         </section>
     );
 }
+
+export default OtherExperience

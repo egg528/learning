@@ -22,15 +22,15 @@ sidebar_position: 4
   - Client: 요청을 하는 객체  
   - Server: 요청을 처리하는 객체
 ### 직접 호출과 간접 호출
-![직접호출.png](img/%EC%A7%81%EC%A0%91%ED%98%B8%EC%B6%9C.png)
-![간접호출.png](img/%EA%B0%84%EC%A0%91%ED%98%B8%EC%B6%9C.png)
+![직접호출.png](img/직접호출.png)
+![간접호출.png](img/간접호출.png)
 - Client 객체가 서버를 직접 호출하고 직접 결과를 받으면 직접 호출
 - 대리자를 통해 요청을 하고 결과를 받으면 간접 호출
   - 이때 Client와 Server 사이에서 통신을 중재하는 대리자를 `Proxy`라 부름
 
 
 ### 프록시의 특징
-![서버프록시의존관계.png](img/%EC%84%9C%EB%B2%84%ED%94%84%EB%A1%9D%EC%8B%9C%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84.png)
+![서버프록시의존관계.png](img/서버프록시의존관계.png)
 - `대체 가능`
   - 클라이언트가 서버에 요청한 것인지 프록시에 요청한 것인지 몰라야 함
   - 즉, 서버와 같은 인터페이스를 사용하는 객체만이 프록시가 가능함.
@@ -50,7 +50,7 @@ sidebar_position: 4
     - 데코레이터 패턴: 부가 기능 추가가 목적
 
 ### 프록시 패턴 예제 (캐시 기능 추가)
-![프록시예제1.png](img/%ED%94%84%EB%A1%9D%EC%8B%9C%EC%98%88%EC%A0%9C1.png)
+![프록시예제1.png](img/프록시예제1.png)
 ```java
 // interface
 public interface Subject {
@@ -121,7 +121,7 @@ public class ProxyPatternClient {
 ### 데코레이터 패턴 예제
 - 프록시와 같은 방식으로 구현
 - 단, 목적이 부가 기능 추가임
-![데코예제1.png](img/%EB%8D%B0%EC%BD%94%EC%98%88%EC%A0%9C1.png)
+![데코예제1.png](img/데코예제1.png)
 - 데코레이터가 여럿 생겨 체인을 만드는 경우가 있다.
   - 이때 데코레이터 객체는 `항상 호출 대상을 가지고 있어아 한다`는 중복을 줄이기 위해
   - 데코레이터를 위한 추상 클래스를 만드는 것을 고려해볼 수 있다.
@@ -129,8 +129,8 @@ public class ProxyPatternClient {
 
 ### 인터페이스 기반 프록시 적용
 - 요구사항 중 `- 원본 코드를 수정하지 않아야 한다.`를 만족시키기 위해 프록시를 도입해보자.
-![프록시적용전의존관계.png](img/%ED%94%84%EB%A1%9D%EC%8B%9C%EC%A0%81%EC%9A%A9%EC%A0%84%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84.png)
-![프록시적용후의존관계.png](img/%ED%94%84%EB%A1%9D%EC%8B%9C%EC%A0%81%EC%9A%A9%ED%9B%84%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84.png)
+![프록시적용전의존관계.png](img/프록시적용전의존관계.png)
+![프록시적용후의존관계.png](img/프록시적용후의존관계.png)
 - Controller / Service / Repository 인터페이스를 구현한 프록시 객체를 만들고 사용한다.
   - 프록시 객체는 실제 구현 객체를 의존한다.
 
@@ -203,7 +203,7 @@ public class InterfaceProxyConfig {
   - 프록시는 실제 객체와 같은 인터페이스를 구현하는 방식을 사용했다.
   - 즉, 같은 interface를 구현하여 Client 코드에 실제 객체 대신에 주입될 수 있었음 (다형성)
 - 인터페이스가 없을 때는 상속을 통해 프록시 적용이 가능해진다.
-![프록시적용예시2.png](img/%ED%94%84%EB%A1%9D%EC%8B%9C%EC%A0%81%EC%9A%A9%EC%98%88%EC%8B%9C2.png)
+![프록시적용예시2.png](img/프록시적용예시2.png)
 - 실제 객체를 상속하여 구현된 객체는 
 - 다형성을 통해 실제 객체 대신 Client에 주입될 수 있다.
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Navigator(): JSX.Element {
+function Navigator(): JSX.Element {
     return (
         <nav>
             <div className="nav-wrapper">
@@ -15,3 +15,5 @@ export default function Navigator(): JSX.Element {
         </nav>
     );
 }
+
+export default Navigator

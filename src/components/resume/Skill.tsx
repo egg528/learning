@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Skill(): JSX.Element {
+function Skill(): JSX.Element {
     return (
         <section id={'skill'}>
             <h2>Skills<span className="period-mark">.</span></h2>
@@ -29,3 +29,5 @@ export default function Skill(): JSX.Element {
 
     );
 }
+
+export default Skill

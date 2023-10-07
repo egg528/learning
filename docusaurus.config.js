@@ -34,7 +34,7 @@ const config = {
       '@docusaurus/preset-classic',
       ({
         docs: {
-          path: 'docs/lecture',
+          path: 'docs/tech',
           id: 'lecture',
           routeBasePath: 'lecture',
           sidebarPath: require.resolve('./sidebars.js'),

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Introduce(): JSX.Element {
+function Introduce(): JSX.Element {
     return (
         <section id={'introduce'}>
             <h2>Introduce<span className="period-mark">.</span></h2>
@@ -10,3 +10,6 @@ export default function Introduce(): JSX.Element {
         </section>
     );
 }
+
+
+export default Introduce

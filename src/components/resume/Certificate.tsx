@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Certificate(): JSX.Element {
+function Certificate(): JSX.Element {
     return (
         <section id={'certificate'}>
             <h2>Certificate<span className="period-mark">.</span></h2>
@@ -32,3 +32,5 @@ export default function Certificate(): JSX.Element {
         </section>
     );
 }
+
+export default Certificate

@@ -7,11 +7,6 @@ import Layout from "@theme/Layout";
 
 import styles from "./styles.module.css";
 import SocialLinks from "@site/src/components/SocialLink";
-import Navigator from "@site/src/components/resume/Navigator";
-import WorkExperience from "@site/src/components/resume/WorkExperience";
-import OtherExperience from "@site/src/components/resume/OtherExperience";
-import Skill from "@site/src/components/resume/Skill";
-import Certificate from "@site/src/components/resume/Certificate";
 
 function Home() {
     const context = useDocusaurusContext();
