@@ -1,9 +1,9 @@
 ---
 title: 2주차 - 인수 테스트와 TDD
 sidebar_position: 2
+tag: [lecture, atdd]
 ---
 ## 강의 중 생각 정리
----
 
 ### Test 의도 명확히 드러내기
 #### 1. 중복 제거

@@ -1,6 +1,7 @@
 ---
 title: 07. 분산 시스템을 위한 유일 ID 생성기 설계
 sidebar_position: 7
+tag: [book, system design interview]
 ---
 ## 분산 시스템에서 사용할 ID 생성기 설계 시 고민해볼 조건들
 - ID의 특성: 유일성, 정렬 가능 등

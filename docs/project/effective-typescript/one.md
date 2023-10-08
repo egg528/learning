@@ -1,6 +1,7 @@
 ---
 title: 1장 타입스크립트 알아보기 (Item 1 ~ 5)
 sidebar_position: 1
+tag: [book, effective typescript]
 ---
 
 ## Item 1: 타입스크립트와 자바스크립트의 관계 이해하기

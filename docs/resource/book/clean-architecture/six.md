@@ -1,6 +1,7 @@
 ---
 title: 06. 영속성 어댑터 구현하기
 sidebar_position: 6
+tag: [book, clean architecture]
 ---
 ## 영속성 어댑터 구현하기
 

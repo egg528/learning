@@ -1,6 +1,7 @@
 ---
 title: 05. 안정 해시 설계
 sidebar_position: 5
+tag: [book, system design interview]
 ---
 ## 해시 키 재배치 문제
 - 분산 DB 노드가 추가되거나 삭제가 된다면? 서버 인덱스 값(해시 % 서버 수)이 달라진다.

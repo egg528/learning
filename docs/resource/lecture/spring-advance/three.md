@@ -1,6 +1,7 @@
 ---
 title: 3. 전략 패턴
 sidebar_position: 3
+tag: [lecture, spring advance]
 ---
 ## 템플릿 메서드 패턴의 문제
 - 상속의 문제를 고스란히 가진다.

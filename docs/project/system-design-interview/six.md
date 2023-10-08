@@ -1,6 +1,7 @@
 ---
 title: 06. key-value 저장소 설계
 sidebar_position: 6
+tag: [book, system design interview]
 ---
 ## 1. key-value 저장소란?
 - 고유의 식별자 key와 key에 매핑되는 value를 가지는 비 관계형 DB

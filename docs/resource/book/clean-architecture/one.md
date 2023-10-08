@@ -1,6 +1,7 @@
 ---
 title: 01. 계층형 아케텍처의 문제점
 sidebar_position: 1
+tag: [book, clean architecture]
 ---
 ## 계층형 아키텍처가 야기할 수 있는 문제점들
 

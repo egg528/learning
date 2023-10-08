@@ -1,6 +1,7 @@
 ---
 title: 1. 쓰레드 로컬 - ThreadLocal
 sidebar_position: 1
+tag: [lecture, spring advance]
 ---
 
 # 1. 필드 동기화

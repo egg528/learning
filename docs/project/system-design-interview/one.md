@@ -1,6 +1,7 @@
 ---
 title: 01. 사용자 수에 따른 규모 확장성
 sidebar_position: 1
+tag: [book, system design interview]
 ---
 ## 1. 서버의 확장
 ### 수직적 확장

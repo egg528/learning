@@ -1,6 +1,7 @@
 ---
 title: 4. 프록시 패턴
 sidebar_position: 4
+tag: [lecture, spring advance]
 ---
 ## 현재 문제점
 - 로그 추적기를 적용할 때, 코드 수정을 템플릿 메서드 패턴과 콜백 패턴을 활용

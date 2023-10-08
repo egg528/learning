@@ -1,6 +1,7 @@
 ---
 title: 2장 타입 스크립트의 타입 시스템  (Item 6 ~ 18)
 sidebar_position: 2
+tag: [book, effective typescript]
 ---
 
 ## Item 6: 편집기를 사용하여 타입 시스템 탐색하기

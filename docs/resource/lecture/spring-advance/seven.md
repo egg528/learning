@@ -1,6 +1,7 @@
 ---
 title: 7. 빈 후처리기
 sidebar_position: 7
+tag: [lecture, spring advance]
 ---
 ## 현재의 문제점...
 - 설정 파일(~Config)이 너무 많다..

@@ -1,6 +1,7 @@
 ---
 title: 04. 유스케이스 구현하기
 sidebar_position: 4
+tag: [book, clean architecture]
 ---
 ## 유스케이스 구현하기
 

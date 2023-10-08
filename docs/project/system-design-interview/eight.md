@@ -1,6 +1,7 @@
 ---
 title: 08. URL 단축기 설계
 sidebar_position: 8
+tag: [book, system design interview]
 ---
 ## 단축 URL이란?
 - 단축 URL이란 원본 URL을 짧게 줄인 것으로 단축 URL에 접근하면 원본 URL로 리디렉션(redirection)되는 구조이다.

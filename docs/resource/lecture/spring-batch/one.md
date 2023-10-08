@@ -1,6 +1,7 @@
 ---
 title: 1. Spring Batch 개념
 sidebar_position: 1
+tag: [lecture, spring batch]
 ---
 
 ## Spring Batch란?

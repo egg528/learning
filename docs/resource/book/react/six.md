@@ -1,6 +1,7 @@
 ---
 title: Context
 sidebar_position: 6
+tag: [book, react]
 ---
 ## Context란?
 지정한 Component를 시작으로 그 아래 모든 Component들에게 데이터를 공급하는 기능

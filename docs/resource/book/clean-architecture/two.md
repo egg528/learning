@@ -1,6 +1,7 @@
 ---
 title: 02. 의존성 역전하기
 sidebar_position: 2
+tag: [book, clean architecture]
 ---
 ## 의존성 역전하기
 

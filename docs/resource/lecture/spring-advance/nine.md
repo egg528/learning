@@ -1,6 +1,7 @@
 ---
 title: 9. AOP
 sidebar_position: 9
+tag: [lecture, spring advance]
 ---
 ## AOP 개념
 ![cross-cutting-concerns2.png](img/cross-cutting-concerns2.png)

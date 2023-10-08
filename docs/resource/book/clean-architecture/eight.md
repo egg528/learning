@@ -1,6 +1,7 @@
 ---
 title: 08. 경계 간 매핑하기
 sidebar_position: 8
+tag: [book, clean architecture]
 ---
 ## 경계 간 매핑하기
 - 매핑에 찬성하는 개발자

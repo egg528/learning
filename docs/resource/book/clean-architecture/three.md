@@ -1,6 +1,7 @@
 ---
 title: 03. 코드 구성하기
 sidebar_position: 3
+tag: [book, clean architecture]
 ---
 ## 코드 구성하기
 

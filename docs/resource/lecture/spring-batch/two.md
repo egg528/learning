@@ -1,6 +1,7 @@
 ---
 title: 2. Spring Batch 자세히 살펴보기
 sidebar_position: 2
+tag: [lecture, spring batch]
 ---
 ## JobParameterValidator
 - CLI Arguments를 통해 JobParameter를 넘길 수 있다.

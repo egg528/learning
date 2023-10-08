@@ -1,6 +1,7 @@
 ---
 title: 2. 다양한 연관관계 매핑
 sidebar_position: 2
+tag: [lecture, jpa]
 ---
 ## 연관관계 매핑시 고려사항
 

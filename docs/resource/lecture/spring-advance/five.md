@@ -1,6 +1,7 @@
 ---
 title: 5. 동적 프록시 기술
 sidebar_position: 5
+tag: [lecture, spring advance]
 ---
 ## 현재 문제점
 - 대상 클래스 수 만큼 로그 추적을 위한 프록시 클래스를 만들어야 함

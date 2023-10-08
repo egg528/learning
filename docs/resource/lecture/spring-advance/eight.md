@@ -1,6 +1,7 @@
 ---
 title: 8. @AspectAOP
 sidebar_position: 8
+tag: [lecture, spring advance]
 ---
 ## Spring @Aspect 애노테이션
 - 편리하게 Pointcut과 Advice로 구성된 Advisor를 생성해준다

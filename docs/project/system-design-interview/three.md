@@ -1,6 +1,7 @@
 ---
 title: 03. 시스템 설계 면접 공략법
 sidebar_position: 3
+tag: [book, system design interview]
 ---
 ## 1. 효과적인 면접을 위한 4단계 접근법
 ### 문제 이해 및 설계 범위 확정

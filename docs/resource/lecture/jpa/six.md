@@ -1,117 +1,120 @@
 ---
-title: 5. JPQL
+title: 6. JPQL 중급
 sidebar_position: 6
+tag: [lecture, jpa]
 ---
-## 기본 문법과 쿼리 API
-- "Select m from Member as m where m.age > 18"
-  - 위 쿼리를 예시로 설명하자면 엔티티와 속성(Member, m.age)은 대소문자를 구분한다.
-  - 나머지 키워드(Select, from, where)는 대소문자를 구분하지 않는다.
-  - 테이블 이름이 아닌 엔티티 이름을 사용한다. (@Entity(name="xxx"))
-  - 별칭은 필수이다.
-- TypeQuery
-  - 반환 타입이 명확할 때 사용
-  - 예시
-    - select m.username from Member m
-    - select m from Member m , Member.class()
-  - 임베디드 타입 조회시 타입 또한 임베디드 타입 class로
-  - Join문 사용시 명시할 타입에 대한 고민이 필요
-- Query
-  - 반환 타입이 명확하지 않을 때 사용
-  - 예시
-    - select m.username, m.age from Member m
-- 결과 조회
-  - Query.getResultList()
-    - 결과가 하나 이상일 때 리스트로 반환
-    - 결과가 없으면 빈 리스트 반환
-  - query.getSingleResult()
-    - 결과가 하나일 때 단일 객체 반환
-    - 결과가 없거나, 둘 이상일 때 예외 발생
+## 경로 표현식
+
+- "."을 찍어 객체 그래프를 탐색하는 것
+- Select m.username From Member m 식을 예시로 생각해보자.
+  - m.username처럼 Entity의 값을 나타내는 경우 => 상태 필드
+  - m.team처럼 객체 내 다른 Entity로 넘어간 경우 => 단일 값 연관 필드
+  - m.orders처럼(orders는 컬렉션이라 가정) 컬렉션 필드로 넘어간 경우 => 컬렉션 값 연관 필드
+  - 어떤 경로 표현식을 이용하는가에 따라 내부 동작이 달라진다!
+- 용어 정리
+  - 탐색 - 받아온 값의 내부 필드
+    - 예시 m.team.내부필드들이 나온다면 탐색 O
+  - 상태 필드 - 단순히 값을 저장하기 위한 필드
+    - 탐색을 따로 하지 않는다.
+  - 연관 필드 - 연관 관계를 위한 필드
+    - 단일 값 연관 필드 - @ManyToOne, @OneToOne 필드
+      - 묵시적 내부 조인이 발생하고, 탐색 O
+    - 컬렉션 값 연관 필드 - @OneToMany, @ManyToMany 필드
+      - 묵시적 내부 조인이 발생하지만 탐색은 X
+      - FROM 절에서 명시적 조인을 통해 별칭을 얻은 경우 별칭을 통해 탐색 가능
+- `묵시적 조인은 배제하는 방향으로 작성할 것!` (묵시적 조인 - 경로 표현식에 의해 자동적으로 적용된 JOIN)
+
+
+## 페치 조인(fetch join)
+
+- JPQL에서 성능 최적화를 위해 제공하는 기능
+- 연관된 Entity나 Collection을 SQL로 한 번에 함께 조회하는 기능
+- 예시
+  - select m from Member m join fetch m.team ==> select M.**, T.* * frrom Member M Inner Join Team T on M.Team_ID = T.ID
+- 문제점 1 (1:N일 경우)
+  - "Select t From Team t join fetch t.members" => getResultList 결과 같은 팀 값이 여럿 있을 수 있다.
+  - 만약 A팀에 선수가 2명 있다고 생각해보면 JOIN문을 사용한 결과에는 Team A에 대해 2개의 데이터가 생성될 것이다.
+  - 때문에 getResultList에 Team A 객체가 2개 들어가게 된다.
+  - 해결책, distinct M을 사용하면 JPA에서 같은 Team객체 중복을 없애준다. (식별자 기준)
+    - SQL distinct와는 다름. SQL이라면 위 쿼리에서는 모든 컬럼이 같아야 중복  제거
+- 페치 조인과 일반 조인의 차이
+  - 일반 조인 실행시 연관된 엔티티를 함께 조회하지 않음
+    - 일반 조인은 연관관계 고려하지 않는다. 위 예시의 경우 팀 엔티티만 조회하고 회원 엔티티는 조회하지 않는다는 뜻.
+    - 반면 페치 조인의 경우 팀, 멤버 모두 조회(즉시 로딩)
+  - 객체 그래프를 SQL 한번에 조회하는 개념
+
 
   
+## 페치 조인의 특징과 한계
 
-## 프로젝션
-- SELECT 절에 조회할 대상을 지정하는 것을 뜻한다.
-
-  - 엔티티, 임베디드 타입, 스칼라 타입이 가능하다.
-  - 엔티티 프로젝션의 경우 조회된 엔티티가 모두 영속성 컨텍스트에서 관리된다.
-
-- 여러 값 조회 "SELECT m.name, m.age FROM Member as m"
-
-  - Query 타입으로 조회 - 선택한 데이터들이 Object[]에 담겨서 반환된다.
-
-  - new 명령어로 조회
-
-    - 반환 값들을 필드로 가진 클래스를 만든다.
-
-    - ```java
-      List query1 = em.createQuery( "select new hellojpa.forJPQL.MemberDTO(m.username, m.age) from JP_Member as m where m.id = 1").getResultList();
-      ```
-
-    - MemberDTO를 원소로 가진 List를 반환하게 된다.
-
-
-
-## 페이징
-- setFirstResult - 시작값
-- setMaxResults - 가져올 데이터 개수
-- JPA의 페이징 기술을 이용하면 개발자는 추상적인 레벨에서 페이징을 고려할 수 있다.
-- 구체적인 쿼리는 DB에 맞춰서 자동으로 완성되고 그 수준 또한 사용할 수 있는 수준이다.
+- 페치 조인에는 별칭을 쓸 수 없다.
+  - 하이버네이트에서 가능은 하지만 가급적이면 사용하지 않는 게 좋다.
+  - 페치 조인할 엔티티에 별칭을 준다는 건 해당 엔티티에 대한 조건을 걸 목적이다.
+  - 하지만 1:N 관계에서 일부만 검색하여 엔티티를 사용하는 건 위험할 수 있다.
+    - 예를 들어 팀에 5명의 Member가 있는 상황에서 3명에 대한 정보가 필요하다면
+    - Member 3명을 조회하는 것이 올바른 방향이다.
+  - 단, 위험한 상황을 잘 통제하고 사용하면 유용한 경우도 있다.
+  - 김영한님의 경우 fetch join을 여러 단계로 가져가야할 때는 별칭을 사용하신다.
+- 둘 이상의 컬렉션은 페치 조인 할 수 없다.
+  - 데이터의 양이 예상치 못하게 늘어날 수 있다...
+- 컬렉션을 페치 조인하면 페이징 API를 사용할 수 없다.
+  - 1:1, N:1같은 단일 값 연고나 필드들은 패치 조인해도 페이징이 가능하다.
+  - 이외의 경우 모든 건을 조회한 후 페이징이 진행된다.... 성능이...
+  - 경고 로그를 확인할 것.
+  - 1:N 상황에서 페치 조인 + 페이징 결과를 얻고 싶다면...
+    - BatchSize 활하면 N에 해당하는 엔티티를 한번에 몇 개씩 가져올지 정할 수 있다 => Lazy방식의 fetch에서 생기는 쿼리 수 증가 단점을 해소할 수 있다.
+    - 예를들어, BatchSize = 10 => 상위 엔티티 10개에 해당하는 하위 엔티티 조회 (SQL IN 절 활용)
+- 결론
+  - 페치 조인은 객체 그래프를 유지할 때 사용하면 효과적이다.
+    - 즉, JOIN한 Entity들도 Entity로 활용해야 하는 경우들..!
+  - 여러 테이블을 JOIN해서 엔티티와 다른 모양의 결과를 원한다면 일반 JOIN을 사용하고 필요한 데이터들만 조회하여 DTO로 반환하는 것이 효과적
+    - 1. Entity를 그대로 사용한다.
+    - 2. Entity를 받아와 APP에서 DTO로 변환해 반환한다.
+    - 3. DTO에 해당하는 데이터만 조회하여 반환한다.
 
 
 
+## 다형성 쿼리
+
+- TYPE
+  - 조회 대상을 특정 자식으로 한정한다.
+  - type(i) IN (Book, Movie) => where i.DTYPE in ('B', 'M')
+- TREAT
+  - 자바의 타입 캐스팅과 유사하다.
+  - 상속 구조에서 부모 타입을 특정 자식 타입으로 다룰 때 사용이 가능하다.
+  - FROM, WHERE, SELECT절에서 사용 가능
 
 
-## 조인
-- 내부 조인
-  - [INNER] JOIN
-- 외부 조인
-  - LEFT [OUTER] JOIN
-- 세타 조인
-  - 두 엔티티 ","로 나열 - Member m, Team t where m.username = t.name
-- ON절을 활용한 조인
-  - 조인 대상 필터링
-  - 연관관계 없는 엔티티 외부 조인이 가능하다. (연관관계가 없는 엔티티끼리도 가능)
+
+## 엔티티 직접 사용
+
+- 기본 키 값
+  - JPQL에서 엔티티를 직접 사용하면 SQL에서 해당 엔티티의 기본 키 값을 사용한다.
+- 외래 키 값
+  - 참조 엔티티의 기본 키 값을 사용하게 된다.
 
 
-## 서브 쿼리
-- JPA라기 보다는 SQL자체적으로 상위 쿼리의 테이블을 서브 쿼리로 들고오면 성능이 잘 안나온다.
-  - Select m from Member m where m.age > (select avg(m2.age) from Member m2)
-- [MOT] EXISTS (subquery): 서브쿼리에 결과가 존재하면 참
-- {ALL | ANY | SOME} (subquery)
-- ALL - 모두 만족하면 참
-- ANY, SOME - 같은 의미, 조건을 하나라도 만족하면 참
-- [NOT] IN (subquery) - 서브쿼리의 결과 중 하나라도 같은 것이 있으면 참
-- JPA는 WHERE, HAVING 절에서만 / Hibernate는 SELECT 절도 가능
-- 단, FROM 절의 서브 쿼리는 불가능 / 조인으로 푸는 것이 최선
+
+## Named 쿼리
+
+- @NamedQuery로 쿼리에 이름을 부여하고 createNamedQuery메서드로 사용할 수 있음.
+- 정적인 쿼리만 가능하다.
+- 애플리케이션 로딩 시점에 초기화 후 재사용한다.
+  - 즉, 로딩 시점에 JPQL => SQL로 변환되어 캐싱되기 때문에 사용할 때 변환에 드는 비용이 줄어든다.
+- 애플리케이션 로딩 시점에 쿼리를 검증한다.
+- XML로 정의 가능, 우선권 가진다.
 
 
-## JPQL 타입 표현과 기타식
-- 문자 - '문자'
-- 숫자 - 10L(Long), 10D(Double), 10F(Float)
-- Boolean - TRUE, FALSE
-- ENUM - jpabook.MemberType.ADMIN(패키지명까지 모두 적어야 한다.)
-- Entity Type - TYPE(m) = Member
+## 벌크 연산
 
-
-## 조건식
-- 기본 CASE 식 - 조건
-  - select case when m.age <= 10 then 'YOUNG' else 'OLD' end from Member m
-- 단순 CASE 식
-  - select case m.name when  '우석' then '나' else '남' end from Member m
-- COALESCE - 하나씩 조회해서 null이 아니면 반환
-- NULLIF - 두 값이 같으면 null 반환, 다르면 첫번째 값 반환
-
-
-## JPQL 기본 함수와
-- 기본 함수는 DB종류에 상관없이 사용 가능
-  - CONCAT
-  - SUBSTRING
-  - TRIM
-  - LOWER
-  - UPPER
-  - LENGTH
-  - LOCATE
-  - ABS, SQRT, MOD
-  - SIZE, INDEX(JPA 용)
-- 사용자 정의 함수
-  - 사용하는 DB방언을 상속받고, 사용자 정의 함수를 등록해야 한다.
+- 예를 들어 재고가 10개 미만인 모든 상품의 가격을 10% 상승시키려면?
+  - JPA 변경 감지 기능으로 실행하려면 너무 많은 SQL을 실행해야 한다.
+    - 재고 10개 미만인 상품 리스트 조회
+    - 가격 올리고
+    - Commit => 변경 감지 (변경 데이터가 100건일 경우 100번의 UPDATE SQL 실행)
+- 벌크 연산은 쿼리 한 번으로 여러 테이블 로우를 변경할 수 있게 한다.
+  - .excuteUpdate() 활 => 결과는 영향 받은 엔티티 수 반환
+  - UPDATE, DELETE 지원 / INSERT (하이버네이트 지원)
+- 영속성 컨텍스트를 무시하고 DB에 직접 쿼리 날린다. APP/영속성 컨테이너와 DB의 상태가 달라지기에 아래와 같이 사용해야 함.
+  - 벌크 연산을 먼저 실행
+  - 수행 후 영속성 컨텍스트 초기화 (em.clear)스

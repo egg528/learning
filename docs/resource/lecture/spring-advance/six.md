@@ -1,6 +1,7 @@
 ---
 title: 6. 스프링이 지원하는 프록시
 sidebar_position: 6
+tag: [lecture, spring advance]
 ---
 ## 동적 프록시의 문제점
 - 인터페이스일 경우 JDK, 구체 클래스일 경우 CGLIB을 사용하기 위해서는 각각의 Interface를 구현한 프록시 객체가 필요했다.

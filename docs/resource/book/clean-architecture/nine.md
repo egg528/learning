@@ -1,6 +1,7 @@
 ---
 title: 09. 애플리케이션 조립하기
 sidebar_position: 9
+tag: [book, clean architecture]
 ---
 ## 애플리케이션 조립하기
 ![configuration-component.jpg](img/configuration-component.jpg)

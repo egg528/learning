@@ -1,6 +1,7 @@
 ---
 title: 10. AOP Pointcut
 sidebar_position: 10
+tag: [lecture, spring advance]
 ---
 ## Pointcut 지시자 (= AspectJ가 제공하는 포인트컷 표현식)
 

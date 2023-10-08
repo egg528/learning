@@ -1,6 +1,7 @@
 ---
 title: 11. AOP 실무 주의사항
 sidebar_position: 11
+tag: [lecture, spring advance]
 ---
 ## (1) 프록시 내부 호출 문제
 - Spring은 프록시 방식의 AOP를 사용한다.

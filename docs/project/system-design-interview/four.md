@@ -1,6 +1,7 @@
 ---
 title: 04. 처리율 제한 장치의 설계
 sidebar_position: 4
+tag: [book, system design interview]
 ---
 ## 1. 처리율 제한 장치의 설계
 - 클라이언트 또는 서비스가 보내는 트래픽 처리율을 제어하기 위한 장치

@@ -1,89 +1,118 @@
 ---
-title: 4. 프록시와 연관관계 관리
+title: 5. JPQL
 sidebar_position: 5
+tag: [lecture, jpa]
 ---
-## 문제 상황
-
-- Member - Team 관계를 생각해보자
-  - Member 엔티티 필드로 Team을 가진 상황
-  - 하지만 비즈니스 케이스 별로 Team이 정보가 필요한 경우도 있고 필요하지 않은 경우도 있다면?
-  - Team 정보가 필요하지 않다면 불필요하게 Join을 하는 상황이 된다.
+## 기본 문법과 쿼리 API
+- "Select m from Member as m where m.age > 18"
+  - 위 쿼리를 예시로 설명하자면 엔티티와 속성(Member, m.age)은 대소문자를 구분한다.
+  - 나머지 키워드(Select, from, where)는 대소문자를 구분하지 않는다.
+  - 테이블 이름이 아닌 엔티티 이름을 사용한다. (@Entity(name="xxx"))
+  - 별칭은 필수이다.
+- TypeQuery
+  - 반환 타입이 명확할 때 사용
+  - 예시
+    - select m.username from Member m
+    - select m from Member m , Member.class()
+  - 임베디드 타입 조회시 타입 또한 임베디드 타입 class로
+  - Join문 사용시 명시할 타입에 대한 고민이 필요
+- Query
+  - 반환 타입이 명확하지 않을 때 사용
+  - 예시
+    - select m.username, m.age from Member m
+- 결과 조회
+  - Query.getResultList()
+    - 결과가 하나 이상일 때 리스트로 반환
+    - 결과가 없으면 빈 리스트 반환
+  - query.getSingleResult()
+    - 결과가 하나일 때 단일 객체 반환
+    - 결과가 없거나, 둘 이상일 때 예외 발생
 
   
-## 프록시란?
 
-- em.find() - 실제 엔티티 객체 조회
-- em.getReference() - 데이터베이 스 조회를 미루는 가짜 엔티티 객체 조회
-  - 하이버네이트가 Proxy객체를 반환한다.
-  - 프록시 객체는 실제 객체의 참조(Target)을 보관한다.
-  - 프록시 객체를 호출하면 프록시 객체가 실제 객체를 호출하게 된다.
-  - 동작 순서
-    - em.getReference() -> Proxy 객체 생성
-    - Proxy 객체 메서드(getName) 호출
-    - 영속성 컨텍스트에 초기화 요청 -> DB 조회 -> 실제 Entity 생성 (첫 생성 후에는 생성한 엔티티 이용)
-    - Proxy 객체의 target을 통해 실제 엔티티 메서드 호출
-- 프록시 특징
-  - 실제 엔티티 초기화는 한 번만
-  - 프록시가 실제 엔티티에 접근하는 것이지 바뀌는 게 아님
-  - 실제 엔티티를 상속하기에 타입 체크시 주의 (== 안됨)
-  - 영속성 컨텍스트에 엔티티가 있다면 Proxy 객체가 아닌 실제 엔티티가 반환됨
-    - 영속성 컨텍스트를 통해 같은 PK 엔티티를 가져오면 항상 == 비교가 True로 나와야 함
-    - Find 메서드 후 Reference 메서드 사용시 둘 다 Entity 반환
-    - Reference 메서드 후 Find 사용시 둘 다 Proxy 반환
-  - 프록시 객체가 준영속 상태일 때, 엔티티 초기화 불가능하다.
-    - 프록시 인스턴스의 초기화 여부 확인
-      - PersistenceUnitUtil.isLoaded(Object entity)
-    - 프록시 강제 초기화
-      - Org.hibernate.Hibernate.initialize(entity)
+## 프로젝션
+- SELECT 절에 조회할 대상을 지정하는 것을 뜻한다.
+
+  - 엔티티, 임베디드 타입, 스칼라 타입이 가능하다.
+  - 엔티티 프로젝션의 경우 조회된 엔티티가 모두 영속성 컨텍스트에서 관리된다.
+
+- 여러 값 조회 "SELECT m.name, m.age FROM Member as m"
+
+  - Query 타입으로 조회 - 선택한 데이터들이 Object[]에 담겨서 반환된다.
+
+  - new 명령어로 조회
+
+    - 반환 값들을 필드로 가진 클래스를 만든다.
+
+    - ```java
+      List query1 = em.createQuery( "select new hellojpa.forJPQL.MemberDTO(m.username, m.age) from JP_Member as m where m.id = 1").getResultList();
+      ```
+
+    - MemberDTO를 원소로 가진 List를 반환하게 된다.
 
 
 
-## 지연 로딩
-
-- Member - Team 문제로 돌아와서
-- Member 엔티티의 Team 필드의 ManyToOne 어노테이션에 fetch=FetchType.LAZY 설정
-  - 엔티티 조회시 Team 객체를 초기화 되지 않은 프록시 객체로 둔다.
-  - 이후 Team을 조회할 때 Join문을 사용해 프록시 객체를 초기화 한다.
-
-
-## 즉시 로딩
-
-- EAGER 어노테이션 사용 시 Member를 조회할 때 Team 엔티티도 함께 조회. (Join문)
-
-
-## 권장 사항
-
-- 실무에서는 즉시 로딩을 사용하지 말 것...
-  - 즉시 로딩을 적용하면 전혀 예상하지 못한 SQL 발생
-  - JPQL에서 N+1 문제
-- @ManyToOne, @OneToOne => 기본이 즉시 로딩
-- @OneToMany, @ManyToMany => 기본이 지연 로딩
+## 페이징
+- setFirstResult - 시작값
+- setMaxResults - 가져올 데이터 개수
+- JPA의 페이징 기술을 이용하면 개발자는 추상적인 레벨에서 페이징을 고려할 수 있다.
+- 구체적인 쿼리는 DB에 맞춰서 자동으로 완성되고 그 수준 또한 사용할 수 있는 수준이다.
 
 
 
-# 영속성 전이: CASCADE
-
-- 특정 Entity를 영속 상태로 만들 때, 연관된 Entity도 함께 영속 상태로 만들고 싶다면 사용
-- 연관관계와는 전혀 상관이 없음
-- CASCADE
-  - ALL: 모두 적용
-  - PERSIST: 영속에만 적용
-  - REMOVE: 삭제에만 적용
-
-- 단, 하위 테이블 데이터를 관리하는 곳이 여러 곳일 경우에는 사용하면 안 된다.
-  - 예, Parent - Child에서 Child를 다른 테이블에서도 관리한다면 사용 X
 
 
-# 고아 객체
+## 조인
+- 내부 조인
+  - [INNER] JOIN
+- 외부 조인
+  - LEFT [OUTER] JOIN
+- 세타 조인
+  - 두 엔티티 ","로 나열 - Member m, Team t where m.username = t.name
+- ON절을 활용한 조인
+  - 조인 대상 필터링
+  - 연관관계 없는 엔티티 외부 조인이 가능하다. (연관관계가 없는 엔티티끼리도 가능)
 
-- 부모 엔티티와 연관관계가 끊어진 자식 엔티티를 자동으로 삭제
-- orphanRemoval = true
-- 참조하는 곳이 하나일 때 사용.
-- @OneToOne, @OneToMany만 사용 가능
-- CASCADE REMOVE처럼 동작한다.
+
+## 서브 쿼리
+- JPA라기 보다는 SQL자체적으로 상위 쿼리의 테이블을 서브 쿼리로 들고오면 성능이 잘 안나온다.
+  - Select m from Member m where m.age > (select avg(m2.age) from Member m2)
+- [MOT] EXISTS (subquery): 서브쿼리에 결과가 존재하면 참
+- {ALL | ANY | SOME} (subquery)
+- ALL - 모두 만족하면 참
+- ANY, SOME - 같은 의미, 조건을 하나라도 만족하면 참
+- [NOT] IN (subquery) - 서브쿼리의 결과 중 하나라도 같은 것이 있으면 참
+- JPA는 WHERE, HAVING 절에서만 / Hibernate는 SELECT 절도 가능
+- 단, FROM 절의 서브 쿼리는 불가능 / 조인으로 푸는 것이 최선
 
 
-# 영속성 전이 + 고아 객체, 생명 주기
+## JPQL 타입 표현과 기타식
+- 문자 - '문자'
+- 숫자 - 10L(Long), 10D(Double), 10F(Float)
+- Boolean - TRUE, FALSE
+- ENUM - jpabook.MemberType.ADMIN(패키지명까지 모두 적어야 한다.)
+- Entity Type - TYPE(m) = Member
 
-- CASCADE:ALL + orphanRemovel = true
-- 두 옵션의 활성화를 통해 부모 엔티티로 자식의 생명 주기를 관련할 수 있음
+
+## 조건식
+- 기본 CASE 식 - 조건
+  - select case when m.age <= 10 then 'YOUNG' else 'OLD' end from Member m
+- 단순 CASE 식
+  - select case m.name when  '우석' then '나' else '남' end from Member m
+- COALESCE - 하나씩 조회해서 null이 아니면 반환
+- NULLIF - 두 값이 같으면 null 반환, 다르면 첫번째 값 반환
+
+
+## JPQL 기본 함수와
+- 기본 함수는 DB종류에 상관없이 사용 가능
+  - CONCAT
+  - SUBSTRING
+  - TRIM
+  - LOWER
+  - UPPER
+  - LENGTH
+  - LOCATE
+  - ABS, SQRT, MOD
+  - SIZE, INDEX(JPA 용)
+- 사용자 정의 함수
+  - 사용하는 DB방언을 상속받고, 사용자 정의 함수를 등록해야 한다.

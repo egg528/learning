@@ -1,6 +1,7 @@
 ---
 title: 11. 의식적으로 지름길 사용하기
 sidebar_position: 11
+tag: [book, clean architecture]
 ---
 ## 의식적으로 지름길 사용하기
 - 잠재적인 지름길의 인식을 높이고 그 영향을 생각해보자

@@ -1,6 +1,7 @@
 ---
 title: 3. Spring Batch 병렬 처리
 sidebar_position: 3
+tag: [lecture, spring batch]
 ---
 
 ## Spring Batch 병렬 처리 종류

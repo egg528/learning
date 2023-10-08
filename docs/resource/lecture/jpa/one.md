@@ -1,6 +1,7 @@
 ---
 title: 1. 연관관계 매핑 기초
 sidebar_position: 1
+tag: [lecture, jpa]
 ---
 ## 양방향 연관관계
 

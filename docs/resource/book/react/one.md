@@ -1,6 +1,7 @@
 ---
 title: JS 기초
 sidebar_position: 1
+tag: [book, react]
 ---
 
 ## 변수

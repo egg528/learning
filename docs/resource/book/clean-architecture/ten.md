@@ -1,6 +1,7 @@
 ---
 title: 10. 아키텍처 경계 강제하기
 sidebar_position: 10
+tag: [book, clean architecture]
 ---
 ## 아키텍처 경계 강제하기
 - 경계를 강제한다는 건 의존성은 항상 안쪽 방향을 향한다는 걸 강제하는 것을 뜻한다.

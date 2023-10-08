@@ -1,6 +1,7 @@
 ---
 title: 05. 웹 어댑터 구현하기
 sidebar_position: 5
+tag: [book, clean architecture]
 ---
 ## 웹 어댑터 구현하기
 

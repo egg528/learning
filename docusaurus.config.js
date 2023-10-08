@@ -34,9 +34,9 @@ const config = {
       '@docusaurus/preset-classic',
       ({
         docs: {
-          path: 'docs/tech',
-          id: 'lecture',
-          routeBasePath: 'lecture',
+          id: 'project',
+          path: 'docs/project',
+          routeBasePath: 'project',
           sidebarPath: require.resolve('./sidebars.js'),
           sidebarCollapsible: false,
         },
@@ -155,16 +155,6 @@ const config = {
             },
           };
         },
-        [
-          '@docusaurus/plugin-content-docs',
-          {
-            id: 'project',
-            path: 'docs/project',
-            routeBasePath: 'project',
-            sidebarPath: require.resolve('./sidebars.js'),
-            // ... other options
-          },
-        ],
         [
           '@docusaurus/plugin-content-docs',
           {

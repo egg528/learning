@@ -1,6 +1,7 @@
 ---
 title: 3. 고급관계 매핑
 sidebar_position: 3
+tag: [lecture, jpa]
 ---
 ## 상속관계 매핑
 

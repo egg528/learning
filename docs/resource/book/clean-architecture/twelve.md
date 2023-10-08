@@ -1,6 +1,7 @@
 ---
 title: 12. 아키텍처 스타일 결정하기
 sidebar_position: 12
+tag: [book, clean architecture]
 ---
 ## 아키텍처 스타일 결정하기
 - 책에서 설명한 아키텍처의 핵심은 외부 의존성의 변화로부터 자유롭게 도메인 코드를 개발할 수 있다는 점이다
