@@ -1,5 +1,5 @@
 ---
-title: Project
+title: ➡️ Project
 sidebar_position: 1
 ---
 - 이곳은 Project 영역입니다.

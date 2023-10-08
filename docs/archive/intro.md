@@ -1,5 +1,5 @@
 ---
-title: Archive
+title: ➡️ Archive
 sidebar_position: 1
 ---
 - 이곳은 Archive 영역입니다.
