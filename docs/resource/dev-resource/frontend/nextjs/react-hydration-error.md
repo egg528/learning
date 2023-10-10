@@ -11,7 +11,7 @@ tag: [frontend, next.js, react hydration error]
   - 때문에 오류가 발생할 때 `hydration failed` 문구가 나옴
 
 ### 공식 문서에서는 6가지 정도의 원인을 제시한다.
-1. 부적절한 HTML tag 중복 (<p> 내에 또 다른 <p> 존재, <p> 내부에 <div> 존재, Interactive Content의 중첩)
+1. 부적절한 HTML tag 중복 (p tag 내에 또 다른 p tag 존재, p tag 내부에 div tag 존재, Interactive Content의 중첩)
 2. rendering 로직에 `typeof window !== 'undefined'`이 포함된 경우
 3. `window` 또는 `localStorage`와 같은 browser-only API가 로직에 포함된 경우
 4. [Browser extensions가 HTML을 변경하는 경우](https://github.com/facebook/react/issues/24430)
