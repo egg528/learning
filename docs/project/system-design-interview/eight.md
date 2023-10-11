@@ -3,7 +3,7 @@ title: 08. URL 단축기 설계
 sidebar_position: 8
 tag: [book, system design interview]
 ---
-## 단축 URL이란?
+## 1. 단축 URL이란?
 - 단축 URL이란 원본 URL을 짧게 줄인 것으로 단축 URL에 접근하면 원본 URL로 리디렉션(redirection)되는 구조이다.
 - 설계 시 고려사항
   - 트래픽 규모는 얼마나 되는가?
@@ -11,13 +11,13 @@ tag: [book, system design interview]
   - 사용될 문자에 제한이 있는가?
   - 단축 URL을 시스템에서 삭제/갱신할 수 있는가?
 
-## 개략적 설계
-### 1. API 엔드 포인트
+## 2. 개략적 설계
+### (1) API 엔드 포인트
 - 단축 URL 서비스를 위해서 2가지 API 엔드 포인트가 필요하다.
   1. URL 단축용 엔드 포인트 (인자: 원본 URL, 반환: 단축 URL)
   2. URL 리디렉션용 엔드 포인트 (반환: 원본 URL)
 
-### 2. URL 리디렉션
+### (2) URL 리디렉션
 - 단축 URL을 브라우저에 입력하면 아래와 같은 일들이 일어난다.
   1. Status Code 301, 302 반환.
   2. location header값으로 원본 url이 적용됨.
