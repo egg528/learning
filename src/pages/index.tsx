@@ -36,7 +36,7 @@ function Home() {
                     <p>
                         I am a <span className="text-warning">Software Engineer</span>{" "}
                         passionate about
-                        solving meaningful <span className="text-danger">problems</span>.
+                        define and solving <span className="text-danger">problems</span>.
                     </p>
                     <SocialLinks />
                     <p>
