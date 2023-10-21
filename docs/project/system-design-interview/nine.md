@@ -16,7 +16,7 @@ tag: [book, system design interview]
 - 중복된 컨텐츠 처리 여부 등...
 - 규모 확장성, 안정성, 수집 대상 웹 페이지 요청 수, 수집 콘텐츠의 확장성 등등...
 
-## 3. 웹 크롤러 개략적인 설계도
+계
 ![web_crawler.jpg](img/web_crawler.jpg)
 ### (1) 시작 URL 집합
 - 웹 크롤러가 크롤링을 시작하는 출발점들의 집합
