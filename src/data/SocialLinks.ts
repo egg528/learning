@@ -5,7 +5,7 @@ const socialLinks = [
     {
         faIcon: faLinkedin,
         alt: "Linkedin",
-        url: "www.linkedin.com/in/rnjsdntjr26",
+        url: "https://www.linkedin.com/in/rnjsdntjr26",
     },
     {
         faIcon: faGithub,
