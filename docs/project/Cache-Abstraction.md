@@ -4,6 +4,7 @@ tag: [backend, spring, cache]
 ---
 ## 영상 링크
 - [Cache Abstraction Docs](https://docs.spring.io/spring-framework/reference/integration/cache.html)
+- [SpEL](https://docs.spring.io/spring-framework/reference/core/expressions.html)
 
 ## 내용 정리
 - Spring Framework는 3.1 version부터 지원을 시작, 4.1 버전에서 크게 확장되었음
@@ -28,7 +29,7 @@ tag: [backend, spring, cache]
 - 단, 캐시 서비스는 구현이 아니라 추상이기 때문에 데이터 저장을 위한 실제 저장소를 사용해야 한다.
 - Spring에서 몇 가제 구현을 제공하기도 함 (ConcurrentMap 기반 캐시, Gemfire, Caffeine 등)
 - 또한 Cache Abstraction은 멀티 스레드 및 멀티 프로세스 처리가 따로 없어 이러한 기능은 캐시 구현에 의해 처리된다.
-- 잠금이 적용되지 않으며 여러 스레드가 동일한 항목에 읽기/쓰기 작업을 위해 동시에 접근할 수 있다.
+- lock이 적용되지 않으며 여러 스레드가 동일한 항목에 읽기/쓰기 작업을 위해 동시에 접근할 수 있다.
 - Cache Abstraction을 사용하기 위해서 2가지 관점을 고려해야 한다.
   - Caching declaration: 캐싱이 필요한 메서드와 정책을 확인해야 한다.
   - Cache configuration: 캐시 컨텐츠가 저장되고 읽기 위해 접근해야할 곳.
@@ -45,3 +46,105 @@ tag: [backend, spring, cache]
 - `@CachePut`: method 실행 없이 cache updates를 수행한다
 - `@Caching`: 메서드에 여러 캐시 전략을 적용할 때 사용한다.
 - `@CacheConfig`: class-level에서 cache관련 세팅을 적용한다.
+
+#### @Cacheable
+```java
+// 단일 Cache 적용
+@Cacheable("books")
+public Book findBook(ISBN isbn) {...}
+
+// 다중 Cache 적용
+@Cacheable({"books", "isbns"})
+public Book findBook(ISBN isbn) {...}
+```
+- @Cacheable 어노테이션이 적용된 메서드는 결과값이 Caching되고 이후 같은 요청은 메서드 실행이 아닌 Cache 콘텐츠를 반환하게 된다.
+- 즉, 콘텐츠 저장 및 조회 역할이라 이해하면 된다.
+- 위 예시처럼 단일/다중 Cache 적용이 가능하고 다중일 경우 순차적으로 저장/조회를 수행한다.
+
+##### Default Key Generation
+- Cache는 key-value 저장소이기 때문에 결과에 매핑될 수 있는 Key값이 필요하다.
+- Caching Abstraction은 아래 알고리즘을 기반으로 한 KeyGenerator를 활용해 Key를 생성한다.
+  1. parameter가 없으면 SimpleKey.Empty를 반환
+  2. 1개의 parameter가 주어지면 instance를 반환
+  3. 2개 이상의 parameter가 주어지면 모든 parameter를 가지고 있는 SimpleKey를 반환한다.
+- 위 전략은 parameter 중 하나가 natural key이고 유효한 hashCode(), equals() 메서드를 가진 경우 정상 동작한다. 
+  - Spring 4.0부터 equals() 메서드도 활용하기 시작
+- 하지만 그렇지 않다면 방식을 바꿔야 한다.
+
+##### Custom Key Generation Declaration (key value)
+```java
+@Cacheable("books")
+public Book findBook(ISBN isbn, boolean checkWarehouse, boolean includeUsed)
+```
+- 다중 parameter 중 일부만 Cache Key에 적합하다면 몇몇 parameter를 Cache Key로 특정할 수 있다.
+- 위 예시처럼 2, 3번째 parameter는 boolean으로 Key에는 적합하지 않다.
+
+```java
+@Cacheable(cacheNames="books", key="#isbn")
+public Book findBook(ISBN isbn, boolean checkWarehouse, boolean includeUsed)
+
+@Cacheable(cacheNames="books", key="#isbn.rawNumber")
+public Book findBook(ISBN isbn, boolean checkWarehouse, boolean includeUsed)
+
+@Cacheable(cacheNames="books", key="T(someType).hash(#isbn)")
+public Book findBook(ISBN isbn, boolean checkWarehouse, boolean includeUsed)
+```
+- 이런 상황에서 위 코드처럼 `key` value를 통해 Key 생성 방식을 지정할 수 있다.
+- [SpEL](https://docs.spring.io/spring-framework/reference/core/expressions.html)을 사용하여 원하는 Key를 생성할 수 있다.
+
+```java
+@Cacheable(cacheNames="books", keyGenerator="myKeyGenerator")
+public Book findBook(ISBN isbn, boolean checkWarehouse, boolean includeUsed)
+```
+- Key 생성 방식이 복잡하거나 공유될 필요가 있을 경우 KeyGenerator를 정의하고 `keyGenerator` value를 통해 지정할 수 있다.
+- `key`와 `keyGenerator`는 동시에 사용할 수 없다.
+
+
+
+##### Default Cache Resolution
+- Cache Abstraction은 구성된 CacheManager를 사용하여 정의된 Cache를 검색하는 간단한 CacheResolver를 사용한다. (매 요청마다 사용됨)
+- Custom Cache Resolver를 사용하려면 `org.springframework.cache.interceptor.CacheResolver` 구현체를 만들면 된다.
+
+```java
+@Cacheable(cacheNames="books", cacheManager="anotherCacheManager") 
+public Book findBook(ISBN isbn) {...}
+```
+- `cacheManager` value를 활용해 원하는 CacheManager를 지정할 수 있다.
+
+```java
+@Cacheable(cacheResolver="runtimeCacheResolver") 
+public Book findBook(ISBN isbn) {...}
+```
+- `cacheResolver` value를 활용해 원하는 CacheResolver 지정할 수 있다.
+- `cacheManager`와 `cacheResolver` 또한 동시에 사용할 수 없다.
+
+##### Synchronized Caching
+- 초반에 언급했듯이 Cache Abstraction은 lock이 적용되지 않는다.
+- 또한 동일한 값이 여러 번 계산되어 Caching이 무의미해질 수 있다.
+
+```java
+@Cacheable(cacheNames="foos", sync=true) 
+public Foo executeExpensiveOperation(String id) {...}
+```
+- 이러한 상황에서 `sync=true`를 통해 동기화를 설정할 수 있다.
+- 단, 캐시 라이브러리가 이를 지원하지 않을 수도 있다.
+  - Spring 제공 라이브러리는 모두 지원함.
+
+##### Conditional Caching
+```java
+@Cacheable(cacheNames="book", condition="#name.length() < 32", unless="#result == null") 
+public Book findBook(String name) {}
+```
+- booelan을 반환하는 [SpEL](https://docs.spring.io/spring-framework/reference/core/expressions.html) 표현식을 사용하면 parameter에 따라 조건부로 Cache를 적용할 수 있다.
+  - `condition` value를 사용
+  - true -> Cache 적용, false -> Cache 미적용
+  - `unless` value를 활용해 Cache에 Data 저장이 안 되도록 설정할 수도 있다.
+  - 위 예시에서는 결과값이 null일 경우 Data 저장을 하지 않는 것을 의미한다.
+- [Available Caching SpEL Evaluation Context](https://docs.spring.io/spring-framework/reference/integration/cache/annotations.html#cache-spel-context)
+
+##### Optional 지원
+- Cache Abstraction은 Optional을 지원한다.
+- Optional 값에 따라 isPresent()가 true라면 value가, 아니라면 null이 저장된다.
+
+
+#### @CachePut
