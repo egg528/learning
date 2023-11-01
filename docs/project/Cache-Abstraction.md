@@ -148,3 +148,102 @@ public Book findBook(String name) {}
 
 
 #### @CachePut
+```java
+@CachePut(cacheNames="book", key="#isbn")
+public Book updateBook(ISBN isbn, BookDescriptor descriptor)
+```
+- 메서드 실행 없이 Cache update를 원할 때 사용할 수 있는 annotation이다.
+- @CachePut이 붙은 메서드는 항상 실행되고, 항상 결과가 Cache에 저장된다.
+- @Cacheable에 사용되는 옵션을 동일하게 지원한다.
+- 최적화를 목적으로 하기 보다는 Cache 생성을 목적으로 하는 annotation이다.
+
+##### 주의할 점
+- @CachePut과 @Cacheable을 동일한 메서드에 사용하는 것은 권장되지 않는다.
+- 단순히 생각해봐도 하나는 캐시 적용을 위한 거고... 
+
+
+#### @CacheEvict
+```java
+@CacheEvict(cacheNames="books", allEntries=true) 
+public void loadBooks(InputStream batch)
+```
+- Cache 저장소에서 오래되거나 사용되지 않는 데이터를 제거하는데 사용되는 annotation
+- 해당 annotation이 동작할 수 있도록 1개 이상의 저장소가 설정되어 있어야 하고 key resolution, condition등 추가 설정 옵션을 지원한다.
+- 예시의 allEntries의 경우 저장소의 모든 데이터를 삭제하는 옵션이다. (당연하게도 지정된 key 무시함)
+- beforeInvocation 설정을 통해 Evict 시점을 메서드 실행 이전으로 적용할 수도 있다. (Default는 메서드 실행 후)
+  - 메서드 결과와 무관하게 Evict를 실행하고 싶다면 유용하다
+- void 메서드와 사용이 가능하다.
+
+
+
+#### @Caching
+```java
+@Caching(evict = { @CacheEvict("primary"), @CacheEvict(cacheNames="secondary", key="#p0") })
+public Book importBooks(String deposit, Date date)
+```
+- 여러개의 동일한 Cache annotation을 단일 메서드에 사용해야 할 경우 활용할 수 있다.
+
+#### @CacheConfig
+```java
+@CacheConfig("books") 
+public class BookRepositoryImpl implements BookRepository {
+
+	@Cacheable
+	public Book findBook(ISBN isbn) {...}
+}
+```
+- 일부 옵션의 경우 Class 내의 모든 Cache관련 작업에 적용되어야 할 수도 있다.
+- 예를 들어 위 예시처럼 Cache Name을 Class 단위로 적용할 수 있다.
+- 이 외에도 CacheManager, KeyGenerator, CacheResolver를 Class 단위로 지정할 수 있다.
+- operation-level(@CacheEvict 등)의 설정은 CacheConfig의 설정을 덮어쓴다.
+- 추가로 Cache 구현체 설정의 경우 CacheManager bean에서 할 수 있고 항상 global하게 적용된다.
+
+
+##### 3개의 설정 단계
+1. Global Level: CachingConfigurer
+2. Class Level: @CacheConfig
+3. Operation Level: @CachePut, @CacheEvict 등
+
+
+#### Enabling Caching Annotations
+```java
+@Configuration
+@EnableCaching
+public class AppConfig {
+
+	@Bean
+	CacheManager cacheManager() {
+		CaffeineCacheManager cacheManager = new CaffeineCacheManager();
+		cacheManager.setCacheSpecification(...);
+		return cacheManager;
+	}
+}
+```
+- Configuration class들 중 한 곳에 @EnableCaching를 추가하여 Cache를 사용할 수 있다.
+- 반대로 @EnableCaching를 제거하면 모든 Cache 동작은 멈추게 된다.
+
+
+##### Cache 사용 시 주의할 점
+- public 메서드에만 Cache annotation을 적용해야 한다.
+- 그 이유는 protected, private, package-private의 경우 오류는 방생하지 않지만 구성된 캐시 설정이 적용되지 않는다.
+- Concrete class에만 Cache annotation을 사용할 것, 만약 interface에 사용할 거라면 프록시 모드를 aspectj가 아닌 proxy로 설정해야 한다.
+  - interface에 사용할 일이 생기면 더 알아봐야겠음
+- Proxy 모드(default)에서는 Proxy를 통해서 들어온 요청에만 Cache annotation이 적용된다.
+  - 즉, 객체 내부에서 사용한 메서드의 경우 Cache annotation이 적용되어 있어도 동작하지 않는다.
+  - 이런 문제가 발생하는 경우 aspectj모드를 고려해볼 것
+- 또한 Cache annotation이 정상 동작하려면 프록시가 완전히 초기화 되어야 함.
+  - 즉, 초기화 과정에서 Cache 기능을 이용할 생각은 하지 말아야....
+
+
+#### Using Custom Annotations
+```java
+@Retention(RetentionPolicy.RUNTIME)
+@Target({ElementType.METHOD})
+@Cacheable(cacheNames="books", key="#isbn")
+public @interface SlowService {
+}
+
+@SlowService
+public Book findBook(ISBN isbn, boolean checkWarehouse, boolean includeUsed)
+```
+- 위 예시처럼 Custom Annotation을 활용해서도 Cache를 적용할 수 있다.
