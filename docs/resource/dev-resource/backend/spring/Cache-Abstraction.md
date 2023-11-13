@@ -2,7 +2,7 @@
 title: Cache Abstraction
 tag: [backend, spring, cache]
 ---
-## 영상 링크
+## 글 링크
 - [Cache Abstraction Docs](https://docs.spring.io/spring-framework/reference/integration/cache.html)
 - [SpEL](https://docs.spring.io/spring-framework/reference/core/expressions.html)
 
