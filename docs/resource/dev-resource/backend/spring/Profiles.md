@@ -49,59 +49,59 @@ spring.profiles.group.production[0]=proddb spring.profiles.group.production[1]=p
 ```
 # application.yml 파일
 
-# default  
+# default
 spring:  
-	profiles:  
-		default: local  
+profiles:  
+default: local
   
 ---  
-# dev  
+# dev
 spring:  
-	profiles:  
-		group:  
-			local: "infra"  
+profiles:  
+group:  
+local: "infra"
 	  
 ---  
-# dev  
+# dev
 spring:  
-	profiles:  
-		group:  
-			dev: "infra"  
+profiles:  
+group:  
+dev: "infra"
   
 ---  
-# prod  
+# prod
 spring:  
-	profiles:  
-		group:  
-			prod: "infra"
+profiles:  
+group:  
+prod: "infra"
 ```
 
 ```
 # application-infra.yml 파일
 
-# local  
+# local
 spring:  
-	config:  
-		activate:  
-			on-profile: local  
-  
+config:  
+activate:  
+on-profile: local
+
 # local 설정 정보들
   
 ---  
-# dev  
+# dev
 spring:  
-	config:  
-		activate:  
-			on-profile: dev  
-  
+config:  
+activate:  
+on-profile: dev
+
 # dev 설정 정보들
   
 ---  
-# prod  
+# prod
 spring:  
-	config:  
-		activate:  
-			on-profile: prod
+config:  
+activate:  
+on-profile: prod
 
 # prod 설정 정보들
 ```
