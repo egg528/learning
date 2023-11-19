@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[4313],{7716:e=>{e.exports=JSON.parse('{"title":"Network","slug":"/category/network","permalink":"/resource/category/network","navigation":{"previous":{"title":"CS","permalink":"/resource/category/cs"},"next":{"title":"Redirection","permalink":"/resource/computer-science/network/Redirection"}}}')}}]);
