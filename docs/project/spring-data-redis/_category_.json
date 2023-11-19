@@ -1,3 +1,6 @@
 {
-  "label": "spring data redis"
+  "label": "spring data redis",
+  "link": {
+    "type": "generated-index"
+  }
 }

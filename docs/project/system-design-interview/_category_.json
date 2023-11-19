@@ -1,3 +1,6 @@
 {
-  "label": "대규모 시스템 설계 기초"
+  "label": "대규모 시스템 설계 기초",
+  "link": {
+    "type": "generated-index"
+  }
 }
