@@ -1,5 +1,5 @@
 ---
-title: Prototype
+title: prototype
 tag: [language, javascript, prototype]
 ---
 ## 글 링크

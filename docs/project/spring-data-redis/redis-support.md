@@ -1,13 +1,9 @@
 ---
-title: Redis support
+title: redis support
 sidebar_position: 1
 tag: [backend, spring data, redis]
 ---
-## 글 링크
-- [Spring Data Redis](https://docs.spring.io/spring-data/redis/docs/3.0.11/reference/html/#redis)
-
-## 내용 정리
-### 01. 시작하기
+## 01. 시작하기
 ``` gradle
 dependencies {
 	implementation 'org.springframework.data:spring-data-redis'
@@ -20,7 +16,7 @@ dependencies {
   - Redis 2.6 이상
   - Lettuce 또는 Jedis open-source 이용하여
 
-### 02. Redis Connection
+## 02. Redis Connection
 - Redis를 사용하기 위해서 가장 먼저 할 일은 IoC container를 통해 Redis 저장소와 Connection을 맺는 것이다.
 - 이를 위해 `RedisConnection`과 `RedisConnectionFactory` 객체가 필요한데 후자는 전자를 생성하는 역할을 한다.
 - `RedisConnectionFactory`는 `PersistenceExceptionTranslator` 객체 역할도 한다.
@@ -30,7 +26,7 @@ dependencies {
   - Redis 리소스를 공유해야 하는 경우 native connection을 얻고 Redis client library API를 직접 사용해야 한다.
   - 아니면 `RedisTemplate`를 사용하는 것도 방법이다.
 
-#### 사용 가능한 Redis Connector library
+### 사용 가능한 Redis Connector library
 ![vs.jpg](img/vs.jpg)
 - Redis 구조에 따라 Config 설정 방법이 달라진다
   - 단일 Store
@@ -39,7 +35,7 @@ dependencies {
   - Cluster
 
 
-### 03. RedisTemplate
+## 03. RedisTemplate
 ``` java
 @Configuration  
 class MyConfig {  
@@ -81,7 +77,7 @@ public class Example {
 
 
 
-### 04. 문자열 중심의 편의 클래스들
+## 04. 문자열 중심의 편의 클래스들
 ``` java
 @Configuration  
 class MyConfig {  
@@ -114,7 +110,7 @@ public class Example {
 - `StringRedisConnection`
 - `StringRedisTemplate`
 
-#### RedisCallback
+### RedisCallback
 ``` java
 public void useCallback() {  
   
@@ -132,7 +128,7 @@ public void useCallback() {
 - 단, `StringRedisTemplate`을 사용할 경우 `StringRedisConnection`을 거치게 됨
 
 
-### 05.  Hash 매핑
+## 05.  Hash 매핑
 - Redis Hash 구조를 이용할 경우 매핑을 위한 동작이 필요해진다.
 - Spring Data Redis는 Hash 매핑 위한 다양한 전략을 제공함.
   - HashOperation, serializer을 통한 직접 매핑
@@ -140,25 +136,24 @@ public void useCallback() {
   - HashMapper, HashOperation 이용하기
 
 
-#### Hash Mappers
+### Hash Mappers
 - `BeanUtilsHashMapper` using Spring’s [BeanUtils](https://docs.spring.io/spring-framework/docs/6.0.13/javadoc-api/org/springframework/beans/BeanUtils.html).
 - `ObjectHashMapper` using [Object-to-Hash Mapping](https://docs.spring.io/spring-data/redis/docs/3.0.11/reference/html/#redis.repositories.mapping).
 - [`Jackson2HashMapper`](https://docs.spring.io/spring-data/redis/docs/3.0.11/reference/html/#redis.hashmappers.jackson2) using [FasterXML Jackson](https://github.com/FasterXML/jackson).
 
 
 
-### 06. Redis Messaging
+## 06. Redis Messaging
 - JMS Integration과 유사한 Messaging 기능을 제공한다 (Pub/Sub)
 - 나중에 필요할 때 알아보자.
 
 
-### 07. Redis Streams
+## 07. Redis Streams
 - 로그 데이터를 추가하고 소비하는 기능 또한 제공한다.
 - 6번 Redis Messaging과 유사하지만 Message의 영속성과 Consume 방식에서 차이점이 있다.
 - 이 또한 필요할 때로 공부를 미루자.
 
-
-### 08. Redis Transactions
+## 08. Redis Transactions
 - RedisTemplate의 `multi`, `exec`, `discard` command를 통해 Transaction 기능을 제공한다.
 - 하지만 RedisTemplate이 동일한 Connection으로 모든 연산에 Transaction을 수행하는 걸 보장하지는 않는다.
 
@@ -179,7 +174,7 @@ System.out.println("Number of items added to set: " + txResults.get(0));
 - `SessionCallback`을 이용하면 여러 operation을 동인한 connection으로 수행함을 보장할 수 있다.
 
 
-#### @Transactional
+### @Transactional
 ``` java 
 @Configuration  
 @EnableTransactionManagement  
@@ -232,29 +227,31 @@ template.opsForValue().get("thing1");
   - 읽기 전용 명령의 경우 새로운 RedisConnection과 pipe되고 쓰기 명령의 경우 RedisTemplate에 의해 Queue에 대기하고 commit을 기다린다.
 
 
-### 09. Pipelining
+## 09. Pipelining
 - multiple commands를 응답 대기 없이 한번에 server에 전달할 수 있는 방법을 제공한다.
 
-### 10. Redis Scripting
+## 10. Redis Scripting
 - Lua script를 실행할 수 있는 Redis Version(2.6 이상)의 경우 Script를 활용한 요청도 가능하다.
 
-### 11. Redis Cache
+## 11. Redis Cache
 - Spring Redis는 Spring Cache Abstraction 구현체를 제공한다.
 
-### 12. 지원 Class들
+## 12. 지원 Class들
 - `org.springframework.data.redis.support`는 redis 백업 저장소로 사용할 수 있는 다양한 클래스를 제공한다.
   - `atomic counter`: Redis 키 증분을 쉽게 래핑하여 쉽게 관리할 수 있다.
   - `RedisSet`, `RedisZSet`: 교집합, 유니온과 같은 Redis 지원 연산을 쉽게 사용할 수 있도록 돕는다.
   - `RedisList`: List, Queue, Deque 상호작용을 구현하여 최소한의 설정으로 저장소를 FIFO, LIFO, 제한 컬렉션으로 대체한다
   - Redis 구현을 인메모리 구현으로 대체할 때 사용 가능할듯
-  -
 
-### 13. Observability
+## 13. Observability
 - Lettuce 드라이버를 통해 Redis 상호작용을 관찰하고 Micrometer통해 지표를 제공한다.
 
 
-### 정리
+## 정리
 - 결국 Spring Boot + Redis를 활용할 때 아래 3가지 방법 중 1가지를 선택할 수 있을듯
   - RedisTemplate
   - RedisRepository
   - RedisCacheManager
+
+## Reference
+- [Spring Data Redis](https://docs.spring.io/spring-data/redis/docs/3.0.11/reference/html/#redis)

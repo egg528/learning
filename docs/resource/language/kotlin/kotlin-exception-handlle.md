@@ -2,7 +2,7 @@
 title: 코틀린 예외 처리
 tag: [language, kotlin, exception handle]
 ---
-# 코틀린의 예외 처리
+## 코틀린의 예외 처리
 ![exception.png](img/exception.png)
 - 코틀린의 모든 예외 클래스는 Throwable을 상속한다.
   - Error는 복구가 불가능한 예외
@@ -217,8 +217,8 @@ class LoginService(
 
 
 # Reference
-- (코틀린의 예외 처리)[https://fastcampus.co.kr/dev_online_kopring]
-- (코틀린을 활용한 에러 핸들링)[https://toss.tech/article/kotlin-result]
+- [코틀린의 예외 처리](https://fastcampus.co.kr/dev_online_kopring)
+- [코틀린을 활용한 에러 핸들링](https://toss.tech/article/kotlin-result)
 - 왜 CheckedException을 없앴을까?
   - [참고1](https://www.artima.com/articles/the-trouble-with-checked-exceptions)
   - [참고2](https://www.artima.com/articles/the-trouble-with-checked-exceptions)

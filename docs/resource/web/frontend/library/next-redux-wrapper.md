@@ -1,5 +1,5 @@
 ---
-title: next-redux-wrapper
+title: next redux wrapper
 tag: [frontend, library, next-redux-wrapper]
 ---
 ## 글 링크

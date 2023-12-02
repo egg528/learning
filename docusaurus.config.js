@@ -33,13 +33,6 @@ const config = {
     [
       '@docusaurus/preset-classic',
       ({
-        docs: {
-          id: 'project',
-          path: 'docs/project',
-          routeBasePath: 'project',
-          sidebarPath: require.resolve('./sidebars.js'),
-          sidebarCollapsible: false,
-        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -156,6 +149,18 @@ const config = {
           };
         },
         [
+
+          '@docusaurus/plugin-content-docs',
+          {
+            id: 'project',
+            path: 'docs/project',
+            routeBasePath: 'project',
+            sidebarPath: require.resolve('./sidebars.js'),
+            // ... other options
+          },
+        ],
+        [
+
           '@docusaurus/plugin-content-docs',
           {
             id: 'area',

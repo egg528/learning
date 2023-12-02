@@ -1,12 +1,8 @@
 ---
-title: Garbage Collector
+title: garbage collector
 tag: [backend, spring, cache]
 ---
-## 영상 링크
-- [던의 JVM의 Garbage Collector](https://www.youtube.com/watch?v=vZRmCbl871I&t=35s&ab_channel=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC)
-
-## 내용 정리
-### 1. Garbage Collector란?
+## 1. Garbage Collector란?
 - 동적으로 할당된 메모리 영역 중 사용하지 않는 영역을 탐지하여 해제하는 기능
 - Heap 영역 (동적으로 할당된 메모리 영역)
   - 모든 Object 타입의 데이터가 할당되는 곳
@@ -27,13 +23,13 @@ public class Main {
 - 이렇게 사용되지 않으면서 Heap 영역에 존재하는 데이터를 Unreachable Object라 부르고 Garbage Collector의 대상이 된다
 
 
-### 2. Garbage Collector 동작 순서 (Mark And Sweep)
+## 2. Garbage Collector 동작 순서 (Mark And Sweep)
 1. Garbage Collector가 Stack의 모든 변수를 스캔하면서 각각 어떤 객체를 참조하고 있는지 찾아서 마킹한다. (Mark)
 2. Reachable Object가 참조하고 있는 객체도 찾아서 마킹한다. (Mark)
 3. 마킹되지 않은 객체를 Heap에서 제거한다. (Sweep)
 
 
-### 3. Garbage Collector가 동작하는 시점
+## 3. Garbage Collector가 동작하는 시점
 ![heap.jpg](img%2Fheap.jpg)
 - Heap은 크게 New Generation / Old Generation 영역으로 나뉜다.
 - New Generation은 Eden / Survival 0 / Survival 1로 나뉘는데
@@ -50,21 +46,21 @@ public class Main {
 - Old Generation이 가득차면 `Major GC`가 발생한다.
 
 
-### 4. Garbage Collector 종류
-#### (1) Serial GC
+## 4. Garbage Collector 종류
+### (1) Serial GC
 - GC를 처리하는 스레드가 1개이다.
 - Mark-Compact Collection 알고리즘을 사용한다.
 
-#### (2) Parallel GC
+### (2) Parallel GC
 - 여러 스레드로 GC를 처리한다.
 - 빠르고, Core 개수가 여럿일 때 사용하면 좋다.
 
 
-#### (3) Stop-The-World
+### (3) Stop-The-World
 - GC를 실행하기 위해 JVM이 APP 실행을 멈춘다.
 - stop-the-world가 발생하면 GC를 처리하는 스레드 외에는 모두 작업을 멈추고 GC 작업이 끝나면 다시 시작한다.
 
-#### (4) Copncurrent Mark Sweep GC
+### (4) Copncurrent Mark Sweep GC
 - stop-the-world 시간이 짧다
   - stop-the-world를 짧게 나눠서 가져가며 한번 멈췄을 때 mark, sweep 둘 중 한 작업만 수행한다.
   - mark -> 응답 -> sweep -> 응답
@@ -73,9 +69,12 @@ public class Main {
 - Compaction을 사용하지 않는다.
 
 
-#### (5) G1 GC
+### (5) G1 GC
 - 각 영역을 Region으로 더 잘게 나눈다.
 - GC가 일어날 때 전체 영역을 탐색하지 않는다.
 - 잘게 쪼갠 Region영역이 꽉 차면 GC를 실행한다
 - 영역이 작기 때문에 STW 시간이 짧다.
 - Compacttion을 사용한다
+
+## Reference
+- [던의 JVM의 Garbage Collector](https://www.youtube.com/watch?v=vZRmCbl871I&t=35s&ab_channel=%EC%9A%B0%EC%95%84%ED%95%9C%ED%85%8C%ED%81%AC)

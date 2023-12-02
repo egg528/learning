@@ -1,12 +1,8 @@
 ---
-title: API Routes
+title: api routes
 tag: [frontend, next.js, api routes]
 ---
-## 글 링크
-- [API Routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes)
-
-## 내용 정리
-### API Routes란?
+## API Routes란?
 ```typescript
 import type { NextApiRequest, NextApiResponse } from 'next'
 
@@ -26,23 +22,23 @@ export default function handler(
 - 때문에 pages/api 내부 파일들은 client-side bundle 사이즈와 무관하다. (사용자들에게 전송하는 pages들과는 무관)
 - [pageExtensions configuration](https://nextjs.org/docs/pages/api-reference/next-config-js/pageExtensions)을 적용할 수 있다
 
-#### 생성 방법
+### 생성 방법
 - 위 예시에서 처럼 NextApiRequest와 NextApiResponse를 파라미터로 받는 function을 export해야 한다. 
 - 함수 명은 자유롭게 작성할 수 있고 path와는 관계 없다.
 
 
-#### 주의할 점
+### 주의할 점
 - CORS에 대한 설정이 되어 있지 않아 SOP를 따른다. [(CORS 설정 예시)](https://github.com/vercel/next.js/tree/canary/examples/api-routes-cors)
 - [static export](https://nextjs.org/docs/pages/building-your-application/deploying/static-exports)를 사용할 수 없음
 
 ---
 
 
-### NextRequest
+## NextRequest
 - Next.js는 incomming request를 parsing한 NextRequest를 제공한다.
   - cookies, query, body 필드를 통해 cookie, query string, body 정보를 얻을 수 있다.
 
-#### Custom config
+### Custom config
 ```javascript
 export const config = {
   api: {
@@ -54,7 +50,7 @@ export const config = {
 ```
 - 각 API endpoint마다 config를 export하여 api configuration을 custom할 수 있다.
 
-##### bodyParser
+#### bodyParser
 ```javascript
 export const config = {
   api: {
@@ -103,7 +99,7 @@ export const config = {
 
 
 
-#### NextRequest / NextResponse 상속
+### NextRequest / NextResponse 상속
 ```typescript
 // util/cokies.ts
 import { serialize, CookieSerializeOptions } from 'cookie'
@@ -167,8 +163,8 @@ export default withFoo(handler)
 
 
 
-### NextApiResponse
-#### 기능들
+## NextApiResponse
+### 기능들
 ```javascript
 export default function handler(req, res) {
   res.status(200).json({ message: 'Hello from Next.js!' })
@@ -214,7 +210,7 @@ export default async function handler(req, res) {
 ```
 - response.redirect([status], path): 특정 경로로 redirect한다. status는 HTTP status code여야 하면 특정되지 않을 시 307이 기본값이다.
 - response.revalidate(urlPath): getStaticProps를 사용하여 page의 유효성을 제검토한다. (ISR Rendering 개념)
-#### TypeScript type 추가
+### TypeScript type 추가
 ```javascript
 import type { NextApiRequest, NextApiResponse } from 'next'
  
@@ -231,7 +227,7 @@ export default function handler(
 ```
 - Request와 Response에 Type을 추가하여 type-safe하게 데이터를 전달할 수 있다.
 
-### Dynamic API Routes
+## Dynamic API Routes
 ```javascript
 // pages/api/post/[pid].js
 export default function handler(
@@ -245,14 +241,14 @@ export default function handler(
 - NextApiRequest의 query 필드를 통해 query string 접근 가능
 - page Dynamic API Routes와 유사하다
 
-#### 파일명 - 매칭 path 정리
+### 파일명 - 매칭 path 정리
 - pages/api/post/[pid].js -> api/post/1, api/post/2, api/post/3
 - pages/api/post/[...pid].js -> api/post/1, api/post/1/2, api/post/1/2/3 ...
 - pages/api/post/[[...pid]].js -> api/post, api/post/1, api/post/1/2, api/post/1/2/3 ...
 
 
 
-### Edges API Routes
+## Edges API Routes
 ```javascript
 export const config = {
   runtime: 'edge',
@@ -264,7 +260,7 @@ export default (req) => new Response('Hello world!')
 - API Routes가 Node.js runtime을 사용하는 반면 Edge API는 Edge Runtime을 사용한다.
 
 
-#### JSON Response 예시
+### JSON Response 예시
 ```javascript
 import type { NextRequest } from 'next/server'
  
@@ -289,7 +285,7 @@ export default async function handler(req: NextRequest) {
 
 
 
-#### Cache-Control 예시
+### Cache-Control 예시
 ```javascript
 import type { NextRequest } from 'next/server'
  
@@ -314,7 +310,7 @@ export default async function handler(req: NextRequest) {
 ```
 
 
-#### Query Parameter 사용 예시
+### Query Parameter 사용 예시
 ```javascript
 import type { NextRequest } from 'next/server'
  
@@ -330,7 +326,7 @@ export default async function handler(req: NextRequest) {
 ```
 
 
-#### Forwarding Headers 예시
+### Forwarding Headers 예시
 ```javascript
 import { type NextRequest } from 'next/server'
  
@@ -350,3 +346,5 @@ export default async function handler(req: NextRequest) {
 }
 ```
 
+## Reference
+- [API Routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes)
