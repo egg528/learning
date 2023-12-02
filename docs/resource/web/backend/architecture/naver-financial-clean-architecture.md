@@ -2,20 +2,17 @@
 title: 네이버 파이낸셜 - 프로젝트에 새로운 아키텍처 적용하기
 tag: [backend, architecture, clean architecture]
 ---
-## 글 링크
-- [네이버 파이낸셜 - 프로젝트에 새로운 아키텍처 적용하기](https://medium.com/naverfinancial/프로젝트에-새로운-아키텍처-적용하기-99d70df6122b)
-## 내용 정리
-### 레이어드 아키텍처의 특징
+## 레이어드 아키텍처의 특징
 - Data Access 계층이 최상위에 존재
 - Data Access 계층의 변화는 App 전체에 영향을 준다.
 - 이러한 특징은 계층가늬 결합도를 낮춰 계층 간의 영향을 최소화하는 방향을 고민하게 만들었다.
 
-### 클린 아키텍처의 특징?
+## 클린 아키텍처의 특징?
 - 비즈니스 로직을 구현한 계층은 어떤 의존성도 가지지 않는 최상위 계층으로 둔다.
 - 해당 계층으로의 입출력을 추상화 계층으로 감싸 모든 외부 의존성의 방향을 도메인 계층으로 향하도록 만든다.
 - 이는 외부 계층(DB, REST API)의 결정을 미루거나 변경을 용의하게 한다.
 
-### 헥사고날(포트 & 어댑터) 아키텍처란?
+## 헥사고날(포트 & 어댑터) 아키텍처란?
 - 추상적인 개념의 클린 아키텍처를 구현하는 방법 중 하나
 - 도메인 계층으로 들어오거나 나가는 계층간의 요청/응답은 Port라는 인터페이스를 통해 정의한다.
 - Input Port를 이용하는 대표적인 Adapter로는 REST API 요청을 처리하는 역할을 하는 웹 어댑터가 있고, 해당 계층은 User Interface 계층이라고 하며 비즈니스 로직을 직접 호출하기 때문에 주도하는(driving) 어댑터라고 부른다.
@@ -23,7 +20,7 @@ tag: [backend, architecture, clean architecture]
 - 핵심은 Input Port와 Output Port 명세가 있다면, 해당 명세에 맞게 구현된 어댑터의 형태가 어떻든 동일한 비즈니스 로직을 수행할 수 있다는 것
 
 
-### 실제 적용
+## 실제 적용
 ![hexagonal-example.jpg](img%2Fhexagonal-example.jpg)
 - 프로젝트 시작과 동시에 가장 먼저 진행했던 일이 외부 계층의 기술 선택에서 비즈니스 로직 구현으로 바뀌었다고 함.
 - 구현 순서
@@ -35,3 +32,6 @@ tag: [backend, architecture, clean architecture]
   - Input, Output Port의 모듈 교체가 용의하다
 - 단점
   - 계층 별로 사용할 모델을 구현해줘야 한다.
+
+## Reference
+- [네이버 파이낸셜 - 프로젝트에 새로운 아키텍처 적용하기](https://medium.com/naverfinancial/프로젝트에-새로운-아키텍처-적용하기-99d70df6122b)

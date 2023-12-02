@@ -2,9 +2,6 @@
 title: Scheduler Thread Pool 구성하기
 tag: [backend, spring, scheduler]
 ---
-## 글 링크
-- [스프링부트에서 Scheduling 사용하기](http://jmlim.github.io/spring/2018/11/27/spring-boot-schedule/)
-- [Scheduler Thread Pool 구성](https://blog.naver.com/PostView.nhn?blogId=dg110&logNo=221589812687)
 ## 내용 정리
 - SchedulingConfigurer를 implements하고, configureTasks 메서드에ㅓ ThreadPoolTaskScheduler을 등록하면 됨
   - ThreadPoolTaskScheduler의 Default Pool Size는 1
@@ -55,3 +52,7 @@ public class SchedulerConfig implements SchedulingConfigurer {
     }
 ```
 - ThreadPoolTaskScheduler를 2개 만들고 각각 작업 추가해야 한다
+
+## Reference
+- [스프링부트에서 Scheduling 사용하기](http://jmlim.github.io/spring/2018/11/27/spring-boot-schedule/)
+- [Scheduler Thread Pool 구성](https://blog.naver.com/PostView.nhn?blogId=dg110&logNo=221589812687)

@@ -2,8 +2,6 @@
 title: N+1 문제
 tag: [backend, jpa, n+1]
 ---
-## 글 링크
-- [JPA N+1 문제](https://incheol-jung.gitbook.io/docs/q-and-a/spring/n+1)
 ## 내용 정리
 - @OneToMany 관계에서 생기는 문제
 - 노선(One) -- 역(Many) 관계를 가정해보자
@@ -24,3 +22,6 @@ tag: [backend, jpa, n+1]
             - 역 조회 쿼리 (1개 - 5개 노선에 대한)
             - 역 조회 쿼리 (1개 - 5개 노선에 대한)
             - 총 3개 쿼리가 실행된다.
+
+## Reference
+- [JPA N+1 문제](https://incheol-jung.gitbook.io/docs/q-and-a/spring/n+1)

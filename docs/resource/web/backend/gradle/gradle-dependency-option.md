@@ -2,12 +2,7 @@
 title: Gradle 의존성 옵션
 tag: [Gradle, Dependency]
 ---
-## 영상 링크
-- [Gradle의 라이브러리 의존성 옵션 정리](https://twinparadox.tistory.com/630)
-- [api vs implementation](https://jongmin92.github.io/2019/05/09/Gradle/gradle-api-vs-implementation/)
-
-## 내용 정리
-### Dependency Configuration
+## Dependency Configuration
 ![Dependency-Configuration.png](img/Dependency-Configuration.png)
 - 초록색은 사용자가 의존성 선언할 때 사용한다.
 - 분홍색은 구성 요소가 라이브러리를 컴파일하거나 실행할 때 사용한다.
@@ -25,10 +20,14 @@ tag: [Gradle, Dependency]
   - runtimeOnly: 런타임 시점에만 필요한 라이브러리
   - annotationProcessor: annotation processor를 명시하기 위해 사용함
 
-### api vs implementation
+## api vs implementation
 api: 의존 라이브러리 수정시 해당 모듈을 의존하고 있는 모듈들 또한 재빌드
 - A(api) <- B <- C 일 때, C 에서 A 를 접근할 수 있음
 - A 수정시 B 와 C 모두 재빌드
 implementaion: 의존 라이브러리 수정시 본 모듈까지만 재빌드
 - A(implementation) <- B <- C 일 때, C 에서 A 를 접근할 수 없음
 - A 수정시 B 까지 재빌드
+
+## Reference
+- [Gradle의 라이브러리 의존성 옵션 정리](https://twinparadox.tistory.com/630)
+- [api vs implementation](https://jongmin92.github.io/2019/05/09/Gradle/gradle-api-vs-implementation/)

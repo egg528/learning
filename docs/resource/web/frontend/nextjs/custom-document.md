@@ -2,11 +2,7 @@
 title: Custom Document
 tag: [frontend, next.js, custom document]
 ---
-## 글 링크
-- [Custom Document](https://nextjs.org/docs/pages/building-your-application/routing/custom-document)
-
-## 내용 정리
-### Custom Document란?
+## Custom Document란?
 - _document 파일을 통해 사용할 수 있다.
 - html, body와 같은 태그를 Update할 수 있다.
 - 단, Server Render만 가능하기 때문에 onClick과 같은 Event Handler는 사용할 수 없다.
@@ -28,14 +24,14 @@ export default function Document() {
 ```
 - 위 4개의 태그는 필수적으로 포함되어야 한다.
 
-### 주의 사항
+## 주의 사항
 - 위 Head 컴포넌트는 next/head의 Head 컴포넌트와 다르다.
 - next/document Head는 모든 페이지에 적용된다.
 - <Main/> 외부의 컴포넌트는 Browser에 의해 초기화되지 않는다. 때문에 application 로직을 위 파일에 작성하면 안 된다.
 - getStaticProps or getServerSideProps는 지원하지 않는다.
 
 
-### Customizing renderPage
+## Customizing renderPage
 ```javascript
 import Document, { Html, Head, Main, NextScript } from 'next/document'
  
@@ -73,3 +69,7 @@ class MyDocument extends Document {
  
 export default MyDocument
 ```
+
+
+## Reference
+- [Custom Document](https://nextjs.org/docs/pages/building-your-application/routing/custom-document)

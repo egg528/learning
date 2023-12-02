@@ -2,12 +2,8 @@
 title: Internationalization (i18n) Routing
 tag: [frontend, next.js, i18n]
 ---
-## 글 링크
-- [Internationalization Routing](https://nextjs.org/docs/pages/building-your-application/routing/internationalization)
-
-## 내용 정리
-### Internationalization (i18n) Routing 방법
-#### 1. next.config.js 파일 내에 i18n config를 추가
+## Internationalization (i18n) Routing 방법
+### 1. next.config.js 파일 내에 i18n config를 추가
 ```javascript
 module.exports = {
     i18n: {
@@ -42,8 +38,8 @@ module.exports = {
 ```
 
 
-#### 2. Locale 전략 정하기
-##### (1) Sub-path Routing - locale 별로 path에 값을 넣는 방식
+### 2. Locale 전략 정하기
+#### (1) Sub-path Routing - locale 별로 path에 값을 넣는 방식
 - 예시: /blog, /fr/blog, /en-US/blog
 ```javascript
 module.exports = {
@@ -55,7 +51,7 @@ module.exports = {
 ```
 - 설정 방식
 
-##### (2) Domain Routing - locale 별로 다른 도메인을 가지도록
+#### (2) Domain Routing - locale 별로 다른 도메인을 가지도록
 - 예시: example.com/blog, www.example.com/blog, example.fr/blog, example.nl/blog, example.nl/nl-BE/blog
 ```javascript
 module.exports = {
@@ -87,7 +83,7 @@ module.exports = {
 ```
 
 
-##### (3) Locale 자동 감지
+#### (3) Locale 자동 감지
 - user가 application root (대개 '/')에 접근했을 때 header의 Accept-Language 정보와 Domain을 기반으로 locale을 감지하는 것
 - sub-path를 이용할 경우 prefixed path를 자동 추가해주고, domain routing을 이용할 경우 domain을 변경해준다.
 - 예를 들어 Accept-Language header가 fr;q=0.9일 경우 fr/을 추가해주거나 example.fr로 redirect 해준다.
@@ -102,7 +98,7 @@ module.exports = {
 - Automatic Locale Detection은 기본 값이 true이고 위 설정을 통해 끌 수 있다.
 
 
-##### (4) locale 정보 접근하기
+#### (4) locale 정보 접근하기
 - locale 정보에 접근하는 여러 방법이 있지만, docs에서는 useRouter() hook을 예시로 사용한다.
 
 ```javascript
@@ -115,8 +111,7 @@ const { locale, locales, defaultLocale } = useRouter();
 
 
 
-
-##### (5) locale 전환하기
+#### (5) locale 전환하기
 ```javascript
 // next/link 활용
 import Link from 'next/link'
@@ -164,16 +159,16 @@ router.push({ pathname, query }, asPath, { locale: nextLocale })
 
 
 
-##### (6) 커스텀 쿠키로 locale 구분하기 (헤더의 Accept-Language 값 사용하지 않도록 설정)
+#### (6) 커스텀 쿠키로 locale 구분하기 (헤더의 Accept-Language 값 사용하지 않도록 설정)
 - `NEXT_LOCALE=?` 이름의 커스텀 쿠키를 브라우저에 넣으면 된다.
 - NEXT_LOCALE 쿠키 >>> Acceptence-Language
 
 
-##### (7) 검색 성능 최적화
+#### (7) 검색 성능 최적화
 - next.js는 자동으로 html 태그에 lang 특성을 추가한다.
 
 
-##### (8) Static Generation에서 locale 사용하기
+#### (8) Static Generation에서 locale 사용하기
 ```javascript
 // pages/blog/[slug].js
 export const getStaticPaths = ({ locales }) => {
@@ -192,7 +187,7 @@ export const getStaticPaths = ({ locales }) => {
     - build 시간이 늘어날 수 있기에 prerender 페이지 양을 고려해봐야 한다.
 
 
-###### 해결 방안
+##### 해결 방안
 - fallback Mode를 사용하면 가장 인기 있는 경로와 path만 getStaticPaths에서 return하게 된다.
     - [fallback mode](https://nextjs.org/docs/pages/api-reference/functions/get-static-paths#fallback-true)
 - 나머지 페이지는 runtime시 요청에 의해 build되기에 초기 build 시간을 줄일 수 있다.
@@ -223,6 +218,9 @@ export async function getStaticProps({ locale }) {
 - 조건문을 이용해 특정 경로 nonFound를 return해주면 된다. (이 경우 아예 생성되지 않고 요청이 와도 render되지 않는다)
 
 
-##### (9) i18n config 제한
+#### (9) i18n config 제한
 - locale은 100개까지
 - domains도 100개까지 등록 가능
+
+## Reference
+- [Internationalization Routing](https://nextjs.org/docs/pages/building-your-application/routing/internationalization)

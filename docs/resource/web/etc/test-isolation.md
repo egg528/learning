@@ -2,18 +2,14 @@
 title: 인수테스트에서 테스트 격리하기
 tag: [ATDD, Test]
 ---
-## 글 링크
-- [인수테스트에서 테스트 격리하기](https://tecoble.techcourse.co.kr/post/2020-09-15-test-isolation/)
-- [@SpringBootTest의 테스트 격리시키기(TestExecutionListener), @Transactional로 롤백되지 않는 이유](https://mangkyu.tistory.com/264)
-## 내용 정리
-### 테스트 격리
+## 테스트 격리
 - 테스트가 제대로 격리되어 있지 않으면? -> 비결정적 테스트가 된다.
   - `비결정적 테스트`: 같은 입력값에 대해 항상 같은 결과를 출력하지 않는 테스트
 
 - Mock 프레임 워크를 활용해 계층을 격리하여 테스트가 가능하다.
 
 
-### 인수테스트에서 테스트 격리
+## 인수테스트에서 테스트 격리
 - `인수 테스트`: 실제 운영 환경에서 사용될 준비가 되었는지를 통합적으로 확인하는 테스트
   - 때문에 인수 테스트에서의 테스트 격리는 Mock을 활용한 계층간의 격리와는 다른 접근이 필요하다.
 
@@ -32,7 +28,7 @@ tag: [ATDD, Test]
   4. DirtiesContext로 Spring Bean Reload
 
 
-### 테스트 격리 고도화 TestExcutionLinsener를 통한 테스트 개입
+## 테스트 격리 고도화 TestExcutionLinsener를 통한 테스트 개입
 - 시점
   - beforeTestClass:  테스트 클래스 내의 어떠한 테스트도 실행되기 전에 테스트 클래스를 전처리하기 위해 사용된다.
   - prepareTestInstance: 테스트 객체를 생성하기 위한 전처리 작업을 위해 사용된다.
@@ -44,4 +40,7 @@ tag: [ATDD, Test]
 
 - 이 방식은 결국 반복 실행이 필요한 부분(TRUNCATE)을 한 곳에서 관리하고, Test 코드에서 해당 파트를 줄이는 이점이 있다.
 - 꼭 필요한 부분은 아닌 것 같다. 또한 어노테이션으로 로직을 표기하면 코드를 알아보기 더 어려울 것 같기도...
-  
+
+## Reference
+- [인수테스트에서 테스트 격리하기](https://tecoble.techcourse.co.kr/post/2020-09-15-test-isolation/)
+- [@SpringBootTest의 테스트 격리시키기(TestExecutionListener), @Transactional로 롤백되지 않는 이유](https://mangkyu.tistory.com/264)
