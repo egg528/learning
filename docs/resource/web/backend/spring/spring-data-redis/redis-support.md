@@ -1,7 +1,7 @@
 ---
 title: redis support
 sidebar_position: 1
-tag: [backend, spring data, redis]
+tag: [backend, spring, spring data redis]
 ---
 ## 01. 시작하기
 ``` gradle

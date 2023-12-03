@@ -1,5 +1,5 @@
 ---
-title: Middleware
+title: middleware
 tag: [frontend, next.js, middleware]
 ---
 ## Middleware

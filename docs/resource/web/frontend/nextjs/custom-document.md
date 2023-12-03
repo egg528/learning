@@ -1,5 +1,5 @@
 ---
-title: Custom Document
+title: custom document
 tag: [frontend, next.js, custom document]
 ---
 ## Custom Document란?

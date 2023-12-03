@@ -1,5 +1,5 @@
 ---
-title: Custom Errors
+title: custom errors
 tag: [frontend, next.js, custom errors]
 ---
 ## 404, 500 페이지

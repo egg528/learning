@@ -33,6 +33,12 @@ const config = {
     [
       '@docusaurus/preset-classic',
       ({
+        docs: {
+          id: 'project',
+          path: 'docs/project',
+          routeBasePath: 'project',
+          sidebarPath: require.resolve('./sidebars.js'),
+        },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
         },
@@ -41,101 +47,101 @@ const config = {
   ],
 
   themeConfig:
-    /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
-    ({
-      colorMode: {
-        defaultMode: "dark",
-        disableSwitch: true,
-        respectPrefersColorScheme: false,
-      },
-      navbar: {
-        title: 'Home',
-        hideOnScroll: true,
-        items: [
-          {
-            label: 'PARA Note',
-            type: 'dropdown',
-            position: 'right',
-            items: [
-              {
-                label: 'Project',
-                to: '/project/intro',
-                activeBasePath: '/project',
-              },
-              {
-                label: 'Area',
-                to: '/area/intro',
-                activeBasePath: '/area',
-              },
-              {
-                label: 'Resource',
-                to: '/resource/intro',
-                activeBasePath: '/resource',
-              },
-              {
-                label: 'Archive',
-                to: '/archive/intro',
-                activeBasePath: '/archive',
-              }
-            ]
-          },
-          {
-            href: 'https://egg528.github.io/pdf/resume.pdf',
-            label: 'Resume',
-            position: 'right',
-          },
-        ],
-      },
-      footer: {
-        style: 'dark',
-        links: [
-          {
-            title: 'Contact',
-            items: [
-              {
-                label: 'GitHub',
-                href: 'https://github.com/egg528',
-              },
-              {
-                label: 'Linkedin',
-                href: 'https://www.linkedin.com/in/rnjsdntjr26',
-              },
-              {
-                label: 'Resume',
-                href: 'https://egg528.github.io/pdf/resume.pdf',
-              }
-            ],
-          },
-          {
-            title: 'PARA Note',
-            items: [
-              {
-                label: 'Project',
-                href: 'https://egg528.github.io/project/intro',
-              },
-              {
-                label: 'Area',
-                href: 'https://github.com/egg528/area/intro',
-              },
-              {
-                label: 'Resource',
-                href: 'https://github.com/egg528/resource/intro',
-              },
-              {
-                label: 'Archive',
-                href: 'https://github.com/egg528/archive/intro',
-              },
-            ],
-          },
-        ],
-        copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
-      },
-      prism: {
-        additionalLanguages: ['java', 'kotlin'],
-        theme: lightCodeTheme,
-        darkTheme: darkCodeTheme,
-      },
-    }),
+  /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
+      ({
+        colorMode: {
+          defaultMode: "dark",
+          disableSwitch: true,
+          respectPrefersColorScheme: false,
+        },
+        navbar: {
+          title: 'Home',
+          hideOnScroll: true,
+          items: [
+            {
+              label: 'PARA Note',
+              type: 'dropdown',
+              position: 'right',
+              items: [
+                {
+                  label: 'Project',
+                  to: '/project/intro',
+                  activeBasePath: '/project',
+                },
+                {
+                  label: 'Area',
+                  to: '/area/intro',
+                  activeBasePath: '/area',
+                },
+                {
+                  label: 'Resource',
+                  to: '/resource/intro',
+                  activeBasePath: '/resource',
+                },
+                {
+                  label: 'Archive',
+                  to: '/archive/intro',
+                  activeBasePath: '/archive',
+                }
+              ]
+            },
+            {
+              href: 'https://egg528.github.io/pdf/resume.pdf',
+              label: 'Resume',
+              position: 'right',
+            },
+          ],
+        },
+        footer: {
+          style: 'dark',
+          links: [
+            {
+              title: 'Contact',
+              items: [
+                {
+                  label: 'GitHub',
+                  href: 'https://github.com/egg528',
+                },
+                {
+                  label: 'Linkedin',
+                  href: 'https://www.linkedin.com/in/rnjsdntjr26',
+                },
+                {
+                  label: 'Resume',
+                  href: 'https://egg528.github.io/pdf/resume.pdf',
+                }
+              ],
+            },
+            {
+              title: 'PARA Note',
+              items: [
+                {
+                  label: 'Project',
+                  href: 'https://egg528.github.io/project/intro',
+                },
+                {
+                  label: 'Area',
+                  href: 'https://github.com/egg528/area/intro',
+                },
+                {
+                  label: 'Resource',
+                  href: 'https://github.com/egg528/resource/intro',
+                },
+                {
+                  label: 'Archive',
+                  href: 'https://github.com/egg528/archive/intro',
+                },
+              ],
+            },
+          ],
+          copyright: `Copyright © ${new Date().getFullYear()} My Project, Inc. Built with Docusaurus.`,
+        },
+        prism: {
+          additionalLanguages: ['java', 'kotlin', 'typescript'],
+          theme: lightCodeTheme,
+          darkTheme: darkCodeTheme,
+        },
+      }),
   plugins:
       [
         async function tailwindPlugin(context, options) {
@@ -149,18 +155,6 @@ const config = {
           };
         },
         [
-
-          '@docusaurus/plugin-content-docs',
-          {
-            id: 'project',
-            path: 'docs/project',
-            routeBasePath: 'project',
-            sidebarPath: require.resolve('./sidebars.js'),
-            // ... other options
-          },
-        ],
-        [
-
           '@docusaurus/plugin-content-docs',
           {
             id: 'area',

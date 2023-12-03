@@ -1,6 +1,6 @@
 ---
 title: Cache Abstraction
-tag: [backend, spring, cache]
+tag: [backend, spring, cache abstraction]
 ---
 ## 글 링크
 - [Cache Abstraction Docs](https://docs.spring.io/spring-framework/reference/integration/cache.html)

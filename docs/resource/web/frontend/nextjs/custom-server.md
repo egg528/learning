@@ -1,5 +1,5 @@
 ---
-title: Custom Server
+title: custom server
 tag: [frontend, next.js, custom server]
 ---
 ## 내용 정리

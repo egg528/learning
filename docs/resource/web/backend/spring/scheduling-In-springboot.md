@@ -1,5 +1,5 @@
 ---
-title: Scheduler Thread Pool 구성하기
+title: scheduler thread pool 구성하기
 tag: [backend, spring, scheduler]
 ---
 ## 내용 정리

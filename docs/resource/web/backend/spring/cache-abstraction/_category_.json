@@ -1,7 +1,5 @@
-
 {
-  "label": "web",
-  "position": 6,
+  "label": "cache abstraction",
   "link": {
     "type": "generated-index"
   }

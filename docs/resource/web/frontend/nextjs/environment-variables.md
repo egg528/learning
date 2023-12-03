@@ -1,5 +1,5 @@
 ---
-title: Environment Variables
+title: environment variables
 tag: [frontend, next.js, environment variables]
 ---
 ## Reference

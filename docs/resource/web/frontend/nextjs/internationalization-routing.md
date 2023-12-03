@@ -1,5 +1,5 @@
 ---
-title: Internationalization (i18n) Routing
+title: internationalization (i18n) routing
 tag: [frontend, next.js, i18n]
 ---
 ## Internationalization (i18n) Routing 방법

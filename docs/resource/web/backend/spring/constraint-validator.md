@@ -1,5 +1,5 @@
 ---
-title: Custom Validation
+title: custom validation
 tag: [backend, spring, custom validation]
 ---
 ## 내용 정리
