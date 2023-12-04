@@ -1,6 +1,4 @@
 ---
-title: 블로그 시작 글
-slug: welcome
-authors: [wooseok]
-tags: [start]
+title: 홈 서버 구축하기
+tags: [home server]
 ---

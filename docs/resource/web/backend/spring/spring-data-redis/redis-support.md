@@ -254,4 +254,4 @@ template.opsForValue().get("thing1");
   - RedisCacheManager
 
 ## Reference
-- [Spring Data Redis](https://docs.spring.io/spring-data/redis/docs/3.0.11/reference/html/#redis)
+- [Spring Data - Redis - Support](https://docs.spring.io/spring-data/redis/docs/3.0.11/reference/html/#redis)

@@ -86,6 +86,11 @@ const config = {
               ]
             },
             {
+              to: 'blog',
+              label: 'Blog',
+              position: 'right',
+            },
+            {
               href: 'https://egg528.github.io/pdf/resume.pdf',
               label: 'Resume',
               position: 'right',
