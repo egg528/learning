@@ -6,7 +6,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: 'Woosuk Kwon',
+  title: 'woosuk kwon',
   tagline: '',
   url: 'https://egg528.github.io',
   baseUrl: '/',
@@ -38,6 +38,11 @@ const config = {
           path: 'docs/project',
           routeBasePath: 'project',
           sidebarPath: require.resolve('./sidebars.js'),
+        },
+        blog: {
+          blogTitle: 'blog',
+          blogSidebarTitle: 'Recent',
+          blogSidebarCount: 5,
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
