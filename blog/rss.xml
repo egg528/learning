@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<rss version="2.0">
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
     <channel>
-        <title>Woosuk Kwon Blog</title>
+        <title>woosuk kwon Blog</title>
         <link>https://egg528.github.io/blog</link>
-        <description>Woosuk Kwon Blog</description>
-        <lastBuildDate>Mon, 04 Dec 2023 14:59:58 GMT</lastBuildDate>
+        <description>woosuk kwon Blog</description>
+        <lastBuildDate>Mon, 04 Dec 2023 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>ko</language>
         <item>
             <title><![CDATA[홈 서버 구축하기]]></title>
-            <link>https://egg528.github.io/blog/welcome</link>
-            <guid>https://egg528.github.io/blog/welcome</guid>
-            <pubDate>Mon, 04 Dec 2023 14:59:58 GMT</pubDate>
+            <link>https://egg528.github.io/blog/home-server</link>
+            <guid>https://egg528.github.io/blog/home-server</guid>
+            <pubDate>Mon, 04 Dec 2023 00:00:00 GMT</pubDate>
+            <description><![CDATA[문서 설명]]></description>
+            <content:encoded><![CDATA[<p>요약</p><p>본 글</p>]]></content:encoded>
             <category>home server</category>
         </item>
     </channel>
