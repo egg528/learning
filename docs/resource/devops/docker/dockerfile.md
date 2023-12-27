@@ -26,7 +26,7 @@ tag: [docker, dockerfile]
 docker  build -t {네임 스페이스}:{이미지 명}:{이미지 태그} {빌드 컨텍스트}
 $ docker build -t name:sample:1 .
 ```
-- -f <Dockerfile> 옵션으로 다른 위치의 Docckerfile 파일 사용 가능
+- -f {Dockerfile} 옵션으로 다른 위치의 Dockerfile 파일 사용 가능
 - -t 명령어로 도커 이미지 이름을 지정
 - 빌드 컨텍스트에는 현재 디렉터리를 의미하는 . 주로 사용
 - 필요한 경우 다른 디렉터리 지정 가능
