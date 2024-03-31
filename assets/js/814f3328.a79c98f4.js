@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkblog=self.webpackChunkblog||[]).push([[2535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent","items":[{"title":"(\ub3c5\ud6c4\uac10) \uc138\uc0c1 \ub05d\uc758 \uce74\ud398","permalink":"/blog/the-cafe-on-the-edge-of-the-world"}]}')}}]);
