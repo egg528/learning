@@ -40,6 +40,8 @@ const config: Config = {
           sidebarPath: require.resolve('./sidebars.js'),
         },
         blog: {
+          routeBasePath: "/",
+          path: "./blog",
           blogTitle: 'blog',
           blogSidebarTitle: 'Recent',
           blogSidebarCount: 5,
@@ -57,7 +59,7 @@ const config: Config = {
       hideOnScroll: true,
       items: [
         {
-          to: 'blog',
+          to: '/',
           label: 'Blog',
           position: 'left',
         },
