@@ -22,10 +22,10 @@ tag: [Gradle, Dependency]
 
 ## api vs implementation
 api: 의존 라이브러리 수정시 해당 모듈을 의존하고 있는 모듈들 또한 재빌드
-- A(api) <- B <- C 일 때, C 에서 A 를 접근할 수 있음
+- A(api) \<- B \<- C 일 때, C 에서 A 를 접근할 수 있음
 - A 수정시 B 와 C 모두 재빌드
 implementaion: 의존 라이브러리 수정시 본 모듈까지만 재빌드
-- A(implementation) <- B <- C 일 때, C 에서 A 를 접근할 수 없음
+- A(implementation) \<- B \<- C 일 때, C 에서 A 를 접근할 수 없음
 - A 수정시 B 까지 재빌드
 
 ## Reference

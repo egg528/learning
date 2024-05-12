@@ -1,297 +1,36 @@
-/* stylelint-disable docusaurus/copyright-header */
 /**
  * Any CSS included here will be global. The classic template
  * bundles Infima by default. Infima is a CSS framework designed to
  * work well for content-centric websites.
  */
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-@font-face {
-    font-family: 'Noto Sans KR', sans-serif;
-    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-    unicode-range: U+AC00-D7A3;
-}
 
-@font-face {
-    font-family: 'Noto Sans', sans-serif;;
-    src: url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
-    unicode-range: U+26;
+*, h1, h2, h3, h4, h5, h6 {
+  font-family: "Nanum Gothic", sans-serif;
+  font-weight: 500;
+  font-style: normal;
 }
-
 
 /* You can override the default Infima variables here. */
 :root {
-    --ifm-color-primary: #0f9d58;
-    --ifm-color-primary-dark: #0d8d4f;
-    --ifm-color-primary-darker: #0d854b;
-    --ifm-color-primary-darkest: #0a6e3e;
-    --ifm-color-primary-light: #10ad61;
-    --ifm-color-primary-lighter: #11b565;
-    --ifm-color-primary-lightest: #13cc72;
-    --ifm-color-secondary: #ededed;
-    --ifm-color-secondary-dark: #ededed;
-    --ifm-color-secondary-darker: #141414;
-    --ifm-color-secondary-darkest: #0d0d0d;
-    --ifm-color-secondary-light: #ededed;
-    --ifm-color-secondary-lighter: #d4d4d4;
-    --ifm-color-secondary-lightest: #ededed;
-    --ifm-navbar-background-color: #141414;
-    --ifm-background-color: #141414;
-    --ifm-color-success: #0f9d58;
-    --ifm-color-warning: #f4b400;
-    --ifm-color-danger: #db4437;
-    --ifm-link-color: #0f9d58;
-    --ifm-code-font-size: 95%;
-}
-body {
-    font-family: 'Noto Sans', sans-serif, 'Noto Sans KR', sans-serif;
+  --ifm-color-primary: #4D4D4D; /* 기본 밝은 차콜 */
+  --ifm-color-primary-dark: #383838; /* 보다 진한 회색 */
+  --ifm-color-primary-darker: #2F2F2F; /* 더욱 진한 회색 */
+  --ifm-color-primary-darkest: #262626; /* 가장 진한 회색 */
+  --ifm-color-primary-light: #626262; /* 밝은 차콜 */
+  --ifm-color-primary-lighter: #787878; /* 보다 밝은 차콜 */
+  --ifm-color-primary-lightest: #8E8E8E; /* 가장 밝은 회색 */
+  --ifm-code-font-size: 95%; /* 기존과 동일 */
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1); /* 기존과 동일 */
 }
 
-.docusaurus-highlight-code-line {
-    background-color: rgb(72, 77, 91);
-    display: block;
-    margin: 0 calc(-1 * var(--ifm-pre-padding));
-    padding: 0 var(--ifm-pre-padding);
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme='dark'] {
+  --ifm-color-primary: #25c2a0;
+  --ifm-color-primary-dark: #21af90;
+  --ifm-color-primary-darker: #1fa588;
+  --ifm-color-primary-darkest: #1a8870;
+  --ifm-color-primary-light: #29d5b0;
+  --ifm-color-primary-lighter: #32d8b4;
+  --ifm-color-primary-lightest: #4fddbf;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
-
-h1 {
-    font-size: 2.4rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.2rem;
-}
-
-p {
-    font-size: 1rem;
-}
-
-.admonition a,
-.admonition a:hover {
-    color: var(--ifm-alert-color);
-    text-decoration: underline;
-}
-
-.wideBodyMaxWidth {
-    max-width: 640px;
-}
-
-.contentTableContainer table {
-    display: table;
-    text-align: left;
-    width: 100%;
-    margin: 0;
-}
-
-.contentTableContainer th:first-child {
-    width: 5%;
-}
-
-.contentTableContainer td:first-child {
-    text-align: right;
-}
-
-.contentTableContainer th:last-child {
-    width: 25%;
-}
-
-.button:hover:any-link {
-    color: var(--ifm-button-color);
-}
-
-@media screen and (max-width: 966px) {
-    h1 {
-        font-size: 2.4rem;
-    }
-
-    h2 {
-        font-size: 1.6rem;
-    }
-
-    h3 {
-        font-size: 1.4rem;
-    }
-
-    p {
-        font-size: 1rem;
-    }
-}
-
-/* Resume */
-
-.resume section {
-    padding: 0 2rem;
-}
-
-.resume p {
-    margin: 0 0 1rem 0;
-    font-size: 1.1rem;
-    line-height: 1.4;
-}
-
-
-.resume h1 {
-    font-size: 5rem;
-    line-height: 1.1;
-}
-
-@media screen and (max-width: 960px) {
-    .resume h1 {
-        font-size: 3rem;
-    }
-}
-
-.resume h2 {
-    font-size: 3rem;
-    margin: 4rem 0 2rem 0;
-}
-
-.resume h3 {
-    font-size: 2rem;
-    margin: 0 0 1rem 0;
-}
-
-.resume h4 {
-    font-size: 1.5rem;
-    margin: 0 0 1rem 0;
-}
-
-.resume h5 {
-    font-size: 1.3rem;
-    margin: 0 0 0.5rem 0;
-}
-
-.resume ul {
-    list-style: none;
-    padding: 0;
-    margin: 0 0 1rem 0;
-    font-size: 1.1rem;
-}
-
-.resume ul > li {
-    position: relative;
-    padding: 0.2rem 0 0.2rem 1rem;
-}
-
-.resume ul > li:before {
-    position: absolute;
-    left: 0;
-    display: inline-block;
-    content: "•";
-    color: #1faec8;
-}
-
-.resume {
-    width: 100%;
-    margin: auto;
-}
-
-.resume .period-mark {
-    color: #1faec8;
-}
-
-.resume .big-paragraph {
-    font-size: 1.5rem;
-    line-height: 1.4;
-    font-weight: 500;
-}
-
-@media screen and (max-width: 960px) {
-    .resume > .big-paragraph {
-        font-size: 1.5rem;
-    }
-}
-
-.resume .row {
-    display: flex;
-    padding: 3rem 0;
-    border-bottom: 1px solid;
-}
-
-.resume .row-left {
-    flex-basis: 18rem;
-    padding-right: 1rem;
-    flex-shrink: 0;
-}
-
-.resume .row-right {
-    flex-grow: 1;
-}
-
-@media screen and (max-width: 960px) {
-    .resume .row {
-        flex-direction: column;
-    }
-
-    .resume .row-left {
-        flex-basis: 100%;
-        padding-right: 0;
-        padding-bottom: 1rem;
-    }
-}
-
-.resume .other {
-    padding: 3rem 0;
-    border-bottom: 1px solid;
-}
-
-.resume .role {
-    display: block;
-}
-
-.resume .project {
-    padding: 1.5rem 0;
-}
-
-.resume .project:first-child {
-    padding-top: 0;
-}
-
-.resume .time {
-    display: block;
-    margin-bottom: 1.5rem;
-}
-
-
-/* Navigator */
-.resume .nav-wrapper {
-    padding: 2.2em 0;
-    line-height: 1em;
-    position: relative;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.resume .nav-logo {
-    font-size: 2em;
-    font-weight: 800;
-    float: left;
-    transition: all ease .5s;
-}
-
-.resume .nav-menu {
-    float: right;
-    font-weight: 500;
-}
-
-.resume .nav-menu li {
-    display: inline-block;
-    margin: 0 12px
-}
-
-.resume .nav-menu li a {
-    font-size: 1.5em;
-    display: block;
-    color: black;
-}
-
-.resume #introduce {
-    border-bottom: 1px solid;
-    padding-bottom: 40px;
-}
-
