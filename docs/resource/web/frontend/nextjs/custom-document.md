@@ -27,7 +27,7 @@ export default function Document() {
 ## 주의 사항
 - 위 Head 컴포넌트는 next/head의 Head 컴포넌트와 다르다.
 - next/document Head는 모든 페이지에 적용된다.
-- <Main/> 외부의 컴포넌트는 Browser에 의해 초기화되지 않는다. 때문에 application 로직을 위 파일에 작성하면 안 된다.
+- \<Main/> 외부의 컴포넌트는 Browser에 의해 초기화되지 않는다. 때문에 application 로직을 위 파일에 작성하면 안 된다.
 - getStaticProps or getServerSideProps는 지원하지 않는다.
 
 
