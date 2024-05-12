@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunktest=self.webpackChunktest||[]).push([[4583],{8198:(t,e,i)=>{i.r(e),i.d(e,{default:()=>l});i(8774);var s=i(4586),n=i(781);i(1107);var a=i(4848);function l(){const{siteConfig:t}=(0,s.A)();return(0,a.jsx)(n.A,{title:`Hello from ${t.title}`,description:"Description will go into a meta tag in <head />"})}}}]);
