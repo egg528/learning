@@ -98,7 +98,7 @@ public interface DataSource  extends CommonDataSource, Wrapper {
   ... 생략
 }
 ```
-주석으로 DataSource 설명을 대신하자면 Datasource는 DB Connection을 생성하는 팩토리이다. 
+Datasource는 DB Connection을 생성하는 팩토리이다. 
 DriverManager의 대안으로 탄생했고 DB Connection을 획득하기 위한 메서드들이 정의되어 있다. 
 JDBC에서는 따로 구현체를 제공하지는 않는다. 때문에 개발자는 DataSource의 여러 구현체 중 원하는 걸 사용해 DB 접근 방식을 선택할 수 있다.   
 <br></br>
