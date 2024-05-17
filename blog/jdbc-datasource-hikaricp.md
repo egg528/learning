@@ -3,7 +3,7 @@ title: JDBC, DataSource 그리고 HikariCP
 description: Java의 기본적인 DB 접근 기술들
 authors: [woosuk]
 tags: [java, db]
-date: 2024-12-04
+date: 2024-05-12
 ---
 Java의 기본적인 DB 접근 기술들
 JDBC, DataSource 그리고 HikariCP
