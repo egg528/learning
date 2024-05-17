@@ -42,8 +42,8 @@ public class SpringCoreApplication {
 // spring-boot-starter-web 의존성 추가 후 -> class org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext
 ```
 그 중에서 가장 많이 사용되는 구현체는 Annotation 기반의 ApplicationContext이다. 
-spring boot를 활용해 application을 실행하면 default로 적용되는 ApplicationContext이 `AnnotationConfigApplicationContext`이다. 
-또한 spring-boot-starter-web 의존성을 추가하고 application을 실행하면 default로 `AnnotationConfigServletWebServerApplicationContext`이 적용된다.
+spring boot를 활용해 application을 실행하면 default로 적용되는 ApplicationContext가 `AnnotationConfigApplicationContext`이다. 
+또한 spring-boot-starter-web 의존성을 추가하고 application을 실행하면 default로 `AnnotationConfigServletWebServerApplicationContext`가 적용된다.
 이 둘의 공통점은 Annotation을 기반으로 Configuration Metadata를 식별하여 ApplicationContext가 동작한다는 점이다.
 <br></br>
 
@@ -163,7 +163,7 @@ public abstract class AnnotationConfigUtils {
    - Default로 Configuration Metadata는 Annotation으로 구성되지만 XML, Groovy 등으로 작성될 수도 있다.
 4. Bean이 등록되는 시점과 방식은 다양하다.
    - AnnotationConfigApplicationContext.register(...)로 Bean을 등록하는 것과 @Component나 @Bean으로 Bean을 등록하는 건 등록되는 시점과 방식이 모두 다르다.
-5. 당연하지만 등록된 BeanDefinition과 그리고 Singleton Object는 따로 관리된다.  
+5. 당연하지만 등록된 BeanDefinition과 Singleton Object는 따로 관리된다.  
 <br></br> 
 
 Spring을 깊이 알아보고자 Annotation 기반의 ApplicationContext가 register(...) 메서드로 Bean을 등록하는 과정을 살펴봤다. 요즘들어 `효율성`이란 단어가 자주 머리에 맴돈다. 
