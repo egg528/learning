@@ -8,13 +8,9 @@ date: 2024-05-12
 Java의 기본적인 DB 접근 기술들
 JDBC, DataSource 그리고 HikariCP
 <!-- truncate -->
-
-## 개요
----
-1. JDBC API
-2. DataSource
-3. HikariCP  
 <br></br>
+
+
 ## JDBC (Java Database Connectivity)
 ---
 ![jdbc.jpg](img/jdbc.jpg)
