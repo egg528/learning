@@ -4,11 +4,29 @@
  * work well for content-centric websites.
  */
 
-*, h1, h2, h3, h4, h5, h6 {
-  font-family: "Nanum Gothic", sans-serif;
-  font-weight: 500;
-  font-style: normal;
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Noto Sans KR', sans-serif;
 }
+
+body {
+  font-family: 'Noto Sans KR', sans-serif;
+  background-color: #FAFAFA;
+  color: #333333;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+nav.navbar {
+  background-color: #FAFAFA !important;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+/* Headings */
+h2 a {
+  font-size: 70%;
+}
+
+
 
 /* You can override the default Infima variables here. */
 :root {

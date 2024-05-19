@@ -26,7 +26,10 @@ const config: Config = {
     locales: ["ko"],
   },
   stylesheets: [
-      'https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap'
+    {
+      href: 'https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap',
+      type: 'text/css',
+    },
   ],
 
   presets: [
@@ -104,7 +107,7 @@ const config: Config = {
     },
     prism: {
       additionalLanguages: ['java', 'kotlin', 'typescript'],
-      theme: prismThemes.github,
+      theme: prismThemes.oneDark,
       darkTheme: prismThemes.dracula,
     },
   } satisfies Preset.ThemeConfig,
