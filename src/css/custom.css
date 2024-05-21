@@ -10,14 +10,15 @@ h1, h2, h3, h4, h5, h6 {
 
 body {
   font-family: 'Noto Sans KR', sans-serif;
-  background-color: #FAFAFA;
-  color: #333333;
   line-height: 1.6;
   font-size: 15px;
 }
 
+p a {
+  color: #87CEEB ; /* 기존 파란색을 유지합니다 */
+}
+
 nav.navbar {
-  background-color: #FAFAFA !important;
   border-bottom: 1px solid #DDDDDD;
 }
 
