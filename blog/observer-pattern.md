@@ -2,8 +2,8 @@
 title: 디자인 패턴 - Observer Pattern
 description: 디자인 패턴 중 Observer Pattern에 대해 알아본다.
 authors: [woosuk]
-tags: [design pattern, strategy pattern]
-date: 2024-05-19
+tags: [design pattern, observer pattern]
+date: 2024-05-22
 ---
 Observer Pattern은 무엇일까?
 <!-- truncate -->
