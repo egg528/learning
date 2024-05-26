@@ -5,7 +5,8 @@ authors: [woosuk]
 tags: [spring]
 date: 2024-05-21
 ---
-Annotation 기반의 ApplicationContext은 Bean을 어떻게 등록할까? (2)
+**ChatGPT 요약**   
+이 글은 Annotation 기반의 ApplicationContext에서 @Component와 @Bean 애노테이션을 통해 클래스가 어떻게 Bean으로 등록되는지 설명합니다. Spring Boot의 SpringApplication.run() 메서드에서 시작하여 refreshContext() 메서드 내부에서 Bean 등록 과정이 이루어집니다. Component Scan을 통해 BeanDefinition을 등록하고, BeanPostProcessor를 설정한 후 Singleton Bean을 초기화하는 과정을 코드와 함께 상세히 다룹니다.
 <!-- truncate -->
 <br></br>
 

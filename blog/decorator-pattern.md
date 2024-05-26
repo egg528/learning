@@ -5,7 +5,8 @@ authors: [woosuk]
 tags: [design pattern, decorator pattern]
 date: 2024-05-22
 ---
-Decorator Pattern은 무엇일까?
+**ChatGPT 요약**   
+이 글은 디자인 패턴 중 하나인 Decorator Pattern에 대해 설명합니다. Decorator Pattern은 객체에 추가적인 기능을 동적으로 더할 수 있는 패턴으로, 기존 코드의 변경 없이 다양한 기능을 추가할 수 있습니다. 이를 통해 코드의 유연성과 확장성을 높이며, 디자인 원칙을 준수할 수 있습니다. Decorator Pattern의 구조와 예시를 통해 그 동작 원리와 장점을 이해할 수 있습니다.
 <!-- truncate -->
 <br></br>
 

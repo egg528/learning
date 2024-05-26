@@ -5,8 +5,8 @@ authors: [woosuk]
 tags: [java, db]
 date: 2024-05-12
 ---
-Java의 기본적인 DB 접근 기술들
-JDBC, DataSource 그리고 HikariCP
+**ChatGPT 요약**   
+이 글은 Java 애플리케이션과 데이터베이스 간의 연결을 관리하는 JDBC (Java Database Connectivity)와 이를 효율적으로 관리하기 위한 데이터 소스(DataSource) 및 HikariCP에 대해 설명합니다. JDBC는 표준 API로, DriverManager를 통해 DB와의 연결을 관리하지만, 성능 문제가 있습니다. 이를 해결하기 위해 데이터 소스(DataSource)가 등장했으며, 특히 HikariCP는 고성능 JDBC 커넥션 풀로 성능 최적화를 통해 빠르고 효율적인 DB 연결을 제공합니다. HikariCP의 장점과 동작 방식을 코드 예제와 함께 다룹니다.
 <!-- truncate -->
 <br></br>
 
