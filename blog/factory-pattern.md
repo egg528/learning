@@ -1,6 +1,6 @@
 ---
 title: 디자인 패턴 - Factory Pattern
-description: 디자인 패턴 중 Factory Pattern에 대해 알아본다.
+description: 이 글은 Factory Pattern의 정의와 그 다양한 방식들에 대해 설명합니다. 기본적으로 Factory Pattern은 클래스 인스턴스를 생성하는 책임을 전담하는 인터페이스를 두어, 클라이언트가 구체적인 구현체에 의존하지 않도록 하는 디자인 패턴입니다. 이를 통해 코드의 변경 없이 다양한 구현체를 사용할 수 있게 됩니다.
 authors: [woosuk]
 tags: [design pattern, factory pattern]
 date: 2024-05-25

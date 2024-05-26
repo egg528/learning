@@ -1,13 +1,12 @@
 ---
 title: 디자인 패턴 - Observer Pattern
-description: 디자인 패턴 중 Observer Pattern에 대해 알아본다.
+description: 이 글은 Observer Pattern에 대해 설명합니다. Observer Pattern은 한 객체의 상태 변화가 다른 객체들에게 자동으로 통보되는 구조로, 주로 Subject와 Observer로 구성됩니다. 글에서는 Push 방식과 Pull 방식의 구현 방법을 코드 예제로 설명하고, Spring Framework의 ApplicationEventPublisher와 ApplicationListener를 실제 예시로 다룹니다.
 authors: [woosuk]
 tags: [design pattern, observer pattern]
 date: 2024-05-22
 ---
 **:white_check_mark: ChatGPT 요약**   
-이 글은 디자인 패턴 중 하나인 Observer Pattern에 대해 설명합니다. Observer Pattern은 한 객체의 상태 변화가 있을 때, 이를 의존하는 여러 객체에 자동으로 알리고 업데이트하는 구조를 제공합니다. 이 패턴은 주로 1
-의 의존 관계를 관리하며, 느슨한 결합을 유지하여 객체들 간의 상호작용을 효율적으로 처리할 수 있게 합니다. Push 방식과 Pull 방식을 통해 Observer Pattern을 구현하는 방법과 Spring Framework에서의 실제 사용 예시도 다룹니다.
+이 글은 Observer Pattern에 대해 설명합니다. Observer Pattern은 한 객체의 상태 변화가 다른 객체들에게 자동으로 통보되는 구조로, 주로 Subject와 Observer로 구성됩니다. 글에서는 Push 방식과 Pull 방식의 구현 방법을 코드 예제로 설명하고, Spring Framework의 ApplicationEventPublisher와 ApplicationListener를 실제 예시로 다룹니다.
 <!-- truncate -->
 <br></br>
 

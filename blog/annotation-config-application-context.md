@@ -1,6 +1,6 @@
 ---
 title: Annotation 기반의 ApplicationContext Bean 등록 과정 파헤치기 (1)
-description: Annotation 기반의 ApplicationContext이 가지는 register(...) 메서드의 동작 방식을 알아본다.
+description: 이 글은 Spring IoC, DI, IoC Container, 그리고 ApplicationContext에 대해 설명합니다. Spring IoC는 Inversion of Control의 약어로, 객체의 제어권을 외부로 넘기는 개념입니다. DI는 의존성 주입을 의미하며, IoC를 구현하는 구체적인 방법입니다. IoC Container는 ApplicationContext로, Bean을 초기화, 조립, 구성하는 역할을 합니다. 특히 Annotation 기반의 ApplicationContext를 중심으로, Spring Boot 애플리케이션에서 Bean이 어떻게 등록되고 초기화되는지 과정을 코드와 함께 살펴봅니다.
 authors: [woosuk]
 tags: [spring]
 date: 2024-05-18
