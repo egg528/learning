@@ -5,7 +5,7 @@ authors: [woosuk]
 tags: [design pattern, observer pattern]
 date: 2024-05-23
 ---
-**ChatGPT 요약**   
+**:white_check_mark: ChatGPT 요약**   
 이 글은 Spring Batch의 JobLauncher와 그 구현체들에 대해 설명합니다. JobLauncher는 Job과 JobParameters를 받아 Job을 실행하는 역할을 하며, 이를 통해 클라이언트가 구체적인 구현체에 의존하지 않고 Batch 작업을 실행할 수 있습니다. 또한, Spring Boot의 AutoConfiguration을 통해 TaskExecutorJobLauncher가 자동으로 Bean으로 등록되는 과정을 살펴봅니다. JobLauncher의 동작 원리와 SimpleJobLauncher의 구현 세부사항을 통해 Batch의 핵심적인 동작 방식을 이해할 수 있습니다.
 <!-- truncate -->
 <br></br>

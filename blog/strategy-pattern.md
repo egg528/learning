@@ -5,7 +5,7 @@ authors: [woosuk]
 tags: [design pattern, strategy pattern]
 date: 2024-05-19
 ---
-**ChatGPT 요약**    
+**:white_check_mark: ChatGPT 요약**    
 이 글은 디자인 패턴 중 하나인 Strategy Pattern에 대해 설명합니다. Strategy Pattern은 알고리즘을 캡슐화하여 독립적으로 변경할 수 있게 하는 패턴으로, 클라이언트와 알고리즘을 분리하여 유연성을 높입니다. 이를 통해 알고리즘의 확장과 변형이 용이하고, 코드 재사용성을 높이며, 객체 간의 결합도를 낮추어 유지보수를 쉽게 합니다. 코드 예시와 함께 Spring Framework의 DispatcherServlet과 HandlerMapping을 통한 실제 적용 사례를 다룹니다.
 <!-- truncate -->
 <br></br>
