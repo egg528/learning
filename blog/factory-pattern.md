@@ -181,7 +181,7 @@ Store 추상 클래스의 구현체에서 createPizza(...)를 구현하여 클�
 
 ![factory-method-pattern.png](img/factory-method-pattern.png)
 이 관계를 도식화하면 위 그림과 같다. 기존에 Factory 클래스가 전담하던 역할을 Creator 추상 클래스의 추상 메서드로 정의하고, 구현체에서 이 책임을 전담하는 것이다. 
-이렇게 되면 Client 측에서는 Creator만 사용하기 때문에 ConcreteCreator 사용법을 몰라도 되고 클래스 인스턴스 생성을 담당하는 Factory 클래스를 만들지 않아도 된다.
+이렇게 되면 Client 측에서는 적절한 ConcreteCreator를 선택만 하면 적절한 인스턴스를 얻을 수 있게 된다.
 - Creator(Store 추상 클래스)
 - ConcreteCreator(Store 구현체)
 - Product(Pizza)
@@ -214,16 +214,19 @@ public abstract class Pizza {
     }
 }
 ```
-또 다른 Factory Pattern을 알아보기 위해 Pizza 클래스를 살펴본다. Pizza 클래스를 살펴보면 공통적으로 Dough, Sauce가 존재한다. 
+또 다른 Factory Pattern을 알아보기 위해 Pizza 클래스를 살펴보자. Pizza 클래스를 살펴보면 공통적으로 Dough, Sauce가 존재한다. 
 또한 Pizza의 구현체에서 개별적으로 필요한 재료들도 필드로 가지고 있게 된다. 예를 들면 CheesePizza는 별도의 Cheese 필드를 가지고 있다. 
-만약 어떤 Store인지에 따라 재료가 달라진다면? 구체적인 (재료) 인스턴스 클래스를 생산하는 역할의 Factory Pattern을 생각할 수 있다.
+만약 어떤 Store인지에 따라 재료가 달라져야 한다면? 구체적인 (재료) 인스턴스 클래스를 생산하는 역할의 Factory Pattern을 생각할 수 있다.
 <br></br>
 
 ![abstract-factory-pattern.jpeg](img/abstract-factory-pattern.jpeg)  
 Abstract Factory Pattern과 Method Factory Pattern은 유사하지만 다르다. 
-둘의 차이는 인스턴스 클래스를 생산하는 Factory의 역할을 Abstract Class 단위로 부여할 것인가, Method 단위로 부여할 것인가의 차이로 이해했다.
-또한 두 Factory를 이용하는 방식도 다른데, Factory Method Pattern은 상속을 통해 구현된 Method로 Factory 기능을 제공하는 반면 Abstract Factory Pattern은 Factory 클래스를 구성(Composite)하여 사용한다.
-때문에 유사한 유형의 클래스들을 한 곳에서 생산하고 싶다면 Abstract Factory Pattern을 적용하면 된다. 지금 예시처럼 Dough, Sauce, Cheese 클래스를 생산해야 하는 상황이 그 예시이다.
+둘의 차이는 인스턴스 클래스를 생산하는 Factory의 역할을 Abstract Class 단위로 부여할 것인가, Method 단위로 부여할 것인가의 차이로 이해할 수 있다.
+두 방식은 Factory(인스턴스를 생성하는) 기능을 이용하는 방식 또한 다른데, Factory Method Pattern은 구현된 Factory 기능의 Method를 상위 객체에서 사용한다. 
+반면 Abstract Factory Pattern은 Factory 기능을 사용할 Client에서 Factory 클래스를 구성(Composite)하여 사용한다. 마지막으로 Abstract Factory Pattern에서는 하나의 유형을 생산하는 반면 Abstract Factory Pattern에서는 비슷한 유형의 여러 객체를 생산하도록 구현한다.
+<br></br>
+
+이러한 차이점을 고려했을 때 유사한 유형의 클래스들을 한 곳에서 생산하고 싶다면 Abstract Factory Pattern을 적용하면 된다. 지금 예시처럼 Dough, Sauce, Cheese 클래스를 생산해야 하는 상황이 그 예시이다.
 <br></br>
 
 ![pizza-ingredient.jpg](img/pizza-ingredient.jpg)
