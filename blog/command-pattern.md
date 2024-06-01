@@ -1,12 +1,12 @@
 ---
 title: 디자인 패턴 - Command Pattern
-description: hello
+description: 이 글은 Command Pattern을 설명합니다. Command Pattern은 요청을 객체로 캡슐화해 요청자(Invoker)와 처리자(Command, Receiver)를 분리하여 유연성을 제공합니다. Invoker, Command, ConcreteCommand, Receiver의 역할과 코드 예제를 통해 패턴의 작동 방식을 소개하고, TaskExecutor를 실제 사용 예시로 다루며 다양한 작업 관리에 적용 가능함을 강조합니다.
 authors: [woosuk]
 tags: [design pattern, command pattern]
 date: 2024-05-30
 ---
 **:white_check_mark: ChatGPT 요약**   
-
+이 글은 Command Pattern을 설명합니다. Command Pattern은 요청을 객체로 캡슐화해 요청자(Invoker)와 처리자(Command, Receiver)를 분리하여 유연성을 제공합니다. Invoker, Command, ConcreteCommand, Receiver의 역할과 코드 예제를 통해 패턴의 작동 방식을 소개하고, TaskExecutor를 실제 사용 예시로 다루며 다양한 작업 관리에 적용 가능함을 강조합니다.
 <!-- truncate -->
 <br></br>
 
