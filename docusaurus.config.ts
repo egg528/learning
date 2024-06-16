@@ -98,11 +98,6 @@ const config: Config = {
           label: 'Github',
           position: 'right',
         },
-        {
-          href: 'https://egg528.github.io/pdf/resume.pdf',
-          label: 'Resume',
-          position: 'right',
-        },
       ],
     },
     prism: {
