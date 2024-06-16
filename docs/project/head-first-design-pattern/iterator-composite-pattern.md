@@ -1,15 +1,4 @@
----
-title: 디자인 패턴 - Iterator & Composite Pattern
-description: 이 글은 Iterator 패턴과 Composite 패턴에 대해 소개합니다. Iterator 패턴은 컬렉션의 내부 구조를 노출하지 않고 모든 항목에 접근하는 방법을 제공하는 디자인 패턴입니다. Composite 패턴은 개별 객체와 복합 객체를 동일하게 다룰 수 있도록 하는 패턴으로, 복잡한 계층 구조를 단순하게 처리할 수 있게 해줍니다. 이 글에서는 각각의 패턴에 대한 개념과 Java에서의 구현 예제를 통해 두 패턴의 장점과 활용 방법을 설명합니다.
-authors: [woosuk]
-tags: [design pattern, iterator pattern, composite pattern]
-date: 2024-06-09
----
-**:white_check_mark: ChatGPT 요약**
-이 글은 Iterator 패턴과 Composite 패턴에 대해 소개합니다. Iterator 패턴은 컬렉션의 내부 구조를 노출하지 않고 모든 항목에 접근하는 방법을 제공하는 디자인 패턴입니다. Composite 패턴은 개별 객체와 복합 객체를 동일하게 다룰 수 있도록 하는 패턴으로, 복잡한 계층 구조를 단순하게 처리할 수 있게 해줍니다. 이 글에서는 각각의 패턴에 대한 개념과 Java에서의 구현 예제를 통해 두 패턴의 장점과 활용 방법을 설명합니다.
-<!-- truncate -->
-<br></br>
-
+# Iterator & Composite Pattern
 
 ## Iterator Pattern은 무엇인가?
 > Iterator 패턴은 컬렉션의 구현 방법을 노출하지 않으면서 집합체 내의 모든 항목에 접근하는 방법을 제공한다.

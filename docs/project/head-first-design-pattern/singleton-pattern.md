@@ -1,14 +1,4 @@
----
-title: 디자인 패턴 - Singleton Pattern
-description: 이 글은 Singleton Pattern에 대해 설명합니다. Singleton Pattern은 클래스의 인스턴스를 하나만 생성하고, 해당 인스턴스에 전역적으로 접근할 수 있도록 보장하는 디자인 패턴입니다. 이 글에서는 synchronized 키워드, static 필드, 그리고 DCL (Double-Checked Locking) 방식의 세 가지 Singleton 구현 방법을 비교합니다. 또한, volatile 키워드가 적용된 변수와 그렇지 않은 변수의 조회 성능을 비교하는 코드를 통해 성능 차이를 분석합니다. Singleton Pattern의 개념과 구현 방법을 이해하는 데 중점을 둡니다.
-authors: [woosuk]
-tags: [design pattern, singleton pattern]
-date: 2024-05-26
----
-**:white_check_mark: ChatGPT 요약**   
-이 글은 Singleton Pattern에 대해 설명합니다. Singleton Pattern은 클래스의 인스턴스를 하나만 생성하고, 해당 인스턴스에 전역적으로 접근할 수 있도록 보장하는 디자인 패턴입니다. 이 글에서는 synchronized 키워드, static 필드, 그리고 DCL (Double-Checked Locking) 방식의 세 가지 Singleton 구현 방법을 비교합니다. 또한, volatile 키워드가 적용된 변수와 그렇지 않은 변수의 조회 성능을 비교하는 코드를 통해 성능 차이를 분석합니다. Singleton Pattern의 개념과 구현 방법을 이해하는 데 중점을 둡니다.
-<!-- truncate -->
-<br></br>
+# Singleton Pattern
 
 ## Singleton Pattern은 무엇인가?
 ---
@@ -79,7 +69,6 @@ public class VolatileSingleton {
 ```
 싱글톤 필드에 volatile 키워드를 적용해 항상 main memory의 정확한 인스턴스를 읽도록 적용한다. 
 이후 getInstance()에서 synchronized 키워드를 method에 적용하지 않고 synchronized 코드 블럭을 활용해 instance 값이 null일 경우에만 synchronized를 적용해 초기화 이후에는 바로 instance를 반환하도록 한다.
-
 
 ## 정리
 ---

@@ -1,15 +1,4 @@
----
-title: 디자인 패턴 - Adapter & Facade Pattern
-description: 이 글은 Adapter Pattern과 Facade Pattern에 대해 설명합니다. Adapter Pattern은 기존 클래스를 클라이언트가 요구하는 새로운 인터페이스로 변환하여 재사용성을 높입니다. Facade Pattern은 복잡한 서브시스템을 단순화된 고수준 인터페이스로 묶어 클라이언트가 쉽게 사용할 수 있도록 돕습니다. 두 패턴의 차이점과 사용 사례를 통해 각 패턴의 활용 방법을 이해할 수 있습니다.
-authors: [woosuk]
-tags: [design pattern, adapter pattern, facade pattern]
-date: 2024-06-01
----
-**:white_check_mark: ChatGPT 요약**   
-이 글은 Adapter Pattern과 Facade Pattern에 대해 설명합니다. Adapter Pattern은 기존 클래스를 클라이언트가 요구하는 새로운 인터페이스로 변환하여 재사용성을 높입니다. Facade Pattern은 복잡한 서브시스템을 단순화된 고수준 인터페이스로 묶어 클라이언트가 쉽게 사용할 수 있도록 돕습니다. 두 패턴의 차이점과 사용 사례를 통해 각 패턴의 활용 방법을 이해할 수 있습니다.
-<!-- truncate -->
-<br></br>
-
+# Adapter & Facade Pattern
 
 ## Adapter Pattern은 무엇인가?
 ![adapter-pattern.png](img/adapter-pattern.png)
@@ -187,7 +176,6 @@ Facade Pattern을 통해 배울 수 있는 디자인 원칙 중 하나는 최소
 
 
 위 원칙은 간단하면서도 지키기 어려울 것 같은데 4가지 원칙을 의식하면서 코드를 짜봐야겠다. 단, 의존성을 줄이고 메서드를 쪼개는 작업은 언제나 시스템을 보다 복잡하게 만들 수 있다는 점을 잊지 말자.
-
 
 ## Adapter Pattern vs Facade Pattern
 책에서 두 패턴을 한 챕터에서 다룬 이유는 두 패턴이 모두 클래스를 감싸서 새로운 인터페이스를 제공한다는 공통점이 있기 때문이다. 하지만 두 패턴의 차이는 사용 용도에 있다는 점을 유념하자. 

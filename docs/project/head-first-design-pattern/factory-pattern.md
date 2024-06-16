@@ -1,14 +1,4 @@
----
-title: 디자인 패턴 - Factory Pattern
-description: 이 글은 Factory Pattern의 정의와 그 다양한 방식들에 대해 설명합니다. 기본적으로 Factory Pattern은 클래스 인스턴스를 생성하는 책임을 전담하는 인터페이스를 두어, 클라이언트가 구체적인 구현체에 의존하지 않도록 하는 디자인 패턴입니다. 이를 통해 코드의 변경 없이 다양한 구현체를 사용할 수 있게 됩니다.
-authors: [woosuk]
-tags: [design pattern, factory pattern]
-date: 2024-05-25
----
-**:white_check_mark: ChatGPT 요약**   
-이 글은 Factory Pattern의 정의와 그 다양한 방식들에 대해 설명합니다. 기본적으로 Factory Pattern은 클래스 인스턴스를 생성하는 책임을 전담하는 인터페이스를 두어, 클라이언트가 구체적인 구현체에 의존하지 않도록 하는 디자인 패턴입니다. 이를 통해 코드의 변경 없이 다양한 구현체를 사용할 수 있게 됩니다.
-<!-- truncate -->
-<br></br>
+# Factory Pattern
 
 ## Factory Pattern은 무엇인가?
 --- 
@@ -308,7 +298,7 @@ public interface BeanFactory {
 Spring Framework의 BeanFactory는 Bean 생성 및 조회 역할을 전담하는 Factory 인터페이스이다.
 <br></br>
 
-![bean-factory.jpg](img/bean-factory.jpg)
+![bean-factory.jpg](../../../blog/img/bean-factory.jpg)
 인터페이스에 정의된 메서드를 구현한 객체는 3가지를 찾아볼 수 있었는데 Bean을 찾아 사용해야 하는 Client 객체에서는 BeanFactory에만 의존하여 Bean 생성 및 조회가 가능하다.
 
 ## 정리
