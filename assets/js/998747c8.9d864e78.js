@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunktest=self.webpackChunktest||[]).push([[9872],{331:a=>{a.exports=JSON.parse('{"tag":{"label":"bigdecimal","permalink":"/tags/bigdecimal","allTagsPath":"/tags","count":1,"unlisted":false},"listMetadata":{"permalink":"/tags/bigdecimal","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Blog","blogTitle":"blog"}}')}}]);
