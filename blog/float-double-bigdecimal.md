@@ -5,7 +5,7 @@ authors: [woosuk]
 tags: [java, float, double, bigdecimal]
 date: 2024-06-29
 ---
-**:white_check_mark: ChatGPT 요약**
+**:white_check_mark: ChatGPT 요약**   
 이 글은 Java에서 실수를 표현하는 방법에 대해 설명합니다. 주로 사용되는 float, double, 그리고 BigDecimal의 특징과 차이점, 그리고 올바른 사용법을 다룹니다. 또한, 부동 소수점 연산의 한계와 그로 인한 오차, 이를 극복하기 위한 BigDecimal의 사용법 및 주의사항을 자세히 설명합니다.
 <!-- truncate -->
 <br></br>
